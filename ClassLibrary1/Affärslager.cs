@@ -351,7 +351,7 @@ namespace LogicLayer
 
         }
     }
-    public static void SystemadminMeny() //eventuellt out of scope, men valde att ha med för o kunna visa att schema sparas.
+    public static void SystemadminMeny() 
     {
         Console.Title = "Inloggat läge Systemadministratör";
         Console.ForegroundColor = ConsoleColor.DarkYellow; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
