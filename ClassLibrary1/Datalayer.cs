@@ -53,13 +53,13 @@ namespace Data     //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
             {
                 return _anvandareLista;
             }
-            public class KontoRepository
+        public class KontoRepository
+        {
+            private List<KontoData> _kontolista;
+            public KontoRepository()
             {
-                private List<KontoData> _kontolista;
-                public KontoRepository()
-                {
-                    // Initialiserar data
-                    _kontolista = new List<KontoData>
+                // Initialiserar data
+                _kontolista = new List<KontoData>
                     {
                         new KontoData(new DateTime(2024, 9, 24), "Mastercard"),
                         new KontoData(new DateTime(2024, 9, 24), "Visa"),
@@ -70,83 +70,84 @@ namespace Data     //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
                         new KontoData(new DateTime(2024, 9, 24), "Mastercard"),
                         new KontoData(new DateTime(2024, 9, 24), "Mastercard")
                     };
-                }
-                public List<KontoData> GetAllKonto() //Metod för att få alla Lokaler som finns.
-                {
-                    return _kontolista;
-                }
-                public class StationRepository
-                {
-                    private List<StationData> _stationList;
-                    public StationRepository()
-                    {
-                        // Initialiserar data
-                        _stationList = new List<StationData>
-                    {
+            }
+            public List<KontoData> GetAllKonto() //Metod för att få alla Lokaler som finns.
+            {
+                return _kontolista;
+            }
+        }
+        public class StationRepository
+        {
+           private List<StationData> _stationList;
+           public StationRepository()
+           {
+               // Initialiserar data
+               _stationList = new List<StationData>
+               {
                         new StationData("Allégatan", 10, "Tillänglig", 20),
                         new StationData("Stationsgatan", 5, "På Underhåll", 50),
                         new StationData("Fredriksbergsgatan", 8, "Fullbokat", 100),
                         new StationData("Solrosvägen", 12, "Tillgänglig", 25)
-                    };
-                    }
-                    public List<StationData> GetAllStationer() //Metod för att få alla stationer som finns.
-                    {
-                        return _stationList;
-                    }
-                }
-                public class UthyrningsDataRepository
-                {
-                    private List<UthyrningsData> _uthyrningsdatalist;
-                    public UthyrningsDataRepository()
-                    {
-                        // Initialiserar data
-                        _uthyrningsdatalist = new List<UthyrningsData>
-                    {
+               };
+           }
+           public List<StationData> GetAllStationer() //Metod för att få alla stationer som finns.
+           {
+                return _stationList;
+           }
+        }
+        public class UthyrningsDataRepository
+        {
+            private List<UthyrningsData> _uthyrningsdatalist;
+            public UthyrningsDataRepository()
+            {
+                 // Initialiserar data
+                 _uthyrningsdatalist = new List<UthyrningsData>
+            {
                     new UthyrningsData(new DateTime(2024, 10, 22, 10, 30, 0), new DateTime(2024, 10, 22, 12, 30, 0), 5),
                     new UthyrningsData(new DateTime(2024, 10, 23, 9, 0, 0), new DateTime(2024, 10, 23, 11, 15, 0), 6),
                     new UthyrningsData(new DateTime(2024, 10, 24, 14, 0, 0), new DateTime(2024, 10, 24, 16, 0, 0), 7),
                     new UthyrningsData(new DateTime(2024, 10, 25, 8, 30, 0), new DateTime(2024, 10, 25, 10, 30, 0), 8),
                     new UthyrningsData(new DateTime(2024, 10, 26, 13, 15, 0), new DateTime(2024, 10, 26, 14, 45, 0), 4),
                     new UthyrningsData(new DateTime(2024, 10, 27, 11, 0, 0), new DateTime(2024, 10, 27, 12, 30, 0), 5)
-                    };
-                    }
-                    public List<UthyrningsData> GetAllUthyrningsData() //Metod för att få alla kurser som finns.
-                    {
+                 };
+            }
+            public List<UthyrningsData> GetAllUthyrningsData() //Metod för att få alla kurser som finns.
+            {
                         return _uthyrningsdatalist;
-                    }
-                }
-                public class KontoDataRepository
-                {
-                    private List<KontoData> _kontoDatalist;
+            }
+        }
+        public class KontoDataRepository
+        {
+            private List<KontoData> _kontoDatalist;
 
-                    public KontoDataRepository()
-                    {
-                        _kontoDatalist = new List<KontoData>
-                    {
+            public KontoDataRepository()
+            {
+                _kontoDatalist = new List<KontoData>
+                 {
                         new KontoData(new DateTime(2024, 10, 22), "Mastercard"),
                         new KontoData(new DateTime(2024, 10, 23), "Swish"),
                         new KontoData(new DateTime(2024, 10, 24), "Mastercard"),
                         new KontoData(new DateTime(2024, 10, 25), "Mastercard"),
                         new KontoData(new DateTime(2024, 10, 26), "Mastercard"),
-                    };
-                }
-
-                    public List<KontoData> GetAllKontoData()
-                    {
-                        return _kontoDatalist;
-                    }
-                    public void AddKontoData(KontoData kontoData)
-                    {
-                        _kontoDatalist.Add(kontoData);
-                    }
-                    public KontoData GetKontoDataByDate(DateTime hyrHistorik)
-                    {
-                        return _kontoDatalist.FirstOrDefault(k => k.HyrHistorik == hyrHistorik);
-                    }
-                }
+                 };
             }
+
+            public List<KontoData> GetAllKontoData()
+            {
+                return _kontoDatalist;
+            }
+        }           
+            
+        public void AddKontoData(KontoData kontoData)
+        {
+              _kontoDatalist.Add(kontoData);
         }
-    }
+           public KontoData GetKontoDataByDate(DateTime hyrHistorik)
+           {
+                  return _kontoDatalist.FirstOrDefault(k => k.HyrHistorik == hyrHistorik);
+           }
+        }
+}
 
     
         
