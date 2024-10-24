@@ -51,7 +51,9 @@ namespace ClassLibrary1
         public long Telefonnr { get; }
         public string Epost { get; }
         public string Password { get; }
-        public AnvandareData(int anvandarID, string fornamn, string efternamn, int personnummer, long telefonnr, string epost, string password)
+
+        public int Behorighetsgrad { get; }
+        public AnvandareData(int anvandarID, string fornamn, string efternamn, int personnummer, long telefonnr, string epost, string password, int behorighetsgrad)
         {
             AnvandarID = anvandarID;
             Fornamn = fornamn;
@@ -60,6 +62,7 @@ namespace ClassLibrary1
             Telefonnr = telefonnr;
             Epost = epost;
             Password = password;
+            Behorighetsgrad = behorighetsgrad;
         }
     }
     public class KontoData //Definierar vilken data som finns kring behörighet, om man tex skulle behöva lägga till/ta bort behörighet eller på något vis förändra, tex lägga till bibliotekspersonal med egen behörighetsgrad.

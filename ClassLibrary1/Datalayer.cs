@@ -36,17 +36,17 @@ namespace Data     //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
                 // Initialiserar data
                 _anvandareLista = new List<AnvandareData>
                 {
-                    new AnvandareData(1, "Alice", "Karlsson", 980101, 701234567, "alice.karlsson@gmail.com", "1"),
-                    new AnvandareData(2, "Gustav", "Karlholm", 960101, 732345678, "gustav.karlholm@protonmail.com", "2"),
-                    new AnvandareData(3, "Kajsa", "Josefsson", 960101, 763456789, "kajsa.josefsson@hb.com", "3"),
-                    new AnvandareData(4, "Gideon", "Lindgren", 860101, 794567890, "gideon.lindgren@raceoffice.com", "4"),
-                    new AnvandareData(5, "Johannes", "Pettersson", 430101, 705678901, "johannes.pettersson@hb.com", "5"),
-                    new AnvandareData(6, "Yasmine", "Nilsson", 320606, 736789012, "yasmine.nilsson@gu.org", "6"),
-                    new AnvandareData(7, "Rebecka", "Svensson", 040404, 767890123, "rebecka.svensson@chalmers.net", "7"),
+                    new AnvandareData(1, "Alice", "Karlsson", 980101, 701234567, "alice.karlsson@gmail.com", "1", 1),
+                    new AnvandareData(2, "Gustav", "Karlholm", 960101, 732345678, "gustav.karlholm@protonmail.com", "2", 1),
+                    new AnvandareData(3, "Kajsa", "Josefsson", 960101, 763456789, "kajsa.josefsson@hb.com", "3", 1),
+                    new AnvandareData(4, "Gideon", "Lindgren", 860101, 794567890, "gideon.lindgren@raceoffice.com", "4", 1),
+                    new AnvandareData(5, "Johannes", "Pettersson", 430101, 705678901, "johannes.pettersson@hb.com", "5", 1),
+                    new AnvandareData(6, "Yasmine", "Nilsson", 320606, 736789012, "yasmine.nilsson@gu.org", "6", 3),
+                    new AnvandareData(7, "Rebecka", "Svensson", 040404, 767890123, "rebecka.svensson@chalmers.net", "7", 3),
                     new AnvandareData(8, "Filip", "Olsson", 060101, 798901234, "filip.olsson@havard.co", "8"),
-                    new AnvandareData(9, "Millie", "Karlsson", 1010101, 709012345, "millie.karlsson@cambridge.edu", "9"),
-                    new AnvandareData(10, "Dag", "Hansson", 010101, 730123456, "dag.hansson@enterprise.biz", "10"),
-                    new AnvandareData(11, "Ia", "Persson", 001001, 761234567, "ia.persson@provider.io", "11")
+                    new AnvandareData(9, "Millie", "Karlsson", 1010101, 709012345, "millie.karlsson@cambridge.edu", "9", 3),
+                    new AnvandareData(10, "Dag", "Hansson", 010101, 730123456, "dag.hansson@enterprise.biz", "10", 3),
+                    new AnvandareData(11, "Ia", "Persson", 001001, 761234567, "ia.persson@provider.io", "11", 3)
                 };
             }
             public List<AnvandareData> GetAllAnvandare() //Metod för att få alla Användare som finns.
