@@ -89,7 +89,7 @@ namespace LogicLayer
             {
                 Console.Write("StationsNamn?: ");
                 Station = Console.ReadLine();
-                var valdStation = stationList.FirstOrDefault(p => p.Station.Equals(Station.Namn StringComparison.OrdinalIgnoreCase));
+                var valdStation = stationList.FirstOrDefault(p => p.StationID.Equals(Station.Namn StringComparison.OrdinalIgnoreCase));
                 if (valdStation != null)
                 {
                     hyraFordon.Station = valdStation.Namn;
@@ -326,9 +326,17 @@ namespace LogicLayer
             }
         }
 
-        public static void ShowStations() //Metod för att visa befintliga stationer
+        public static void VisaStationer() 
         {
+            StationRepository stationRepository = new StationRepository();
 
+            List<StationData> stations = stationRepository.GetAllStationer(); 
+            foreach (var station in stations)
+            {
+                Console.WriteLine($"Namn: {station.StationID}, Adress: {station.Adress}, Antal Fordon: {station.AntalFordon}, Fordonstatus: {station.FordonStatus}, Kapacitet: {station.MaxKapacitet}");
+            }
+            Console.WriteLine();
+            Meny(); // Return to the menu.
         }
 
         public static void ChangeStations() //Metod för att ändra befintliga stationer, till exempel vid utökad kapacitet, dock out of scope!
