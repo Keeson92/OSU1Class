@@ -153,7 +153,7 @@ namespace LogicLayer
             {
                 Console.WriteLine("Hyrning sparades inte");
             }
-        
+        }
         public static void VisaBetalningsmetod() //Metod för att återhämta information om betalningsmetod från Registrering.
         {
            
