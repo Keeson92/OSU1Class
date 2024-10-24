@@ -14,10 +14,10 @@ namespace ConsoleGUI1
         static void Menu()
         {
             Console.ForegroundColor = ConsoleColor.Magenta ; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-            Console.WriteLine("Välkommen till schemaadministration!");
+            Console.WriteLine("Välkommen till Uthyrning!");
             Console.WriteLine("Vad vill du göra?");
-            Console.WriteLine("1. Skapa ett nytt schema");
-            Console.WriteLine("2. Visa befintliga scheman");
+            Console.WriteLine("1. Hyra ett fordon");
+            Console.WriteLine("2. Visa Betalningsinformation");
             Console.WriteLine("3. Avsluta applikationen");
             Console.Write("Ditt val?: ");
             string val = Console.ReadLine();
