@@ -35,7 +35,7 @@ namespace Data     //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
         {
             // Initialiserar data
             _anvandareLista = new List<AnvandareData>
-                {
+            {
                     new AnvandareData(1, "Alice", "Karlsson", 980101, 701234567, "alice.karlsson@gmail.com", "1"),
                     new AnvandareData(2, "Gustav", "Karlholm", 960101, 732345678, "gustav.karlholm@protonmail.com", "2"),
                     new AnvandareData(3, "Kajsa", "Josefsson", 960101, 763456789, "kajsa.josefsson@hb.com", "3"),
@@ -47,7 +47,7 @@ namespace Data     //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
                     new AnvandareData(9, "Millie", "Karlsson", 1010101, 709012345, "millie.karlsson@cambridge.edu", "9"),
                     new AnvandareData(10, "Dag", "Hansson", 010101, 730123456, "dag.hansson@enterprise.biz", "10"),
                     new AnvandareData(11, "Ia", "Persson", 001001, 761234567, "ia.persson@provider.io", "11")
-                };
+            };
         }
         public List<AnvandareData> GetAllAnvandare() //Metod för att få alla Användare som finns.
         {
@@ -85,15 +85,15 @@ namespace Data     //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
             // Initialiserar data
             _stationList = new List<StationData>
             {
-                        new StationData("Allégatan", 10, "Tillänglig", 20),
-                        new StationData("Stationsgatan", 5, "På Underhåll", 50),
-                        new StationData("Fredriksbergsgatan", 8, "Fullbokat", 100),
-                        new StationData("Solrosvägen", 12, "Tillgänglig", 25)
+                   new StationData("Allégatan", 10, "Tillänglig", 20),
+                   new StationData("Stationsgatan", 5, "På Underhåll", 50),
+                   new StationData("Fredriksbergsgatan", 8, "Fullbokat", 100),
+                   new StationData("Solrosvägen", 12, "Tillgänglig", 25)
             };
         }
         public List<StationData> GetAllStationer() //Metod för att få alla stationer som finns.
         {
-                return _stationList;
+             return _stationList;
         }
     }
     public class UthyrningsDataRepository
@@ -125,11 +125,11 @@ namespace Data     //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
          {
               _kontoDatalist = new List<KontoData>
               {
-                        new KontoData(new DateTime(2024, 10, 22), "Mastercard"),
-                        new KontoData(new DateTime(2024, 10, 23), "Swish"),
-                        new KontoData(new DateTime(2024, 10, 24), "Mastercard"),
-                        new KontoData(new DateTime(2024, 10, 25), "Mastercard"),
-                        new KontoData(new DateTime(2024, 10, 26), "Mastercard"),
+                    new KontoData(new DateTime(2024, 10, 22), "Mastercard"),
+                    new KontoData(new DateTime(2024, 10, 23), "Swish"),
+                    new KontoData(new DateTime(2024, 10, 24), "Mastercard"),
+                    new KontoData(new DateTime(2024, 10, 25), "Mastercard"),
+                    new KontoData(new DateTime(2024, 10, 26), "Mastercard"),
               };
          }
 
