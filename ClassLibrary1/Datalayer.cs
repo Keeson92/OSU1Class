@@ -84,10 +84,10 @@ namespace Data     //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
                // Initialiserar data
                _stationList = new List<StationData>
                {
-                        new StationData("Allégatan", 10, "Tillänglig", 20),
-                        new StationData("Stationsgatan", 5, "På Underhåll", 50),
-                        new StationData("Fredriksbergsgatan", 8, "Fullbokat", 100),
-                        new StationData("Solrosvägen", 12, "Tillgänglig", 25)
+                        new StationData(1, "Allégatan", 10, "Tillänglig", 20),
+                        new StationData(2, "Stationsgatan", 5, "På Underhåll", 50),
+                        new StationData(3, "Fredriksbergsgatan", 8, "Fullbokat", 100),
+                        new StationData(4, "Solrosvägen", 12, "Tillgänglig", 25)
                };
            }
            public List<StationData> GetAllStationer() //Metod för att få alla stationer som finns.

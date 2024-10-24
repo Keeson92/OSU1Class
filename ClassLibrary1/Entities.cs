@@ -8,13 +8,15 @@ namespace ClassLibrary1
     // Domain Layer (Entities/ProgramData.cs)
     public class StationData //Definierar vilken data som finns kring de olika programmen, om man tex skulle behöva lägga till/ta bort ett program.
     {
+        public int Station {  get; private set; }
         public string Adress { get; private set; }
         public int AntalFordon { get; private set; } 
         public string FordonStatus { get; private set; }
         public int MaxKapacitet { get; private set; }
 
-        public StationData(string adress, int antalFordon, string fordonStatus, int maxKapacitet)
+        public StationData(int station, string adress, int antalFordon, string fordonStatus, int maxKapacitet)
         {
+            Station = station;
             Adress = adress;
             AntalFordon = antalFordon;
             FordonStatus = fordonStatus;

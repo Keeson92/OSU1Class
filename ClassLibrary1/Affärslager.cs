@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using static Data.AnvandareRepository;
 using static Data.FordonRepository;
-using static Data.
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LogicLayer
