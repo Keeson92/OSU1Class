@@ -34,12 +34,15 @@ namespace ClassLibrary1
         public int Batterinivå { get; private set; }
         public string Status { get; private set; }
         public string FordonsTyp { get; private set; }
-        public FordonData(int fordonsID, int batterinivå, string status, string fordonsTyp)
+
+        public int Station { get; private set; }
+        public FordonData(int fordonsID, int batterinivå, string status, string fordonsTyp, int station)
         {
             FordonsID = fordonsID;
             Batterinivå = batterinivå;
             Status = status;
             FordonsTyp = fordonsTyp;
+            Station = station;
         }
     }
     public class AnvandareData //Definierar vilken data som finns kring Användare, om man tex skulle behöva lägga till/ta bort en Användare.

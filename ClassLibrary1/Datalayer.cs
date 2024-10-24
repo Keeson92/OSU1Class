@@ -16,9 +16,9 @@ namespace Data     //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
                 // Initialiserar data
                 _fordonLista = new List<FordonData>
                     {
-                        new FordonData(1, 85, "Bokad", "Elcykel"),
-                        new FordonData(2, 83, "Ledig", "Elsparkcykel"),
-                        new FordonData(3, 10, "Laddas", "Elsparkcykel")
+                        new FordonData(1, 85, "Bokad", "Elcykel", 1),
+                        new FordonData(2, 83, "Ledig", "Elsparkcykel", 2),
+                        new FordonData(3, 10, "Laddas", "Elsparkcykel", 3)
                     };
             }
             public List<FordonData> GetAllFordon() //Metod för att få alla behörigheter som finns.
