@@ -1,15 +1,10 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BuisnessEnteties;
+﻿using BuisnessEntites;
+
 
 namespace Setvicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
 {
-     
-        public class FordonRepository
+
+    public class FordonRepository
         {
             private List<Fordon> _fordonLista;
             public FordonRepository()
