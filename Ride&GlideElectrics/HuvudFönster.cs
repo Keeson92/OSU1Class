@@ -24,9 +24,17 @@ namespace Ride_GlideElectrics
            if (username == "admin" && password == "123")
            {
                MessageBox.Show("Inloggning lyckades!");
-               // Eventuellt öppna ett nytt fönster eller formulär efter inloggning
-           }
-           else
+
+                UserMenu usermenu = new UserMenu();
+
+                // Show the second form
+                usermenu.Show();
+                this.Hide();
+
+
+
+            }
+            else
            {
               MessageBox.Show("Felaktigt användarnamn eller lösenord.");
            }

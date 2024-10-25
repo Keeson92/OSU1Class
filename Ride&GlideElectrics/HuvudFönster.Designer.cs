@@ -77,27 +77,30 @@ namespace Ride_GlideElectrics
             // 
             // btnLogIn
             // 
+            btnLogIn.BackColor = Color.Salmon;
             btnLogIn.Location = new Point(117, 77);
             btnLogIn.Name = "btnLogIn";
             btnLogIn.Size = new Size(75, 23);
             btnLogIn.TabIndex = 4;
             btnLogIn.Text = "Logga in";
-            btnLogIn.UseVisualStyleBackColor = true;
+            btnLogIn.UseVisualStyleBackColor = false;
             btnLogIn.Click += btnLogIn_Click;
             // 
             // btnRegistrering
             // 
+            btnRegistrering.BackColor = Color.Bisque;
             btnRegistrering.Location = new Point(12, 77);
             btnRegistrering.Name = "btnRegistrering";
             btnRegistrering.Size = new Size(88, 23);
             btnRegistrering.TabIndex = 5;
             btnRegistrering.Text = "Registrering";
-            btnRegistrering.UseVisualStyleBackColor = true;
+            btnRegistrering.UseVisualStyleBackColor = false;
             // 
             // HuvudFönster
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DarkOliveGreen;
             ClientSize = new Size(277, 164);
             Controls.Add(btnRegistrering);
             Controls.Add(btnLogIn);
