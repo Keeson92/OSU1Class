@@ -1,4 +1,4 @@
-﻿using ClassLibrary1;
+﻿using BuissnessEnteteies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +10,18 @@ namespace Data     //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
 
         public class FordonRepository
         {
-            private List<FordonData> _fordonLista;
+            private List<Fordon> _fordonLista;
             public FordonRepository()
             {
                 // Initialiserar data
-                _fordonLista = new List<FordonData>
+                _fordonLista = new List<Fordon>
                     {
-                        new FordonData(1, 85, "Bokad", "Elcykel"),
-                        new FordonData(2, 83, "Ledig", "Elsparkcykel"),
-                        new FordonData(3, 10, "Laddas", "Elsparkcykel")
+                        new Fordon(1, 85, "Allégatan 10", "Bokad", "Elcykel"),
+                        new Fordon(2, 83, "Stationsgatan 5", "Ledig", "Elsparkcykel"),
+                        new Fordon(3, 10, "Solrosvägen 12", "Laddas", "Elsparkcykel")
                     };
             }
-            public List<FordonData> GetAllFordon() //Metod för att få alla behörigheter som finns.
+            public List<Fordon> GetAllFordon() //Metod för att få alla behörigheter som finns.
             {
                 return _fordonLista;
             }
