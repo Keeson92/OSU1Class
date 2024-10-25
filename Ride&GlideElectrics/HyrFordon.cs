@@ -17,6 +17,13 @@ namespace Ride_GlideElectrics
             InitializeComponent();
         }
 
+        private void btnTillbakaTillUserMenu_Click(object sender, EventArgs e)
+        {
+            HuvudFönster huvudfönster = new HuvudFönster();
 
+            huvudfönster.Show();
+            this.Close();
+
+        }
     }
 }
