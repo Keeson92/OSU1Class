@@ -1,4 +1,5 @@
-﻿using BuisnessEntites;
+﻿
+using BuisnessEntities;
 
 
 namespace Setvicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
