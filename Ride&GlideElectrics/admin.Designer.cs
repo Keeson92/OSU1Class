@@ -35,6 +35,7 @@
             button2 = new Button();
             label3 = new Label();
             label4 = new Label();
+            label5 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -102,11 +103,21 @@
             label4.TabIndex = 6;
             label4.Text = "Station";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(502, 542);
+            label5.Name = "label5";
+            label5.Size = new Size(118, 15);
+            label5.TabIndex = 7;
+            label5.Text = "Fordon Uppdatrades!";
+            // 
             // admin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1135, 608);
+            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(button2);
@@ -129,5 +140,6 @@
         private Button button2;
         private Label label3;
         private Label label4;
+        private Label label5;
     }
 }

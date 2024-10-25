@@ -19,12 +19,14 @@ namespace Ride_GlideElectrics
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            HuvudFönster frm = new(); // gå tillbaka till inloggning
+            frm.Show(); // öppna inloggningsfönster
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            RedigeraFordon frm = new(); // här vill vi även ha med villket fordon vi redigerar ifrån föregånede form när det är redo
+            frm.Show();
         }
     }
 }
