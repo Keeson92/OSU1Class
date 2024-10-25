@@ -43,6 +43,7 @@ namespace Ride_GlideElectrics
             // UserName
             // 
             UserName.AutoSize = true;
+            UserName.BackColor = Color.Transparent;
             UserName.Location = new Point(8, 10);
             UserName.Name = "UserName";
             UserName.Size = new Size(92, 15);
@@ -93,7 +94,7 @@ namespace Ride_GlideElectrics
             btnRegistrering.Text = "Registrering";
             btnRegistrering.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // HuvudFönster
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -104,7 +105,7 @@ namespace Ride_GlideElectrics
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
             Controls.Add(UserName);
-            Name = "Form1";
+            Name = "HuvudFönster";
             Text = "Ride&Glide Electrics";
             ResumeLayout(false);
             PerformLayout();

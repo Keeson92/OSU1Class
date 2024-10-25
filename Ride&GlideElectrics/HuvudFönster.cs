@@ -21,7 +21,7 @@ namespace Ride_GlideElectrics
            string password = txtPassword.Text;
 
            // En enkel inloggningslogik (byt ut detta med riktig validering om du har det)
-           if (username == "admin" && password == "password123")
+           if (username == "admin" && password == "123")
            {
                MessageBox.Show("Inloggning lyckades!");
                // Eventuellt öppna ett nytt fönster eller formulär efter inloggning
