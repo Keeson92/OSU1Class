@@ -32,10 +32,8 @@ namespace LogicLayer
 
             List<StationData> stationList = stationRepository.GetAllStationer();
 
-            // ... (samma som tidigare, för inläsning av användare, program, etc.)
+         
 
-            // Skapa en ny hyrning
-            HyraFordon hyraFordon = new HyraFordon();
 
             // Hämta och validera datum
             bool isValidDate = false;
@@ -227,99 +225,99 @@ namespace LogicLayer
         {
             FordonRepository fordonRepository = new FordonRepository();
 
-            List<FordonData> fordon = fordonRepository.GetAllFordon();
-            foreach (var Fordon in fordon)
-            {
-                Console.WriteLine($"Namn: {fordon.Typ}, Batteri: {fordon.Batteri}, Station: {fordon.Station}");
-            }
+        List<FordonData> fordon = fordonRepository.GetAllFordon();
+        foreach (var Fordon in fordon)
+        {
+            Console.WriteLine($"Namn: {fordon.Typ}, Batteri: {fordon.Batteri}, Station: {fordon.Station}");
+        }
+        Console.WriteLine();
+        Meny(); //Return menyn.
+    }
+    /*public static void UserMeny() //Gäller alltså både för Lärare och Admin i det här scopet på att skapa schema.
+    {
+        Console.Title = "Inloggat läge Användare";
+        Console.ForegroundColor = ConsoleColor.Magenta; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
+        bool giltigtval = true; // Loop kontroll-värde
+        while (giltigtval)
+        {
             Console.WriteLine();
-            Meny(); //Return menyn.
-        }
-        public static void UserMeny() //Gäller alltså både för Lärare och Admin i det här scopet på att skapa schema.
-        {
-            Console.Title = "Inloggat läge Användare";
-            Console.ForegroundColor = ConsoleColor.Magenta; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-            bool giltigtval = true; // Loop kontroll-värde
-            while (giltigtval)
+            Console.WriteLine("Välkommen till ditt konto för Ride & Glide Electrics!");
+            Console.WriteLine("Vad vill du göra?");
+            Console.WriteLine("1. Hyra Fordon");
+            Console.WriteLine("2. Visa betalningsmetod");
+            Console.WriteLine("3. Visa hyrhistorik");
+            Console.WriteLine("4. Logga ut");
+            Console.WriteLine("5. Avsluta applikationen");
+            Console.Write("Ditt val?: ");
+            string val = Console.ReadLine();
+            switch (val) // Använder input för vilket switch case som ska användas.
             {
-                Console.WriteLine();
-                Console.WriteLine("Välkommen till ditt konto för Ride & Glide Electrics!");
-                Console.WriteLine("Vad vill du göra?");
-                Console.WriteLine("1. Hyra Fordon");
-                Console.WriteLine("2. Visa betalningsmetod");
-                Console.WriteLine("3. Visa hyrhistorik");
-                Console.WriteLine("4. Logga ut");
-                Console.WriteLine("5. Avsluta applikationen");
-                Console.Write("Ditt val?: ");
-                string val = Console.ReadLine();
-                switch (val) // Använder input för vilket switch case som ska användas.
-                {
-                    case "1":
-                        HyraFordon(); // Kallar på metoden från Affärslager klassen.
-                        break;
-                    case "2":
-                        Console.ForegroundColor = ConsoleColor.Red; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-                        VisaBetalningsmetod(); // Kallar på metoden från Affärslager klassen.
-                        break;
-                    case "3":
-                        Console.WriteLine();
-                        Console.ForegroundColor = ConsoleColor.Red; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-                        VisaHyrhistorik(); // Kallar på metoden från Affärslager klassen.
-                        break;
-                    case "4":
-                        Logout(); //Kallar på metod för utloggning.
-                        break;
-                    case "5":
-                        Environment.Exit(0); //Avlutar allt.
-                        break;
-                    default:
-                        Console.WriteLine("Ogiltigt val. Vänligen försök igen.");
-                        break;
-                }
+                case "1":
+                    HyraFordon(); // Kallar på metoden från Affärslager klassen.
+                    break;
+                case "2":
+                    Console.ForegroundColor = ConsoleColor.Red; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
+                    VisaBetalningsmetod(); // Kallar på metoden från Affärslager klassen.
+                    break;
+                case "3":
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
+                    VisaHyrhistorik(); // Kallar på metoden från Affärslager klassen.
+                    break;
+                case "4":
+                    Logout(); //Kallar på metod för utloggning.
+                    break;
+                case "5":
+                    Environment.Exit(0); //Avlutar allt.
+                    break;
+                default:
+                    Console.WriteLine("Ogiltigt val. Vänligen försök igen.");
+                    break;
+            }
 
-            }
         }
-        public static void SystemadminMeny()
+    }
+    public static void SystemadminMeny() 
+    {
+        Console.Title = "Inloggat läge Systemadministratör";
+        Console.ForegroundColor = ConsoleColor.DarkYellow; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
+        bool giltigtval = true; // Loop kontroll-värde
+        while (giltigtval)
         {
-            Console.Title = "Inloggat läge Systemadministratör";
-            Console.ForegroundColor = ConsoleColor.DarkYellow; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-            bool giltigtval = true; // Loop kontroll-värde
-            while (giltigtval)
+            Console.WriteLine();
+            Console.WriteLine("Välkommen till Ride & Glide Electrics!");
+            Console.WriteLine("1. Visa stationer");
+            Console.WriteLine("2. Ändra stationer");
+            Console.WriteLine("3. Visa fordon och dess status");
+            Console.WriteLine("4. Ändra fordon");
+            Console.WriteLine("5. Logga ut");
+            Console.WriteLine("6. Avsluta applikationen");
+            Console.Write("Ditt val?: ");
+            string val = Console.ReadLine();
+            switch (val) // Använder input för vilket switch case som ska användas.
             {
-                Console.WriteLine();
-                Console.WriteLine("Välkommen till Ride & Glide Electrics!");
-                Console.WriteLine("1. Visa stationer");
-                Console.WriteLine("2. Ändra stationer");
-                Console.WriteLine("3. Visa fordon och dess status");
-                Console.WriteLine("4. Ändra fordon");
-                Console.WriteLine("5. Logga ut");
-                Console.WriteLine("6. Avsluta applikationen");
-                Console.Write("Ditt val?: ");
-                string val = Console.ReadLine();
-                switch (val) // Använder input för vilket switch case som ska användas.
-                {
-                    case "1":
-                        Console.ForegroundColor = ConsoleColor.Cyan; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-                        ShowStations(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
-                        break;
-                    case "2":
-                        ChangeStations(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
-                        break;
-                    case "3":
-                        VisaFordonStatus(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
-                        break;
-                    case "4":
-                        ChangeVehicleStatus(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
-                        break;
-                    case "5":
-                        Logout(); //Kallar på metod för utloggning.
-                        break;
-                    case "6":
-                        Environment.Exit(0); //Avlutar allt.
-                        break;
-                }
+                case "1":
+                    Console.ForegroundColor = ConsoleColor.Cyan; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
+                    ShowStations(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
+                    break;
+                case "2":
+                    ChangeStations(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
+                    break;
+                case "3":
+                    VisaFordonStatus(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
+                    break;
+                case "4":
+                    ChangeVehicleStatus(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
+                    break;
+                case "5":
+                    Logout(); //Kallar på metod för utloggning.
+                    break;
+                case "6":
+                    Environment.Exit(0); //Avlutar allt.
+                    break;
             }
         }
+    */
 
         public static void ShowStations() //Metod för att visa befintliga stationer
         {
