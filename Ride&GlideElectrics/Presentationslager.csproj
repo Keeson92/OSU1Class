@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\Servicelager.csproj" />
-    <ProjectReference Include="..\LogicLayer\BuissnessEnteties.csproj" />
+    <ProjectReference Include="..\LogicLayer\BusinessEntities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
