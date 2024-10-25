@@ -41,7 +41,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(216, 165);
+            label1.Location = new Point(254, 165);
             label1.Name = "label1";
             label1.Size = new Size(45, 15);
             label1.TabIndex = 0;
@@ -97,7 +97,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(917, 165);
+            label4.Location = new Point(881, 165);
             label4.Name = "label4";
             label4.Size = new Size(44, 15);
             label4.TabIndex = 6;
@@ -106,13 +106,13 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(502, 542);
+            label5.Location = new Point(536, 543);
             label5.Name = "label5";
             label5.Size = new Size(118, 15);
             label5.TabIndex = 7;
             label5.Text = "Fordon Uppdatrades!";
             // 
-            // admin
+            // AdminMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -125,7 +125,7 @@
             Controls.Add(listView1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "admin";
+            Name = "AdminMenu";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
