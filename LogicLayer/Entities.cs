@@ -6,60 +6,11 @@ namespace ClassLibrary1
 {
     // Data Access Layer (Repositories/ProgramRepository.cs)
     // Domain Layer (Entities/ProgramData.cs)
-    public class StationData //Definierar vilken data som finns kring de olika programmen, om man tex skulle behöva lägga till/ta bort ett program.
-    {
-        public string Adress { get; private set; }
-        public int AntalFordon { get; private set; } 
-        public string FordonStatus { get; private set; }
-        public int MaxKapacitet { get; private set; }
-
-        public StationData(string adress, int antalFordon, string fordonStatus, int maxKapacitet)
-        {
-            Adress = adress;
-            AntalFordon = antalFordon;
-            FordonStatus = fordonStatus;
-            MaxKapacitet = maxKapacitet;
-        }
-        public bool FinnsPlats()
-        {
-            return AntalFordon < MaxKapacitet;
-        }
+  
 
     }
-    public class FordonData //Definierar vilken data som finns kring de olika Lokalerna, om man tex skulle behöva lägga till/ta bort en Lokal.
-    {
-        public int FordonsID { get; private set; }
-        public int Batterinivå { get; private set; }
-        public string Status { get; private set; }
-        public string FordonsTyp { get; private set; }
-        public FordonData(int fordonsID, int batterinivå, string status, string fordonsTyp)
-        {
-            FordonsID = fordonsID;
-            Batterinivå = batterinivå;
-            Status = status;
-            FordonsTyp = fordonsTyp;
-        }
-    }
-    public class AnvandareData //Definierar vilken data som finns kring Användare, om man tex skulle behöva lägga till/ta bort en Användare.
-    {
-        public int AnvandarID { get; }
-        public string Fornamn { get; }
-        public string Efternamn { get; }
-        public int Personnummer { get; }
-        public long Telefonnr { get; }
-        public string Epost { get; }
-        public string Password { get; }
-        public AnvandareData(int anvandarID, string fornamn, string efternamn, int personnummer, long telefonnr, string epost, string password)
-        {
-            AnvandarID = anvandarID;
-            Fornamn = fornamn;
-            Efternamn = efternamn;
-            Personnummer = personnummer;
-            Telefonnr = telefonnr;
-            Epost = epost;
-            Password = password;
-        }
-    }
+    
+   
     public class KontoData //Definierar vilken data som finns kring behörighet, om man tex skulle behöva lägga till/ta bort behörighet eller på något vis förändra, tex lägga till bibliotekspersonal med egen behörighetsgrad.
     {
         public DateTime HyrHistorik { get; }
