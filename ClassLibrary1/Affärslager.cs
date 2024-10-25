@@ -153,149 +153,77 @@ namespace LogicLayer
                 Console.WriteLine("Hyrning sparades inte");
             }
         }
-    }
-    public class Betalning //egentligen out of scope men behöver ändå vara med för att visa att vi kontrollerar mot giltig betalningsmetod när vi gör hyrprocessen.
-    {
-        public static void VisaBetalningsmetod((string betalningsmetod, string kortnummer = null, DateTime? giltighetstid = null) //Metod för att återhämta information om betalningsmetod från Registrering.
+        public static void VisaHyrhistorik() //Metod för att återhämta gjorda hyrningar
         {
 
-            if (betalningsmetod.Equals("Autogiro", StringComparison.OrdinalIgnoreCase))
+        }
+        public static int Behörighetsgradinloggad; //Definierar vem som är behörig till att skapa schema.
+        public static bool Login()
+        {
+            int searchID;
+            Console.Write("AnvändarID: ");
+
+            try // Felsäkring då användarID är en int
             {
-                Console.WriteLine("Betalningsmetod: Autogiro");
+                searchID = int.Parse(Console.ReadLine());
             }
-            else if (betalningsmetod.Equals("Faktura", StringComparison.OrdinalIgnoreCase))
+            catch (FormatException)
             {
-                Console.WriteLine("Betalningsmetod: Faktura");
+                Console.WriteLine("Felaktig inmatning. Mata in ett giltigt AnvändarID.");
+                return false;
             }
-            else if (betalningsmetod.Equals("Kort", StringComparison.OrdinalIgnoreCase))
+            // Skapar en instans av Användare 
+            AnvandareRepository anvandareRepository = new AnvandareRepository();
+
+            // Hämta alla användare
+            List<AnvandareData> anvandareLista = anvandareRepository.GetAllAnvandare();
+
+            // Söka efter användare genom deras ID
+            var foundUser = anvandareLista.FirstOrDefault(u => u.AnvandarID == searchID);
+
+            if (foundUser != null)
             {
-                if (!string.IsNullOrEmpty(kortnummer) && giltighetstid.HasValue)
+                // Användare hittad, hämtar för- och efternamn.
+                string firstName = foundUser.Fornamn;
+                string lastName = foundUser.Efternamn;
+
+                // Ber om lösenord
+                Console.Write("Lösenord: ");
+                string password = Console.ReadLine();
+
+                // Validerar lösenord
+                if (foundUser.Password == password)
                 {
-                    if (ÄrKortnummerGiltigt(kortnummer) && ÄrGiltighetstidGiltig(giltighetstid.Value))
-                    {
-                        Console.WriteLine("Kortnummer och giltighetstid är giltiga.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Ogiltigt kortnummer eller giltighetstid.");
-                    }
+                    // Lösenord är korrekt, användare loggas in
+                    Console.WriteLine($"{firstName} {lastName} är nu inloggad.");
+                    Behörighetsgradinloggad = foundUser.Behorighetsgrad; //Antar att Behörighetsgrad är en property av AnvandareData
+                    Meny();
+                    return true; // Returnerar true för ett fungerande inlogg.
                 }
                 else
                 {
-                    Console.WriteLine("Kortnummer eller giltighetstid saknas.");
+                    // Ogiltigt lösenord
+                    Console.WriteLine("Felaktigt lösenord!");
+                    return false; // Returnerar false för ogiltigt inlogg
                 }
             }
             else
             {
-                Console.WriteLine("Ogiltig betalningsmetod.");
+                // Ingen användare hittad med givet ID
+                Console.WriteLine($"{searchID} hittades inte!");
+                return false; // Return false if user not found
             }
         }
-
-        // Metod för att kontrollera om kortnumret är giltigt med Luhn-algoritmen
-        private bool ÄrKortnummerGiltigt(string kortnummer)
+        public static void Meny() //Definierar behörighetsgraden och vilken meny som visas utifrån denna.
         {
-            int summa = 0;
-            bool dubblat = false;
-            // Traversera kortnumret bakifrån
-            for (int i = kortnummer.Length - 1; i >= 0; i--)
-            {
-                int siffra = int.Parse(kortnummer[i].ToString());
-
-                if (dubblat)
-                {
-                    siffra *= 2;
-                    if (siffra > 9)
-                    {
-                        siffra -= 9;
-                    }
-                }
-
-                summa += siffra;
-                dubblat = !dubblat;
-            }
-
-            // Kortnumret är giltigt om summan är delbar med 10
-            return (summa % 10) == 0;
-        }
-
-        // Metod för att kontrollera om giltighetstiden är framåt i tiden
-        private bool ÄrGiltighetstidGiltig(DateTime giltighetstid)
-        {
-            // Kolla om kortet har gått ut
-            return giltighetstid > DateTime.Now;
-        }
-    }
-    public static void VisaHyrhistorik() //Metod för att återhämta gjorda hyrningar
-    {
-
-    }
-    public static int Behörighetsgradinloggad; //Definierar vem som är behörig till att skapa schema.
-    public static bool Login()
-    {
-        int searchID;
-        Console.Write("AnvändarID: ");
-
-        try // Felsäkring då användarID är en int
-        {
-            searchID = int.Parse(Console.ReadLine());
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine("Felaktig inmatning. Mata in ett giltigt AnvändarID.");
-            return false;
-        }
-        // Skapar en instans av Användare 
-        AnvandareRepository anvandareRepository = new AnvandareRepository();
-
-        // Hämta alla användare
-        List<AnvandareData> anvandareLista = anvandareRepository.GetAllAnvandare();
-
-        // Söka efter användare genom deras ID
-        var foundUser = anvandareLista.FirstOrDefault(u => u.AnvandarID == searchID);
-
-        if (foundUser != null)
-        {
-            // Användare hittad, hämtar för- och efternamn.
-            string firstName = foundUser.Fornamn;
-            string lastName = foundUser.Efternamn;
-
-            // Ber om lösenord
-            Console.Write("Lösenord: ");
-            string password = Console.ReadLine();
-
-            // Validerar lösenord
-            if (foundUser.Password == password)
-            {
-                // Lösenord är korrekt, användare loggas in
-                Console.WriteLine($"{firstName} {lastName} är nu inloggad.");
-                Behörighetsgradinloggad = foundUser.Behorighetsgrad; //Antar att Behörighetsgrad är en property av AnvandareData
-                Meny();
-                return true; // Returnerar true för ett fungerande inlogg.
-            }
+            if (Affärslager.Behörighetsgradinloggad == 2 || Affärslager.Behörighetsgradinloggad == 3)
+            { UserMeny(); }
             else
-            {
-                // Ogiltigt lösenord
-                Console.WriteLine("Felaktigt lösenord!");
-                return false; // Returnerar false för ogiltigt inlogg
-            }
+            { SystemadminMeny(); }
         }
-        else
+        public static void VisaFordon() //Metod för Lokaler, kontroll, lista
         {
-            // Ingen användare hittad med givet ID
-            Console.WriteLine($"{searchID} hittades inte!");
-            return false; // Return false if user not found
-        }
-    }
-    public static void Meny() //Definierar behörighetsgraden och vilken meny som visas utifrån denna.
-    {
-        if (Affärslager.Behörighetsgradinloggad == 2 || Affärslager.Behörighetsgradinloggad == 3)
-        { UserMeny(); }
-        else
-        { SystemadminMeny(); }
-    }
-    public static void VisaFordon() //Metod för Lokaler, kontroll, lista
-    {
-        FordonRepository fordonRepository = new FordonRepository();
+            FordonRepository fordonRepository = new FordonRepository();
 
         List<FordonData> fordon = fordonRepository.GetAllFordon();
         foreach (var Fordon in fordon)
@@ -391,30 +319,102 @@ namespace LogicLayer
         }
     */
 
-    public static void ShowStations() //Metod för att visa befintliga stationer
-    {
+        public static void ShowStations() //Metod för att visa befintliga stationer
+        {
 
+        }
+
+        public static void ChangeStations() //Metod för att ändra befintliga stationer, till exempel vid utökad kapacitet, dock out of scope!
+        {
+
+        }
+
+        public static void VisaFordonStatus() //Metod för att hämta information om Fordons status
+        {
+
+        }
+
+        public static void ChangeVehicleStatus() //Metod för att ändra på fordons status, tex om fordon måste plockas bort pga service, eller om de laddas.
+        {
+
+        }
+        private static void Logout() //Metod för utloggning.
+        {
+            Behörighetsgradinloggad = 0;
+            Login(); //Återkommer till inloggningssidan.
+        }
+    }
+    public class Betalning //egentligen out of scope men behöver ändå vara med för att visa att vi kontrollerar mot giltig betalningsmetod när vi gör hyrprocessen.
+    {
+        public static void VisaBetalningsmetod((string betalningsmetod, string kortnummer = null, DateTime? giltighetstid = null) //Metod för att återhämta information om betalningsmetod från Registrering.
+        {
+
+            if (betalningsmetod.Equals("Autogiro", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine("Betalningsmetod: Autogiro");
+            }
+            else if (betalningsmetod.Equals("Faktura", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine("Betalningsmetod: Faktura");
+            }
+            else if (betalningsmetod.Equals("Kort", StringComparison.OrdinalIgnoreCase))
+            {
+                if (!string.IsNullOrEmpty(kortnummer) && giltighetstid.HasValue)
+                {
+                    if (ÄrKortnummerGiltigt(kortnummer) && ÄrGiltighetstidGiltig(giltighetstid.Value))
+                    {
+                        Console.WriteLine("Kortnummer och giltighetstid är giltiga.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ogiltigt kortnummer eller giltighetstid.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Kortnummer eller giltighetstid saknas.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Ogiltig betalningsmetod.");
+            }
+        }
+
+        // Metod för att kontrollera om kortnumret är giltigt med Luhn-algoritmen
+        private bool ÄrKortnummerGiltigt(string kortnummer)
+        {
+            int summa = 0;
+            bool dubblat = false;
+            // Traversera kortnumret bakifrån
+            for (int i = kortnummer.Length - 1; i >= 0; i--)
+            {
+                int siffra = int.Parse(kortnummer[i].ToString());
+
+                if (dubblat)
+                {
+                    siffra *= 2;
+                    if (siffra > 9)
+                    {
+                        siffra -= 9;
+                    }
+                }
+
+                summa += siffra;
+                dubblat = !dubblat;
+            }
+
+            // Kortnumret är giltigt om summan är delbar med 10
+            return (summa % 10) == 0;
+        }
+
+        // Metod för att kontrollera om giltighetstiden är framåt i tiden
+        private bool ÄrGiltighetstidGiltig(DateTime giltighetstid)
+        {
+            // Kolla om kortet har gått ut
+            return giltighetstid > DateTime.Now;
+        }
     }
 
-    public static void ChangeStations() //Metod för att ändra befintliga stationer, till exempel vid utökad kapacitet, dock out of scope!
-    {
-
-    }
-
-    public static void VisaFordonStatus() //Metod för att hämta information om Fordons status
-    {
-
-    }
-
-    public static void ChangeVehicleStatus() //Metod för att ändra på fordons status, tex om fordon måste plockas bort pga service, eller om de laddas.
-    {
-
-    }
-    private static void Logout() //Metod för utloggning.
-    {
-        Behörighetsgradinloggad = 0;
-        Login(); //Återkommer till inloggningssidan.
-    }
 }
-}
-}
+

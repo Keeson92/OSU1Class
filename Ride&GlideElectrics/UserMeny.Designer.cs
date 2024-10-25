@@ -28,67 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            HyraFordon = new Button();
+            VisaHyreshistorik = new Button();
+            VisaBetalningsmetod = new Button();
+            LoggaUt = new Button();
+            label1 = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // HyraFordon
             // 
-            button1.Location = new Point(25, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(114, 28);
-            button1.TabIndex = 0;
-            button1.Text = "Hyra Fordon";
-            button1.UseVisualStyleBackColor = true;
+            HyraFordon.Location = new Point(12, 65);
+            HyraFordon.Name = "HyraFordon";
+            HyraFordon.Size = new Size(114, 28);
+            HyraFordon.TabIndex = 0;
+            HyraFordon.Text = "Hyra Fordon";
+            HyraFordon.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // VisaHyreshistorik
             // 
-            button2.Location = new Point(25, 46);
-            button2.Name = "button2";
-            button2.Size = new Size(132, 33);
-            button2.TabIndex = 1;
-            button2.Text = "Visa Hyreshistorik";
-            button2.UseVisualStyleBackColor = true;
+            VisaHyreshistorik.Location = new Point(170, 63);
+            VisaHyreshistorik.Name = "VisaHyreshistorik";
+            VisaHyreshistorik.Size = new Size(132, 33);
+            VisaHyreshistorik.TabIndex = 1;
+            VisaHyreshistorik.Text = "Visa Hyreshistorik";
+            VisaHyreshistorik.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // VisaBetalningsmetod
             // 
-            button3.Location = new Point(25, 85);
-            button3.Name = "button3";
-            button3.Size = new Size(140, 28);
-            button3.TabIndex = 2;
-            button3.Text = "Visa Betalningsmetod";
-            button3.UseVisualStyleBackColor = true;
+            VisaBetalningsmetod.Location = new Point(12, 115);
+            VisaBetalningsmetod.Name = "VisaBetalningsmetod";
+            VisaBetalningsmetod.Size = new Size(140, 28);
+            VisaBetalningsmetod.TabIndex = 2;
+            VisaBetalningsmetod.Text = "Visa Betalningsmetod";
+            VisaBetalningsmetod.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // LoggaUt
             // 
-            button4.Location = new Point(25, 119);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 3;
-            button4.Text = "Logga Ut";
-            button4.UseVisualStyleBackColor = true;
+            LoggaUt.Location = new Point(170, 120);
+            LoggaUt.Name = "LoggaUt";
+            LoggaUt.Size = new Size(75, 23);
+            LoggaUt.TabIndex = 3;
+            LoggaUt.Text = "Logga Ut";
+            LoggaUt.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(290, 15);
+            label1.TabIndex = 4;
+            label1.Text = "Välkommen till  ditt konto för Ride and Glide Electrics!";
+            label1.Click += this.label1_Click_1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(78, 36);
+            label2.Name = "label2";
+            label2.Size = new Size(119, 15);
+            label2.TabIndex = 5;
+            label2.Text = "Vad vill du göra idag?";
+            // 
+            // UserMeny
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(233, 200);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Name = "Form2";
-            Text = "Form2";
+            ClientSize = new Size(351, 177);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(LoggaUt);
+            Controls.Add(VisaBetalningsmetod);
+            Controls.Add(VisaHyreshistorik);
+            Controls.Add(HyraFordon);
+            Name = "UserMeny";
+            Text = "UserMenu";
+            Load += this.UserMeny_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button HyraFordon;
+        private Button VisaHyreshistorik;
+        private Button VisaBetalningsmetod;
+        private Button LoggaUt;
+        private Label label1;
+        private Label label2;
     }
 }
