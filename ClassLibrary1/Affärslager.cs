@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using LogicLayer;
+﻿using LogicLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
