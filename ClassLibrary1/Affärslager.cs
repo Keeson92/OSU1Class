@@ -35,7 +35,7 @@ namespace LogicLayer
 
 
             // Hämta och validera datum
-            bool isValidDate = false;
+           /* bool isValidDate = false;
             while (!isValidDate)
             {
 
@@ -314,7 +314,7 @@ namespace LogicLayer
                     break;
             }
         }
-    */
+    */ // utkomenterad consoll kod
 
         public static void ShowStations() //Metod för att visa befintliga stationer
         {
@@ -341,7 +341,7 @@ namespace LogicLayer
             Login(); //Återkommer till inloggningssidan.
         }
     }
-    public class Betalning //egentligen out of scope men behöver ändå vara med för att visa att vi kontrollerar mot giltig betalningsmetod när vi gör hyrprocessen.
+  /*  public class Betalning //egentligen out of scope men behöver ändå vara med för att visa att vi kontrollerar mot giltig betalningsmetod när vi gör hyrprocessen.
     {
         public static void VisaBetalningsmetod((string betalningsmetod, string kortnummer = null, DateTime? giltighetstid = null) //Metod för att återhämta information om betalningsmetod från Registrering.
         {
@@ -376,7 +376,7 @@ namespace LogicLayer
             {
                 Console.WriteLine("Ogiltig betalningsmetod.");
             }
-        }
+        }*/// mera utkomenterad konsoll kod
 
         // Metod för att kontrollera om kortnumret är giltigt med Luhn-algoritmen
         private bool ÄrKortnummerGiltigt(string kortnummer)
