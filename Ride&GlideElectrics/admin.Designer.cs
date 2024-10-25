@@ -33,12 +33,14 @@
             listView1 = new ListView();
             button1 = new Button();
             button2 = new Button();
+            label3 = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(342, 162);
+            label1.Location = new Point(216, 165);
             label1.Name = "label1";
             label1.Size = new Size(45, 15);
             label1.TabIndex = 0;
@@ -58,15 +60,15 @@
             // 
             // listView1
             // 
-            listView1.Location = new Point(252, 192);
+            listView1.Location = new Point(203, 192);
             listView1.Name = "listView1";
-            listView1.Size = new Size(229, 317);
+            listView1.Size = new Size(778, 317);
             listView1.TabIndex = 2;
             listView1.UseCompatibleStateImageBehavior = false;
             // 
             // button1
             // 
-            button1.Location = new Point(992, 531);
+            button1.Location = new Point(12, 543);
             button1.Name = "button1";
             button1.Size = new Size(108, 53);
             button1.TabIndex = 3;
@@ -75,18 +77,38 @@
             // 
             // button2
             // 
-            button2.Location = new Point(252, 515);
+            button2.Location = new Point(1017, 543);
             button2.Name = "button2";
             button2.Size = new Size(87, 53);
             button2.TabIndex = 4;
-            button2.Text = "button2";
+            button2.Text = "Redigera";
             button2.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(555, 165);
+            label3.Name = "label3";
+            label3.Size = new Size(38, 15);
+            label3.TabIndex = 5;
+            label3.Text = "status";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(917, 165);
+            label4.Name = "label4";
+            label4.Size = new Size(44, 15);
+            label4.TabIndex = 6;
+            label4.Text = "Station";
             // 
             // admin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1135, 608);
+            Controls.Add(label4);
+            Controls.Add(label3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(listView1);
@@ -105,5 +127,7 @@
         private ListView listView1;
         private Button button1;
         private Button button2;
+        private Label label3;
+        private Label label4;
     }
 }
