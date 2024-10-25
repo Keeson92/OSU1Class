@@ -12,9 +12,11 @@ namespace Ride_GlideElectrics
 {
     public partial class AdminMenu : Form
     {
-        public AdminMenu()
+        private List<Fordon> fordonsLista;
+        public AdminMenu() // startar winforms + hämtar listor
         {
             InitializeComponent();
+            InitializeData();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -28,5 +30,18 @@ namespace Ride_GlideElectrics
             RedigeraFordon frm = new(); // här vill vi även ha med villket fordon vi redigerar ifrån föregånede form när det är redo
             frm.Show();
         }
+
+        private void InitializeData() // koplar listan till datagrid
+        {
+
+            FordonStatusStationGrid.DataSource = fordonsLista;
+            FordonStatusStationGrid.Colums["fordonsID"].HeaderText = "ID";
+            FordonStatusStationGrid.Colums["position"].HeaderText = "Station";
+            FordonStatusStationGrid.Colums["Status"].HeaderText = "Status";
+            FordonStatusStationGrid.Colums["fordonsTyp"].HeaderText = "Typ utav fordon";
+        }
+
+        
+
     }
 }

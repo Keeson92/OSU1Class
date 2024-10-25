@@ -30,12 +30,13 @@
         {
             label1 = new Label();
             label2 = new Label();
-            listView1 = new ListView();
             button1 = new Button();
             button2 = new Button();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -58,14 +59,6 @@
             label2.TabIndex = 1;
             label2.Text = "ADMIN MENY";
             label2.Click += label2_Click;
-            // 
-            // listView1
-            // 
-            listView1.Location = new Point(203, 192);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(778, 317);
-            listView1.TabIndex = 2;
-            listView1.UseCompatibleStateImageBehavior = false;
             // 
             // button1
             // 
@@ -112,21 +105,31 @@
             label5.TabIndex = 7;
             label5.Text = "Fordon Uppdatrades!";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AccessibleName = "FordonStatusStationGrid";
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(245, 227);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(680, 270);
+            dataGridView1.TabIndex = 8;
+            // 
             // AdminMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1135, 608);
+            Controls.Add(dataGridView1);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(listView1);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "AdminMenu";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -135,11 +138,11 @@
 
         private Label label1;
         private Label label2;
-        private ListView listView1;
         private Button button1;
         private Button button2;
         private Label label3;
         private Label label4;
         private Label label5;
+        private DataGridView dataGridView1;
     }
 }
