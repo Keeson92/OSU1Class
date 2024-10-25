@@ -16,5 +16,7 @@ namespace Ride_GlideElectrics
         {
             InitializeComponent();
         }
+
+
     }
 }
