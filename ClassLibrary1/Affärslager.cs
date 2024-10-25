@@ -1,5 +1,4 @@
-﻿using LogicLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -7,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Setvicelager
+namespace Servicelager
 {
     public class Affärslager
     {
