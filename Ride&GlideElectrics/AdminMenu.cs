@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static BuissnessEnteties.Fordon;
-
+using static Servicelager.Datalayer;
 
 namespace Ride_GlideElectrics
 {
