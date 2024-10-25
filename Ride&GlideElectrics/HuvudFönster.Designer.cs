@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Ride_GlideElectrics
 {
-    partial class Form1
+    partial class HuvudFönster
     {
         /// <summary>
         ///  Required designer variable.
@@ -97,7 +97,7 @@ namespace Ride_GlideElectrics
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(277, 164);
             Controls.Add(btnRegistrering);
             Controls.Add(btnLogIn);
             Controls.Add(Password);
@@ -112,7 +112,7 @@ namespace Ride_GlideElectrics
 
         #endregion
 
-       
+
         private Label UserName;
         private TextBox txtUsername;
         private TextBox txtPassword;

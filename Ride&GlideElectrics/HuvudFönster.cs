@@ -1,8 +1,8 @@
 namespace Ride_GlideElectrics
 {
-    public partial class Form1 : Form
+    public partial class HuvudFönster : Form
     {
-        public Form1()
+        public HuvudFönster()
         {
             InitializeComponent();
         }
