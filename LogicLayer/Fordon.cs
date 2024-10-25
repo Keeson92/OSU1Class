@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace BuissnessEnteties
 {
-    internal class Fordon
-    {
+    
         public class FordonData //Definierar vilken data som finns kring de olika Lokalerna, om man tex skulle behöva lägga till/ta bort en Lokal.
         {
             public int FordonsID { get; private set; }
@@ -22,5 +21,5 @@ namespace BuissnessEnteties
                 FordonsTyp = fordonsTyp;
             }
         }
-    }
+    
 }

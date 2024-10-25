@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace BuissnessEnteties
 {
-    internal class Station
-    {
+    
         public class StationData //Definierar vilken data som finns kring de olika programmen, om man tex skulle behöva lägga till/ta bort ett program.
         {
             public string Adress { get; private set; }
