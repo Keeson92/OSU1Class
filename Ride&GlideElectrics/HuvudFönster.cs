@@ -20,24 +20,34 @@ namespace Ride_GlideElectrics
            string username = txtUsername.Text;
            string password = txtPassword.Text;
 
-           // En enkel inloggningslogik (byt ut detta med riktig validering om du har det)
-           if (username == "admin" && password == "123")
-           {
-               MessageBox.Show("Inloggning lyckades!");
+            // En enkel inloggningslogik (byt ut detta med riktig validering om du har det)
+            if (username == "admin" && password == "123")
+            {
+                MessageBox.Show("Inloggning lyckades!");
+
+                AdminMenu adminmenu = new AdminMenu();
+
+                // Show the second form
+                adminmenu.Show();
+                this.Hide();
+
+
+
+            }
+            else if (username == "user" && password == "123")
+            {
+                MessageBox.Show("Inloggning lyckades!");
 
                 UserMenu usermenu = new UserMenu();
 
                 // Show the second form
                 usermenu.Show();
                 this.Hide();
-
-
-
             }
             else
-           {
-              MessageBox.Show("Felaktigt användarnamn eller lösenord.");
-           }
+            {
+                MessageBox.Show("Felaktigt användarnamn eller lösenord.");
+            }
         }
     }
 }
