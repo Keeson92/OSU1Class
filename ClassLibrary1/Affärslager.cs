@@ -32,10 +32,8 @@ namespace LogicLayer
 
             List<StationData> stationList = stationRepository.GetAllStationer();
 
-            // ... (samma som tidigare, för inläsning av användare, program, etc.)
+         
 
-            // Skapa en ny hyrning
-            HyraFordon hyraFordon = new HyraFordon();
 
             // Hämta och validera datum
             bool isValidDate = false;
@@ -307,7 +305,7 @@ namespace LogicLayer
         Console.WriteLine();
         Meny(); //Return menyn.
     }
-    public static void UserMeny() //Gäller alltså både för Lärare och Admin i det här scopet på att skapa schema.
+    /*public static void UserMeny() //Gäller alltså både för Lärare och Admin i det här scopet på att skapa schema.
     {
         Console.Title = "Inloggat läge Användare";
         Console.ForegroundColor = ConsoleColor.Magenta; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
@@ -391,7 +389,7 @@ namespace LogicLayer
                     break;
             }
         }
-    }
+    */
 
     public static void ShowStations() //Metod för att visa befintliga stationer
     {
