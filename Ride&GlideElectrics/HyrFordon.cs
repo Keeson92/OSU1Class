@@ -19,9 +19,9 @@ namespace Ride_GlideElectrics
 
         private void btnTillbakaTillUserMenu_Click(object sender, EventArgs e)
         {
-            HuvudFönster huvudfönster = new HuvudFönster();
+            UserMenu usermenu = new UserMenu();
 
-            huvudfönster.Show();
+            usermenu.Show();
             this.Close();
 
         }
