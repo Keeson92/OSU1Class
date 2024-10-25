@@ -1,6 +1,6 @@
 ﻿namespace Ride_GlideElectrics
 {
-    partial class admin
+    partial class AdminMenu
     {
         /// <summary>
         /// Required designer variable.

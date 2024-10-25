@@ -30,7 +30,7 @@
         {
             label_WelcomeText = new Label();
             label_MakeChoice = new Label();
-            btnHyrFordon = new Button();
+            btn_HyrFordon = new Button();
             btn_HyrHistorik = new Button();
             btn_BetalMetod = new Button();
             btn_LogOut = new Button();
@@ -54,15 +54,15 @@
             label_MakeChoice.TabIndex = 1;
             label_MakeChoice.Text = "Vad vill du göra idag?";
             // 
-            // btnHyrFordon
+            // btn_HyrFordon
             // 
-            btnHyrFordon.BackColor = Color.Lime;
-            btnHyrFordon.Location = new Point(12, 71);
-            btnHyrFordon.Name = "btnHyrFordon";
-            btnHyrFordon.Size = new Size(104, 28);
-            btnHyrFordon.TabIndex = 2;
-            btnHyrFordon.Text = "Hyra Fordon";
-            btnHyrFordon.UseVisualStyleBackColor = false;
+            btn_HyrFordon.BackColor = Color.Lime;
+            btn_HyrFordon.Location = new Point(12, 71);
+            btn_HyrFordon.Name = "btn_HyrFordon";
+            btn_HyrFordon.Size = new Size(104, 28);
+            btn_HyrFordon.TabIndex = 2;
+            btn_HyrFordon.Text = "Hyra Fordon";
+            btn_HyrFordon.UseVisualStyleBackColor = false;
             // 
             // btn_HyrHistorik
             // 
@@ -104,7 +104,7 @@
             Controls.Add(btn_LogOut);
             Controls.Add(btn_BetalMetod);
             Controls.Add(btn_HyrHistorik);
-            Controls.Add(btnHyrFordon);
+            Controls.Add(btn_HyrFordon);
             Controls.Add(label_MakeChoice);
             Controls.Add(label_WelcomeText);
             Name = "UserMenu";
@@ -117,7 +117,7 @@
 
         private Label label_WelcomeText;
         private Label label_MakeChoice;
-        private Button btnHyrFordon;
+        private Button btn_HyrFordon;
         private Button btn_HyrHistorik;
         private Button btn_BetalMetod;
         private Button btn_LogOut;

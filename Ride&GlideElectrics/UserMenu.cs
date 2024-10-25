@@ -16,5 +16,18 @@ namespace Ride_GlideElectrics
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_HyrFordon_Click(object sender, EventArgs e)
+        {
+
+            HyrFordon hyrfordon = new HyrFordon();
+            hyrfordon.Show();
+            this.Hide();
+        }
     }
 }

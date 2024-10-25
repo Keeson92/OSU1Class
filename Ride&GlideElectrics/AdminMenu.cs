@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Ride_GlideElectrics
 {
-    public partial class admin : Form
+    public partial class AdminMenu : Form
     {
-        public admin()
+        public AdminMenu()
         {
             InitializeComponent();
         }
