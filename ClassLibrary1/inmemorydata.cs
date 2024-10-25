@@ -1,13 +1,14 @@
-﻿using BuissnessEnteteies;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BuisnessEnteties;
 
-namespace Data     //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
+namespace Setvicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
 {
-
+     
         public class FordonRepository
         {
             private List<Fordon> _fordonLista;

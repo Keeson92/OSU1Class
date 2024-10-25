@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Servicelager", "ClassLibrary1\Servicelager.csproj", "{9195C8AD-BF12-4638-8379-7A88FF3D61F3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuissnessEnteties", "LogicLayer\BuissnessEnteties.csproj", "{EBD2605D-5772-4C33-A71A-2C55F0BB89A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuisnessEnteties", "LogicLayer\BuisnessEnteties.csproj", "{EBD2605D-5772-4C33-A71A-2C55F0BB89A7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentationslager", "Ride&GlideElectrics\Presentationslager.csproj", "{B25B538D-856C-4F33-81B6-683DAA813CB6}"
 EndProject

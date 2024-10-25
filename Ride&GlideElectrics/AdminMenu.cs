@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static BuissnessEnteties.Fordon;
-using static Servicelager.Datalayer;
+using BuissnessEnteties;
+
 
 namespace Ride_GlideElectrics
 {
