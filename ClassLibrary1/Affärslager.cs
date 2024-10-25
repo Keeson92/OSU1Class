@@ -155,6 +155,196 @@ namespace LogicLayer
                 Console.WriteLine("Hyrning sparades inte");
             }
         }
+        public static void VisaHyrhistorik() //Metod för att återhämta gjorda hyrningar
+        {
+
+        }
+        public static int Behörighetsgradinloggad; //Definierar vem som är behörig till att skapa schema.
+        public static bool Login()
+        {
+            int searchID;
+            Console.Write("AnvändarID: ");
+
+            try // Felsäkring då användarID är en int
+            {
+                searchID = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Felaktig inmatning. Mata in ett giltigt AnvändarID.");
+                return false;
+            }
+            // Skapar en instans av Användare 
+            AnvandareRepository anvandareRepository = new AnvandareRepository();
+
+            // Hämta alla användare
+            List<AnvandareData> anvandareLista = anvandareRepository.GetAllAnvandare();
+
+            // Söka efter användare genom deras ID
+            var foundUser = anvandareLista.FirstOrDefault(u => u.AnvandarID == searchID);
+
+            if (foundUser != null)
+            {
+                // Användare hittad, hämtar för- och efternamn.
+                string firstName = foundUser.Fornamn;
+                string lastName = foundUser.Efternamn;
+
+                // Ber om lösenord
+                Console.Write("Lösenord: ");
+                string password = Console.ReadLine();
+
+                // Validerar lösenord
+                if (foundUser.Password == password)
+                {
+                    // Lösenord är korrekt, användare loggas in
+                    Console.WriteLine($"{firstName} {lastName} är nu inloggad.");
+                    Behörighetsgradinloggad = foundUser.Behorighetsgrad; //Antar att Behörighetsgrad är en property av AnvandareData
+                    Meny();
+                    return true; // Returnerar true för ett fungerande inlogg.
+                }
+                else
+                {
+                    // Ogiltigt lösenord
+                    Console.WriteLine("Felaktigt lösenord!");
+                    return false; // Returnerar false för ogiltigt inlogg
+                }
+            }
+            else
+            {
+                // Ingen användare hittad med givet ID
+                Console.WriteLine($"{searchID} hittades inte!");
+                return false; // Return false if user not found
+            }
+        }
+        public static void Meny() //Definierar behörighetsgraden och vilken meny som visas utifrån denna.
+        {
+            if (Affärslager.Behörighetsgradinloggad == 2 || Affärslager.Behörighetsgradinloggad == 3)
+            { UserMeny(); }
+            else
+            { SystemadminMeny(); }
+        }
+        public static void VisaFordon() //Metod för Lokaler, kontroll, lista
+        {
+            FordonRepository fordonRepository = new FordonRepository();
+
+            List<FordonData> fordon = fordonRepository.GetAllFordon();
+            foreach (var Fordon in fordon)
+            {
+                Console.WriteLine($"Namn: {fordon.Typ}, Batteri: {fordon.Batteri}, Station: {fordon.Station}");
+            }
+            Console.WriteLine();
+            Meny(); //Return menyn.
+        }
+        public static void UserMeny() //Gäller alltså både för Lärare och Admin i det här scopet på att skapa schema.
+        {
+            Console.Title = "Inloggat läge Användare";
+            Console.ForegroundColor = ConsoleColor.Magenta; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
+            bool giltigtval = true; // Loop kontroll-värde
+            while (giltigtval)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Välkommen till ditt konto för Ride & Glide Electrics!");
+                Console.WriteLine("Vad vill du göra?");
+                Console.WriteLine("1. Hyra Fordon");
+                Console.WriteLine("2. Visa betalningsmetod");
+                Console.WriteLine("3. Visa hyrhistorik");
+                Console.WriteLine("4. Logga ut");
+                Console.WriteLine("5. Avsluta applikationen");
+                Console.Write("Ditt val?: ");
+                string val = Console.ReadLine();
+                switch (val) // Använder input för vilket switch case som ska användas.
+                {
+                    case "1":
+                        HyraFordon(); // Kallar på metoden från Affärslager klassen.
+                        break;
+                    case "2":
+                        Console.ForegroundColor = ConsoleColor.Red; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
+                        VisaBetalningsmetod(); // Kallar på metoden från Affärslager klassen.
+                        break;
+                    case "3":
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Red; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
+                        VisaHyrhistorik(); // Kallar på metoden från Affärslager klassen.
+                        break;
+                    case "4":
+                        Logout(); //Kallar på metod för utloggning.
+                        break;
+                    case "5":
+                        Environment.Exit(0); //Avlutar allt.
+                        break;
+                    default:
+                        Console.WriteLine("Ogiltigt val. Vänligen försök igen.");
+                        break;
+                }
+
+            }
+        }
+        public static void SystemadminMeny()
+        {
+            Console.Title = "Inloggat läge Systemadministratör";
+            Console.ForegroundColor = ConsoleColor.DarkYellow; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
+            bool giltigtval = true; // Loop kontroll-värde
+            while (giltigtval)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Välkommen till Ride & Glide Electrics!");
+                Console.WriteLine("1. Visa stationer");
+                Console.WriteLine("2. Ändra stationer");
+                Console.WriteLine("3. Visa fordon och dess status");
+                Console.WriteLine("4. Ändra fordon");
+                Console.WriteLine("5. Logga ut");
+                Console.WriteLine("6. Avsluta applikationen");
+                Console.Write("Ditt val?: ");
+                string val = Console.ReadLine();
+                switch (val) // Använder input för vilket switch case som ska användas.
+                {
+                    case "1":
+                        Console.ForegroundColor = ConsoleColor.Cyan; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
+                        ShowStations(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
+                        break;
+                    case "2":
+                        ChangeStations(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
+                        break;
+                    case "3":
+                        VisaFordonStatus(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
+                        break;
+                    case "4":
+                        ChangeVehicleStatus(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
+                        break;
+                    case "5":
+                        Logout(); //Kallar på metod för utloggning.
+                        break;
+                    case "6":
+                        Environment.Exit(0); //Avlutar allt.
+                        break;
+                }
+            }
+        }
+
+        public static void ShowStations() //Metod för att visa befintliga stationer
+        {
+
+        }
+
+        public static void ChangeStations() //Metod för att ändra befintliga stationer, till exempel vid utökad kapacitet, dock out of scope!
+        {
+
+        }
+
+        public static void VisaFordonStatus() //Metod för att hämta information om Fordons status
+        {
+
+        }
+
+        public static void ChangeVehicleStatus() //Metod för att ändra på fordons status, tex om fordon måste plockas bort pga service, eller om de laddas.
+        {
+
+        }
+        private static void Logout() //Metod för utloggning.
+        {
+            Behörighetsgradinloggad = 0;
+            Login(); //Återkommer till inloggningssidan.
+        }
     }
     public class Betalning //egentligen out of scope men behöver ändå vara med för att visa att vi kontrollerar mot giltig betalningsmetod när vi gör hyrprocessen.
     {
@@ -227,196 +417,6 @@ namespace LogicLayer
             return giltighetstid > DateTime.Now;
         }
     }
-    public static void VisaHyrhistorik() //Metod för att återhämta gjorda hyrningar
-    {
 
-    }
-    public static int Behörighetsgradinloggad; //Definierar vem som är behörig till att skapa schema.
-    public static bool Login()
-    {
-        int searchID;
-        Console.Write("AnvändarID: ");
-
-        try // Felsäkring då användarID är en int
-        {
-            searchID = int.Parse(Console.ReadLine());
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine("Felaktig inmatning. Mata in ett giltigt AnvändarID.");
-            return false;
-        }
-        // Skapar en instans av Användare 
-        AnvandareRepository anvandareRepository = new AnvandareRepository();
-
-        // Hämta alla användare
-        List<AnvandareData> anvandareLista = anvandareRepository.GetAllAnvandare();
-
-        // Söka efter användare genom deras ID
-        var foundUser = anvandareLista.FirstOrDefault(u => u.AnvandarID == searchID);
-
-        if (foundUser != null)
-        {
-            // Användare hittad, hämtar för- och efternamn.
-            string firstName = foundUser.Fornamn;
-            string lastName = foundUser.Efternamn;
-
-            // Ber om lösenord
-            Console.Write("Lösenord: ");
-            string password = Console.ReadLine();
-
-            // Validerar lösenord
-            if (foundUser.Password == password)
-            {
-                // Lösenord är korrekt, användare loggas in
-                Console.WriteLine($"{firstName} {lastName} är nu inloggad.");
-                Behörighetsgradinloggad = foundUser.Behorighetsgrad; //Antar att Behörighetsgrad är en property av AnvandareData
-                Meny();
-                return true; // Returnerar true för ett fungerande inlogg.
-            }
-            else
-            {
-                // Ogiltigt lösenord
-                Console.WriteLine("Felaktigt lösenord!");
-                return false; // Returnerar false för ogiltigt inlogg
-            }
-        }
-        else
-        {
-            // Ingen användare hittad med givet ID
-            Console.WriteLine($"{searchID} hittades inte!");
-            return false; // Return false if user not found
-        }
-    }
-    public static void Meny() //Definierar behörighetsgraden och vilken meny som visas utifrån denna.
-    {
-        if (Affärslager.Behörighetsgradinloggad == 2 || Affärslager.Behörighetsgradinloggad == 3)
-        { UserMeny(); }
-        else
-        { SystemadminMeny(); }
-    }
-    public static void VisaFordon() //Metod för Lokaler, kontroll, lista
-    {
-        FordonRepository fordonRepository = new FordonRepository();
-
-        List<FordonData> fordon = fordonRepository.GetAllFordon();
-        foreach (var Fordon in fordon)
-        {
-            Console.WriteLine($"Namn: {fordon.Typ}, Batteri: {fordon.Batteri}, Station: {fordon.Station}");
-        }
-        Console.WriteLine();
-        Meny(); //Return menyn.
-    }
-    public static void UserMeny() //Gäller alltså både för Lärare och Admin i det här scopet på att skapa schema.
-    {
-        Console.Title = "Inloggat läge Användare";
-        Console.ForegroundColor = ConsoleColor.Magenta; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-        bool giltigtval = true; // Loop kontroll-värde
-        while (giltigtval)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Välkommen till ditt konto för Ride & Glide Electrics!");
-            Console.WriteLine("Vad vill du göra?");
-            Console.WriteLine("1. Hyra Fordon");
-            Console.WriteLine("2. Visa betalningsmetod");
-            Console.WriteLine("3. Visa hyrhistorik");
-            Console.WriteLine("4. Logga ut");
-            Console.WriteLine("5. Avsluta applikationen");
-            Console.Write("Ditt val?: ");
-            string val = Console.ReadLine();
-            switch (val) // Använder input för vilket switch case som ska användas.
-            {
-                case "1":
-                    HyraFordon(); // Kallar på metoden från Affärslager klassen.
-                    break;
-                case "2":
-                    Console.ForegroundColor = ConsoleColor.Red; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-                    VisaBetalningsmetod(); // Kallar på metoden från Affärslager klassen.
-                    break;
-                case "3":
-                    Console.WriteLine();
-                    Console.ForegroundColor = ConsoleColor.Red; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-                    VisaHyrhistorik(); // Kallar på metoden från Affärslager klassen.
-                    break;
-                case "4":
-                    Logout(); //Kallar på metod för utloggning.
-                    break;
-                case "5":
-                    Environment.Exit(0); //Avlutar allt.
-                    break;
-                default:
-                    Console.WriteLine("Ogiltigt val. Vänligen försök igen.");
-                    break;
-            }
-
-        }
-    }
-    public static void SystemadminMeny() 
-    {
-        Console.Title = "Inloggat läge Systemadministratör";
-        Console.ForegroundColor = ConsoleColor.DarkYellow; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-        bool giltigtval = true; // Loop kontroll-värde
-        while (giltigtval)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Välkommen till Ride & Glide Electrics!");
-            Console.WriteLine("1. Visa stationer");
-            Console.WriteLine("2. Ändra stationer");
-            Console.WriteLine("3. Visa fordon och dess status");
-            Console.WriteLine("4. Ändra fordon");
-            Console.WriteLine("5. Logga ut");
-            Console.WriteLine("6. Avsluta applikationen");
-            Console.Write("Ditt val?: ");
-            string val = Console.ReadLine();
-            switch (val) // Använder input för vilket switch case som ska användas.
-            {
-                case "1":
-                    Console.ForegroundColor = ConsoleColor.Cyan; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-                    ShowStations(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
-                    break;
-                case "2":
-                    ChangeStations(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
-                    break;
-                case "3":
-                    VisaFordonStatus(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
-                    break;
-                case "4":
-                    ChangeVehicleStatus(); // Kallar på metoden från Affärslager klassen. (här måste vi lägga till denna metod)
-                    break;
-                case "5":
-                    Logout(); //Kallar på metod för utloggning.
-                    break;
-                case "6":
-                    Environment.Exit(0); //Avlutar allt.
-                    break;
-            }
-        }
-    }
-
-    public static void ShowStations() //Metod för att visa befintliga stationer
-    {
-
-    }
-
-    public static void ChangeStations() //Metod för att ändra befintliga stationer, till exempel vid utökad kapacitet, dock out of scope!
-    {
-
-    }
-
-    public static void VisaFordonStatus() //Metod för att hämta information om Fordons status
-    {
-
-    }
-
-    public static void ChangeVehicleStatus() //Metod för att ändra på fordons status, tex om fordon måste plockas bort pga service, eller om de laddas.
-    {
-
-    }
-    private static void Logout() //Metod för utloggning.
-    {
-        Behörighetsgradinloggad = 0;
-        Login(); //Återkommer till inloggningssidan.
-    }
 }
-}
-}
+
