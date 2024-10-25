@@ -157,7 +157,7 @@ namespace LogicLayer
         {
 
         }
-        public static int Behörighetsgradinloggad; //Definierar vem som är behörig till att skapa schema.
+        public static int Behörighetsgradinloggad; //Definierar vem som är behörig till vilken meny
         public static bool Login()
         {
             int searchID;
@@ -187,9 +187,7 @@ namespace LogicLayer
                 string firstName = foundUser.Fornamn;
                 string lastName = foundUser.Efternamn;
 
-                // Ber om lösenord
-                Console.Write("Lösenord: ");
-                string password = Console.ReadLine();
+             
 
                 // Validerar lösenord
                 if (foundUser.Password == password)
