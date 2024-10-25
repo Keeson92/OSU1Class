@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Ride_GlideElectrics
 {
     public partial class UserMenu : Form
@@ -22,7 +23,7 @@ namespace Ride_GlideElectrics
 
         }
 
-        private void btn_HyrFordon_Click(object sender, EventArgs e)
+        private void btnHyrFordon_Click(object sender, EventArgs e)
         {
 
             HyrFordon hyrfordon = new HyrFordon();
