@@ -225,50 +225,7 @@ namespace Servicelager
         Console.WriteLine();
         Meny(); //Return menyn.
     }
-    /*public static void UserMeny() //Gäller alltså både för Lärare och Admin i det här scopet på att skapa schema.
-    {
-        Console.Title = "Inloggat läge Användare";
-        Console.ForegroundColor = ConsoleColor.Magenta; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-        bool giltigtval = true; // Loop kontroll-värde
-        while (giltigtval)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Välkommen till ditt konto för Ride & Glide Electrics!");
-            Console.WriteLine("Vad vill du göra?");
-            Console.WriteLine("1. Hyra Fordon");
-            Console.WriteLine("2. Visa betalningsmetod");
-            Console.WriteLine("3. Visa hyrhistorik");
-            Console.WriteLine("4. Logga ut");
-            Console.WriteLine("5. Avsluta applikationen");
-            Console.Write("Ditt val?: ");
-            string val = Console.ReadLine();
-            switch (val) // Använder input för vilket switch case som ska användas.
-            {
-                case "1":
-                    HyraFordon(); // Kallar på metoden från Affärslager klassen.
-                    break;
-                case "2":
-                    Console.ForegroundColor = ConsoleColor.Red; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-                    VisaBetalningsmetod(); // Kallar på metoden från Affärslager klassen.
-                    break;
-                case "3":
-                    Console.WriteLine();
-                    Console.ForegroundColor = ConsoleColor.Red; // BYTER FÄRG PÅ CONSOLE!!! WOOOOOO
-                    VisaHyrhistorik(); // Kallar på metoden från Affärslager klassen.
-                    break;
-                case "4":
-                    Logout(); //Kallar på metod för utloggning.
-                    break;
-                case "5":
-                    Environment.Exit(0); //Avlutar allt.
-                    break;
-                default:
-                    Console.WriteLine("Ogiltigt val. Vänligen försök igen.");
-                    break;
-            }
-
-        }
-    }
+    
     public static void SystemadminMeny() 
     {
         Console.Title = "Inloggat läge Systemadministratör";
