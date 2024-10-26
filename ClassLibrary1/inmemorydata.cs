@@ -9,25 +9,22 @@ using BusinessEntities;
 namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
 
 {
-    public class FordonRepository
-        {
-            private List<Fordon> _fordonLista;
-            public FordonRepository()
-            {
+    public static class FordonRepository
+    {
+        public static List<Fordon> GetAllFordon()
+        {            
                 // Initialiserar data
-                _fordonLista = new List<Fordon>
+                return new List<Fordon>
                     {
                         new Fordon(85, "Allégatan 10", "Bokad", "Elcykel"),
                         new Fordon(83, "Stationsgatan 5", "Ledig", "Elsparkcykel"),
                         new Fordon(10, "Solrosvägen 12", "Laddas", "Elsparkcykel")
                     };
-            }
-            public List<Fordon> GetAllFordon() //Metod för att få alla fordon som finns.
-            {
-                return _fordonLista;
-            }
+
+
         }
 
+    }
 
     public class AnvandareRepository
     {

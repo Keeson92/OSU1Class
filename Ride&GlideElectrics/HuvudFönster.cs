@@ -29,10 +29,10 @@ namespace Ride_GlideElectrics
             {
                 MessageBox.Show("Inloggning lyckades!");
 
-                AdminMenu adminmenu = new AdminMenu();
+                AdminMenu AdminMenu = new AdminMenu();
 
                 // Show the second form
-                adminmenu.Show();
+                AdminMenu.Show();
                 this.Hide();
 
 

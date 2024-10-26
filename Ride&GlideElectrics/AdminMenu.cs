@@ -10,11 +10,12 @@ using System.Windows.Forms;
 using Servicelager;
 using BusinessEntities;
 
-namespace Ride_GlideElectrics  
+namespace Ride_GlideElectrics
 {
     public partial class AdminMenu : Form
     {
-        private List<Fordon> fordonLista;
+        private List<Fordon> _fordonLista;
+
         public AdminMenu() // startar winforms + hämtar listor
         {
             InitializeComponent();
@@ -23,26 +24,28 @@ namespace Ride_GlideElectrics
 
         private void InitializeData() // kopplar listan till datagrid
         {
+            // Initialize the list from in-memory data source
+            _fordonLista = FordonRepository.GetAllFordon();
 
-            dataGridView1.DataSource = fordonLista;
-            dataGridView1.Columns["fordonsID"].HeaderText = "ID";
-            dataGridView1.Columns["position"].HeaderText = "Station";
+            dataGridView1.DataSource = _fordonLista;
+            dataGridView1.Columns["FordonsID"].HeaderText = "ID";
+            dataGridView1.Columns["Position"].HeaderText = "Station";
             dataGridView1.Columns["Status"].HeaderText = "Status";
-            dataGridView1.Columns["fordonsTyp"].HeaderText = "Typ utav fordon";
+            dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
         private void btn_LoggaUt_click(object sender, EventArgs e)
         {
-            HuvudFönster huvudFönster = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
-            huvudFönster.Show(); // Öppnar det nya fönstret
+            HuvudFönster HuvudFönster = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
+            HuvudFönster.Show(); // Öppnar det nya fönstret
             this.Close(); // Stänger det aktuella fönstret
         }
 
         private void btn_Redigera_click(object sender, EventArgs e)
         {
-            HuvudFönster RedigeraFordon = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
+            RedigeraFordon RedigeraFordon = new RedigeraFordon(); // Skapar en instans av inloggningsfönstret
             RedigeraFordon.Show(); // Öppnar det nya fönstret
-
         }
     }
+
 }
