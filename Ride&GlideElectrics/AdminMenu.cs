@@ -36,14 +36,16 @@ namespace Ride_GlideElectrics
         private void InitializeData() // kopplar listan till datagrid
         {
 
-           dataGridView1.DataSource = fordonLista;
-           dataGridView1.Columns["fordonsID"].HeaderText = "ID";
-           dataGridView1.Columns["position"].HeaderText = "Station";
-           dataGridView1.Columns["Status"].HeaderText = "Status";
-           dataGridView1.Columns["fordonsTyp"].HeaderText = "Typ utav fordon";
+            dataGridView1.DataSource = fordonLista;
+            dataGridView1.Columns["fordonsID"].HeaderText = "ID";
+            dataGridView1.Columns["position"].HeaderText = "Station";
+            dataGridView1.Columns["Status"].HeaderText = "Status";
+            dataGridView1.Columns["fordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
-        
+        private void btn_LoggaUt_click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            label_Fordon = new Label();
             label2 = new Label();
-            LoggaUt = new Button();
+            Btn_LoggaUt = new Button();
             Redigera = new Button();
-            label3 = new Label();
-            label4 = new Label();
+            label_Status = new Label();
+            label_Station = new Label();
             label5 = new Label();
             dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // label_Fordon
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(254, 165);
-            label1.Name = "label1";
-            label1.Size = new Size(45, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Fordon";
-            label1.Click += label1_Click;
+            label_Fordon.AutoSize = true;
+            label_Fordon.Location = new Point(257, 186);
+            label_Fordon.Name = "label_Fordon";
+            label_Fordon.Size = new Size(45, 15);
+            label_Fordon.TabIndex = 0;
+            label_Fordon.Text = "Fordon";
+            label_Fordon.Click += label1_Click;
             // 
             // label2
             // 
@@ -60,15 +60,16 @@
             label2.Text = "ADMIN MENY";
             label2.Click += label2_Click;
             // 
-            // LoggaUt
+            // Btn_LoggaUt
             // 
-            LoggaUt.AccessibleName = "LoggaUt";
-            LoggaUt.Location = new Point(36, 505);
-            LoggaUt.Name = "LoggaUt";
-            LoggaUt.Size = new Size(108, 53);
-            LoggaUt.TabIndex = 3;
-            LoggaUt.Text = "Logga ut";
-            LoggaUt.UseVisualStyleBackColor = true;
+            Btn_LoggaUt.AccessibleName = "LoggaUt";
+            Btn_LoggaUt.Location = new Point(36, 505);
+            Btn_LoggaUt.Name = "Btn_LoggaUt";
+            Btn_LoggaUt.Size = new Size(108, 53);
+            Btn_LoggaUt.TabIndex = 3;
+            Btn_LoggaUt.Text = "Logga ut";
+            Btn_LoggaUt.UseVisualStyleBackColor = true;
+            Btn_LoggaUt.Click += btn_LoggaUt_click;
             // 
             // Redigera
             // 
@@ -79,23 +80,23 @@
             Redigera.Text = "Redigera";
             Redigera.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // label_Status
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(555, 165);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 15);
-            label3.TabIndex = 5;
-            label3.Text = "status";
+            label_Status.AutoSize = true;
+            label_Status.Location = new Point(536, 186);
+            label_Status.Name = "label_Status";
+            label_Status.Size = new Size(39, 15);
+            label_Status.TabIndex = 5;
+            label_Status.Text = "Status";
             // 
-            // label4
+            // label_Station
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(881, 165);
-            label4.Name = "label4";
-            label4.Size = new Size(44, 15);
-            label4.TabIndex = 6;
-            label4.Text = "Station";
+            label_Station.AutoSize = true;
+            label_Station.Location = new Point(871, 186);
+            label_Station.Name = "label_Station";
+            label_Station.Size = new Size(44, 15);
+            label_Station.TabIndex = 6;
+            label_Station.Text = "Station";
             // 
             // label5
             // 
@@ -122,12 +123,12 @@
             ClientSize = new Size(1135, 608);
             Controls.Add(dataGridView1);
             Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
+            Controls.Add(label_Station);
+            Controls.Add(label_Status);
             Controls.Add(Redigera);
-            Controls.Add(LoggaUt);
+            Controls.Add(Btn_LoggaUt);
             Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(label_Fordon);
             Name = "AdminMenu";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -137,9 +138,9 @@
 
         #endregion
 
-        private Label label1;
+        private Label label_Fordon;
         private Label label2;
-        private Button LoggaUt;
+        private Button Btn_LoggaUt;
             private void LoggaUt_Click(object sender, EventArgs e)
             {
              HuvudFönster huvudFönster = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
@@ -155,8 +156,8 @@
             
         }
 
-        private Label label3;
-        private Label label4;
+        private Label label_Status;
+        private Label label_Station;
         private Label label5;
         private DataGridView dataGridView1;
     }
