@@ -21,29 +21,28 @@ namespace Ride_GlideElectrics
             InitializeData();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            HuvudFönster frm = new(); // gå tillbaka till inloggning
-            frm.Show(); // öppna inloggningsfönster
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            RedigeraFordon frm = new(); // här vill vi även ha med vilket fordon vi redigerar ifrån föregående form när det är redo
-            frm.Show();
-        }
-
         private void InitializeData() // kopplar listan till datagrid
         {
 
-           dataGridView1.DataSource = fordonLista;
-           dataGridView1.Columns["fordonsID"].HeaderText = "ID";
-           dataGridView1.Columns["position"].HeaderText = "Station";
-           dataGridView1.Columns["Status"].HeaderText = "Status";
-           dataGridView1.Columns["fordonsTyp"].HeaderText = "Typ utav fordon";
+            dataGridView1.DataSource = fordonLista;
+            dataGridView1.Columns["fordonsID"].HeaderText = "ID";
+            dataGridView1.Columns["position"].HeaderText = "Station";
+            dataGridView1.Columns["Status"].HeaderText = "Status";
+            dataGridView1.Columns["fordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
-        
+        private void btn_LoggaUt_click(object sender, EventArgs e)
+        {
+            HuvudFönster huvudFönster = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
+            huvudFönster.Show(); // Öppnar det nya fönstret
+            this.Close(); // Stänger det aktuella fönstret
+        }
 
+        private void btn_Redigera_click(object sender, EventArgs e)
+        {
+            HuvudFönster RedigeraFordon = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
+            RedigeraFordon.Show(); // Öppnar det nya fönstret
+
+        }
     }
 }

@@ -28,83 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            LoggaUt = new Button();
-            Redigera = new Button();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
+            label_Fordon = new Label();
+            label_AdminMenu = new Label();
+            Btn_LoggaUt = new Button();
+            Btn_Redigera = new Button();
+            label_Status = new Label();
+            label_Station = new Label();
+            label_FordonUppdaterad = new Label();
             dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // label_Fordon
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(254, 165);
-            label1.Name = "label1";
-            label1.Size = new Size(45, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Fordon";
-            label1.Click += label1_Click;
+            label_Fordon.AutoSize = true;
+            label_Fordon.Location = new Point(257, 186);
+            label_Fordon.Name = "label_Fordon";
+            label_Fordon.Size = new Size(45, 15);
+            label_Fordon.TabIndex = 0;
+            label_Fordon.Text = "Fordon";
+            
             // 
             // label2
             // 
-            label2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label2.Location = new Point(490, 52);
-            label2.MaximumSize = new Size(164, 30);
-            label2.Name = "label2";
-            label2.Size = new Size(164, 30);
-            label2.TabIndex = 1;
-            label2.Text = "ADMIN MENY";
-            label2.Click += label2_Click;
+            label_AdminMenu.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label_AdminMenu.Location = new Point(490, 52);
+            label_AdminMenu.MaximumSize = new Size(164, 30);
+            label_AdminMenu.Name = "labelAdminMenu";
+            label_AdminMenu.Size = new Size(164, 30);
+            label_AdminMenu.TabIndex = 1;
+            label_AdminMenu.Text = "ADMIN MENU";
             // 
-            // LoggaUt knapp
+            // Btn_LoggaUt
             // 
-            LoggaUt.AccessibleName = "LoggaUt";
-            LoggaUt.Location = new Point(36, 505);
-            LoggaUt.Name = "button1";
-            LoggaUt.Size = new Size(108, 53);
-            LoggaUt.TabIndex = 3;
-            LoggaUt.Text = "Logga ut";
-            LoggaUt.UseVisualStyleBackColor = true;
+            Btn_LoggaUt.AccessibleName = "LoggaUt";
+            Btn_LoggaUt.Location = new Point(36, 505);
+            Btn_LoggaUt.Name = "Btn_LoggaUt";
+            Btn_LoggaUt.Size = new Size(108, 53);
+            Btn_LoggaUt.TabIndex = 3;
+            Btn_LoggaUt.Text = "Logga ut";
+            Btn_LoggaUt.UseVisualStyleBackColor = true;
+            Btn_LoggaUt.Click += btn_LoggaUt_click;
             // 
-            // Redigera
+            // btn_Redigera
             // 
-            Redigera.Location = new Point(990, 505);
-            Redigera.Name = "button2";
-            Redigera.Size = new Size(87, 53);
-            Redigera.TabIndex = 4;
-            Redigera.Text = "Redigera";
-            Redigera.UseVisualStyleBackColor = true;
+            Btn_Redigera.Location = new Point(990, 505);
+            Btn_Redigera.Name = "btn_Redigera";
+            Btn_Redigera.Size = new Size(87, 53);
+            Btn_Redigera.TabIndex = 4;
+            Btn_Redigera.Text = "Redigera";
+            Btn_Redigera.UseVisualStyleBackColor = true;
+            Btn_Redigera.Click += btn_Redigera_click;
             // 
-            // label3
+            // label_Status
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(555, 165);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 15);
-            label3.TabIndex = 5;
-            label3.Text = "status";
+            label_Status.AutoSize = true;
+            label_Status.Location = new Point(536, 186);
+            label_Status.Name = "label_Status";
+            label_Status.Size = new Size(39, 15);
+            label_Status.TabIndex = 5;
+            label_Status.Text = "Status";
             // 
-            // label4
+            // label_Station
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(881, 165);
-            label4.Name = "label4";
-            label4.Size = new Size(44, 15);
-            label4.TabIndex = 6;
-            label4.Text = "Station";
+            label_Station.AutoSize = true;
+            label_Station.Location = new Point(871, 186);
+            label_Station.Name = "label_Station";
+            label_Station.Size = new Size(44, 15);
+            label_Station.TabIndex = 6;
+            label_Station.Text = "Station";
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(536, 543);
-            label5.Name = "label5";
-            label5.Size = new Size(118, 15);
-            label5.TabIndex = 7;
-            label5.Text = "Fordon Uppdatrades!";
+            label_FordonUppdaterad.AutoSize = true;
+            label_FordonUppdaterad.Location = new Point(536, 543);
+            label_FordonUppdaterad.Name = "label_FordonUppdaterad";
+            label_FordonUppdaterad.Size = new Size(124, 15);
+            label_FordonUppdaterad.TabIndex = 7;
+            label_FordonUppdaterad.Text = "Fordon Uppdaterades!";
             // 
             // dataGridView1
             // 
@@ -121,15 +122,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1135, 608);
             Controls.Add(dataGridView1);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(Redigera);
-            Controls.Add(LoggaUt);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(label_FordonUppdaterad);
+            Controls.Add(label_Station);
+            Controls.Add(label_Status);
+            Controls.Add(Btn_Redigera);
+            Controls.Add(Btn_LoggaUt);
+            Controls.Add(label_AdminMenu);
+            Controls.Add(label_Fordon);
             Name = "AdminMenu";
-            Text = "Form1";
+            Text = "AdminMenu";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -137,27 +138,13 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Button LoggaUt;
-            private void LoggaUt_Click(object sender, EventArgs e)
-            {
-             HuvudFönster huvudFönster = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
-             huvudFönster.Show(); // Öppnar det nya fönstret
-             this.Close(); // Stänger det aktuella fönstret
-            }
-
-        private Button Redigera;
-        private void Redigera_Click(object sender, EventArgs e)
-        {
-            HuvudFönster RedigeraFordon = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
-            RedigeraFordon.Show(); // Öppnar det nya fönstret
-            
-        }
-
-        private Label label3;
-        private Label label4;
-        private Label label5;
+        private Label label_Fordon;
+        private Label label_AdminMenu;
+        private Button Btn_LoggaUt;
+        private Button Btn_Redigera;
+        private Label label_Status;
+        private Label label_Station;
+        private Label label_FordonUppdaterad;
         private DataGridView dataGridView1;
     }
 }

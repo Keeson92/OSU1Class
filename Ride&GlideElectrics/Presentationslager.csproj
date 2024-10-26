@@ -6,9 +6,6 @@
     <RootNamespace>Ride_GlideElectrics</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
