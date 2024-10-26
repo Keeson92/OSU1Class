@@ -49,7 +49,7 @@ namespace Ride_GlideElectrics
             UserName.Size = new Size(92, 15);
             UserName.TabIndex = 0;
             UserName.Text = "Användarnamn:";
-            UserName.Click += label1_Click;
+            UserName.Click += label_UserName_Click;
             // 
             // txtUsername
             // 

@@ -11,7 +11,7 @@ namespace Ride_GlideElectrics
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label_UserName_Click(object sender, EventArgs e)
         {
 
         }
