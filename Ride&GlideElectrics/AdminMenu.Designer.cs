@@ -30,8 +30,8 @@
         {
             label1 = new Label();
             label2 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            LoggaUt = new Button();
+            Redigera = new Button();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -62,7 +62,8 @@
             // 
             // button1
             // 
-            button1.Location = new Point(12, 543);
+            button1.AccessibleName = "LoggaUt";
+            button1.Location = new Point(36, 505);
             button1.Name = "button1";
             button1.Size = new Size(108, 53);
             button1.TabIndex = 3;
@@ -71,7 +72,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(1017, 543);
+            button2.Location = new Point(990, 505);
             button2.Name = "button2";
             button2.Size = new Size(87, 53);
             button2.TabIndex = 4;
@@ -123,8 +124,8 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(Redigera);
+            Controls.Add(LoggaUt);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "AdminMenu";
@@ -138,8 +139,22 @@
 
         private Label label1;
         private Label label2;
-        private Button button1;
-        private Button button2;
+        private Button LoggaUt;
+            private void LoggaUt_Click(object sender, EventArgs e)
+            {
+             HuvudFönster huvudFönster = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
+             huvudFönster.Show(); // Öppnar det nya fönstret
+             this.Close(); // Stänger det aktuella fönstret
+            }
+
+        private Button Redigera;
+        private void Redigera_Click(object sender, EventArgs e)
+        {
+            HuvudFönster RedigeraFordon = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
+            RedigeraFordon.Show(); // Öppnar det nya fönstret
+            
+        }
+
         private Label label3;
         private Label label4;
         private Label label5;
