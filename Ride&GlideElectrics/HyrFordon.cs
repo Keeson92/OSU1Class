@@ -37,12 +37,26 @@ namespace Ride_GlideElectrics
             listBoxFordon.Items.Clear();
             var fordonPåAllegatan = _affärslager.GetFordonByStation("Allégatan");
 
-            foreach (var fordon in fordonPåAllegatan)
+            // Filtrera för att bara visa fordon som är "Ledig"
+            var ledigaFordon = fordonPåAllegatan
+                                .Where(fordon => fordon.Status == "Ledig")
+                                .ToList();
+
+            // Kolla om det finns några lediga fordon
+            if (ledigaFordon.Count == 0)
             {
-                listBoxFordon.Items.Add($"{fordon.FordonsTyp}  -  {fordon.Status}  (ID:  {fordon.FordonsID})");
+                MessageBox.Show("Inga lediga fordon på Allégatan.");
+                listBoxFordon.Tag = null; // Ingen fordon att välja
+                return; // Avsluta metoden
             }
 
-            listBoxFordon.Tag = fordonPåAllegatan; // Spara fordonslistan för vidare hantering
+            foreach (var fordon in ledigaFordon)
+            {
+                listBoxFordon.Items.Add($"{fordon.FordonsTyp} - {fordon.Status} (ID: {fordon.FordonsID})");
+            }
+
+            listBoxFordon.Tag = ledigaFordon; // Spara den filtrerade fordonslistan för vidare hantering
+
         }
 
         private void btn_Stationsgatan_Click(object sender, EventArgs e)
@@ -50,12 +64,25 @@ namespace Ride_GlideElectrics
             listBoxFordon.Items.Clear();
             var fordonPåStationsgatan = _affärslager.GetFordonByStation("Stationsgatan");
 
-            foreach (var fordon in fordonPåStationsgatan)
+            // Filtrera för att bara visa fordon som är "Ledig"
+            var ledigaFordon = fordonPåStationsgatan
+                                .Where(fordon => fordon.Status == "Ledig")
+                                .ToList();
+
+            // Kolla om det finns några lediga fordon
+            if (ledigaFordon.Count == 0)
+            {
+                MessageBox.Show("Inga lediga fordon på Stationsgatan.");
+                listBoxFordon.Tag = null; // Ingen fordon att välja
+                return; // Avsluta metoden
+            }
+
+            foreach (var fordon in ledigaFordon)
             {
                 listBoxFordon.Items.Add($"{fordon.FordonsTyp} - {fordon.Status} (ID: {fordon.FordonsID})");
             }
 
-            listBoxFordon.Tag = fordonPåStationsgatan; // Spara fordonslistan för vidare hantering
+            listBoxFordon.Tag = ledigaFordon; // Spara den filtrerade fordonslistan för vidare hantering
         }
 
         private void btn_Fredriksbergsgatan_Click(object sender, EventArgs e)
@@ -63,28 +90,53 @@ namespace Ride_GlideElectrics
             listBoxFordon.Items.Clear();
             var fordonPåFredriksbergsgatan = _affärslager.GetFordonByStation("Fredriksbergsgatan");
 
-            foreach (var fordon in fordonPåFredriksbergsgatan)
+            // Filtrera för att bara visa fordon som är "Ledig"
+            var ledigaFordon = fordonPåFredriksbergsgatan
+                                .Where(fordon => fordon.Status == "Ledig")
+                                .ToList();
+
+            // Kolla om det finns några lediga fordon
+            if (ledigaFordon.Count == 0)
+            {
+                MessageBox.Show("Inga lediga fordon på Fredriksbergsgatan.");
+                listBoxFordon.Tag = null; // Ingen fordon att välja
+                return; // Avsluta metoden
+            }
+
+            foreach (var fordon in ledigaFordon)
             {
                 listBoxFordon.Items.Add($"{fordon.FordonsTyp} - {fordon.Status} (ID: {fordon.FordonsID})");
             }
 
-            listBoxFordon.Tag = fordonPåFredriksbergsgatan; // Spara fordonslistan för vidare hantering
+            listBoxFordon.Tag = ledigaFordon; // Spara den filtrerade fordonslistan för vidare hantering
         }
         private void btn_Solrosvägen_Click(object sender, EventArgs e)
         {
             listBoxFordon.Items.Clear();
             var fordonPåSolrosvägen = _affärslager.GetFordonByStation("Solrosvägen");
 
-            foreach (var fordon in fordonPåSolrosvägen)
+            // Filtrera för att bara visa fordon som är "Ledig"
+            var ledigaFordon = fordonPåSolrosvägen
+                                .Where(fordon => fordon.Status == "Ledig")
+                                .ToList();
+
+            // Kolla om det finns några lediga fordon
+            if (ledigaFordon.Count == 0)
+            {
+                MessageBox.Show("Inga lediga fordon på Solrosvägen.");
+                listBoxFordon.Tag = null; // Ingen fordon att välja
+                return; // Avsluta metoden
+            }
+
+            foreach (var fordon in ledigaFordon)
             {
                 listBoxFordon.Items.Add($"{fordon.FordonsTyp} - {fordon.Status} (ID: {fordon.FordonsID})");
             }
 
-            listBoxFordon.Tag = fordonPåSolrosvägen; // Spara fordonslistan för vidare hantering
+            listBoxFordon.Tag = ledigaFordon; // Spara den filtrerade fordonslistan för vidare hantering
         }
         private void btn_StartaUthyrning_Click(object sender, EventArgs e)
         {
-            // Kontrollera om ett fordon är valt
             if (listBoxFordon.SelectedIndex == -1)
             {
                 MessageBox.Show("Vänligen välj ett fordon från listan.");
@@ -92,15 +144,18 @@ namespace Ride_GlideElectrics
             }
 
             // Hämta det valda fordonet baserat på indexet i listBoxFordon
-            var fordonLista = (List<Fordon>)listBoxFordon.Tag;
-            var valtFordon = fordonLista[listBoxFordon.SelectedIndex];
+            var fordonList = listBoxFordon.Tag as List<Fordon>; // Använd as för att undvika exception
+            if (fordonList == null || fordonList.Count == 0)
+            {
+                MessageBox.Show("Inga fordon valda.");
+                return;
+            }
+
+            var valtFordon = fordonList[listBoxFordon.SelectedIndex];
 
             // Sätt uthyrningsinformationen - exempelvis nuvarande tid som start
             var uthyrningStart = DateTime.Now;
             var uthyrningSlut = uthyrningStart.AddHours(2); // Exempel på hyresperiod, här 2 timmar
-
-            // Starta uthyrningen
-            _affärslager.StartaUthyrning(valtFordon.FordonsID, uthyrningStart, uthyrningSlut);
 
             // Skapa en ny UthyrningsData och spara i uthyrningshistoriken
             var uthyrningData = new UthyrningsData(uthyrningStart, uthyrningSlut, valtFordon.FordonsID);
