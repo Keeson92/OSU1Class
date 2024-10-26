@@ -7,10 +7,5 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>True</UseWindowsForms>
   </PropertyGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\Servicelager.csproj" />
-    <ProjectReference Include="..\Ride&amp;GlideElectrics\Presentationslager.csproj" />
-  </ItemGroup>
 
 </Project>
