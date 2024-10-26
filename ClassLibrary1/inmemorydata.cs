@@ -22,7 +22,7 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
                         new Fordon(3, 10, "Solrosvägen 12", "Laddas", "Elsparkcykel")
                     };
             }
-            public List<Fordon> GetAllFordon() //Metod för att få alla behörigheter som finns.
+            public List<Fordon> GetAllFordon() //Metod för att få alla fordon som finns.
             {
                 return _fordonLista;
             }
@@ -73,7 +73,7 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
                         new KontoData(new DateTime(2024, 9, 24), "Mastercard")
              };
         }
-        public List<KontoData> GetAllKonto() //Metod för att få alla Lokaler som finns.
+        public List<KontoData> GetAllKonto() //Metod för att få alla Konton som finns.
         {
                 return _kontolista;
         }
@@ -113,7 +113,7 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
                     new UthyrningsData(new DateTime(2024, 10, 27, 11, 0, 0), new DateTime(2024, 10, 27, 12, 30, 0), 5)
              };
          }
-         public List<UthyrningsData> GetAllUthyrningsData() //Metod för att få alla kurser som finns.
+         public List<UthyrningsData> GetAllUthyrningsData() //Metod för att få all uthyrningsdata som finns.
          {
                 return _uthyrningsdatalist;
          }
@@ -134,8 +134,8 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
               };
          }
 
-         public List<KontoData> GetAllKontoData()
-         {
+         public List<KontoData> GetAllKontoData() //Metod för att få all kontodata som finns.
+        {
               return _kontoDatalist;
          }
 
