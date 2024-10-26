@@ -21,13 +21,13 @@ namespace Ride_GlideElectrics
             InitializeData();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label_LoggaUt_Click(object sender, EventArgs e)
         {
             HuvudFönster frm = new(); // gå tillbaka till inloggning
             frm.Show(); // öppna inloggningsfönster
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void label_Redigera_Click(object sender, EventArgs e)
         {
             RedigeraFordon frm = new(); // här vill vi även ha med vilket fordon vi redigerar ifrån föregående form när det är redo
             frm.Show();
@@ -45,6 +45,15 @@ namespace Ride_GlideElectrics
 
         private void btn_LoggaUt_click(object sender, EventArgs e)
         {
+            HuvudFönster huvudFönster = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
+            huvudFönster.Show(); // Öppnar det nya fönstret
+            this.Close(); // Stänger det aktuella fönstret
+        }
+
+        private void btn_Redigera_click(object sender, EventArgs e)
+        {
+            HuvudFönster RedigeraFordon = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
+            RedigeraFordon.Show(); // Öppnar det nya fönstret
 
         }
     }
