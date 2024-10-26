@@ -60,11 +60,11 @@
             label2.Text = "ADMIN MENY";
             label2.Click += label2_Click;
             // 
-            // LoggaUt knapp
+            // LoggaUt
             // 
             LoggaUt.AccessibleName = "LoggaUt";
             LoggaUt.Location = new Point(36, 505);
-            LoggaUt.Name = "button1";
+            LoggaUt.Name = "LoggaUt";
             LoggaUt.Size = new Size(108, 53);
             LoggaUt.TabIndex = 3;
             LoggaUt.Text = "Logga ut";
@@ -73,7 +73,7 @@
             // Redigera
             // 
             Redigera.Location = new Point(990, 505);
-            Redigera.Name = "button2";
+            Redigera.Name = "Redigera";
             Redigera.Size = new Size(87, 53);
             Redigera.TabIndex = 4;
             Redigera.Text = "Redigera";
@@ -102,9 +102,9 @@
             label5.AutoSize = true;
             label5.Location = new Point(536, 543);
             label5.Name = "label5";
-            label5.Size = new Size(118, 15);
+            label5.Size = new Size(124, 15);
             label5.TabIndex = 7;
-            label5.Text = "Fordon Uppdatrades!";
+            label5.Text = "Fordon Uppdaterades!";
             // 
             // dataGridView1
             // 
