@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using BusinessEntities;
-using Presentationslager;
 
 namespace Servicelager
 {
@@ -22,7 +21,7 @@ namespace Servicelager
 
             FordonRepository fordonRepository = new FordonRepository();
 
-            List<FordonData> fordonList = fordonRepository.GetAllFordon();
+            List<Fordon> fordonList = fordonRepository.GetAllFordon();
 
             StationRepository stationRepository = new StationRepository();
 
