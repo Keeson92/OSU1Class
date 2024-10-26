@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using BusinessEntities;
 
-
 namespace Servicelager
 {
     public class Affärslager

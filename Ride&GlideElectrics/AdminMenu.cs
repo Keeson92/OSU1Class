@@ -14,7 +14,7 @@ namespace Ride_GlideElectrics
 {
     public partial class AdminMenu : Form
     {
-        private List<Fordon> _fordonLista;
+        private List<Fordon> fordonLista;
         public AdminMenu() // startar winforms + hämtar listor
         {
             InitializeComponent();
@@ -36,11 +36,11 @@ namespace Ride_GlideElectrics
         private void InitializeData() // kopplar listan till datagrid
         {
 
-           FordonStatusStationGrid.DataSource = _fordonLista;
-           FordonStatusStationGrid.Columns["fordonsID"].HeaderText = "ID";
-           FordonStatusStationGrid.Columns["position"].HeaderText = "Station";
-           FordonStatusStationGrid.Columns["Status"].HeaderText = "Status";
-           FordonStatusStationGrid.Columns["fordonsTyp"].HeaderText = "Typ utav fordon";
+           dataGridView1.DataSource = fordonLista;
+           dataGridView1.Columns["fordonsID"].HeaderText = "ID";
+           dataGridView1.Columns["position"].HeaderText = "Station";
+           dataGridView1.Columns["Status"].HeaderText = "Status";
+           dataGridView1.Columns["fordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
         
