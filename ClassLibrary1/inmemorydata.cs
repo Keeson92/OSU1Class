@@ -135,7 +135,7 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
          }
 
          public List<KontoData> GetAllKontoData() //Metod för att få all kontodata som finns.
-         {
+        {
               return _kontoDatalist;
          }
 
@@ -147,10 +147,10 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
          public List<KontoData> GetKontoDataByDate(DateTime hyrHistorik)
          {
                 var resultat = _kontoDatalist.Where(k => k.HyrHistorik == hyrHistorik).ToList();
-                
+
                 // Kontrollera om resultatet är null och returnera en tom lista om så är fallet
                 return resultat.Count > 0 ? resultat : new List<KontoData>();
-         }
+        }
     }
 }
 
