@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeHyrFordon()
         {
             btn_Allégatan = new Button();
             btn_Stationsgatan = new Button();
@@ -152,6 +152,7 @@
             Text = "HyrFordon";
             ResumeLayout(false);
             PerformLayout();
+
         }
 
         #endregion

@@ -17,7 +17,7 @@ namespace Ride_GlideElectrics
         private List<Fordon> fordonLista;
         public AdminMenu() // startar winforms + hämtar listor
         {
-            InitializeComponent();
+            InitializeAdminMenu();
             InitializeData();
         }
 

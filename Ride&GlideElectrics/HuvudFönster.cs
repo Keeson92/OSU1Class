@@ -8,7 +8,7 @@ namespace Ride_GlideElectrics
     {
         public HuvudFönster()
         {
-            InitializeComponent();
+            InitializeHuvudFonster();
         }
 
         private void label_UserName_Click(object sender, EventArgs e)

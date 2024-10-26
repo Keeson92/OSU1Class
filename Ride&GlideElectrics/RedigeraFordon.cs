@@ -16,7 +16,7 @@ namespace Ride_GlideElectrics
     {
         public RedigeraFordon()
         {
-            InitializeComponent();
+            InitializeRedigeraFordon();
         }
     }
 }

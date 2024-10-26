@@ -18,7 +18,7 @@ namespace Ride_GlideElectrics
 
         public HyrFordon()
         {
-            InitializeComponent();
+            InitializeHyrFordon();
             _affärslager = new Affärslager();
 
         }
