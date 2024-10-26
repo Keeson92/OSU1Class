@@ -21,18 +21,6 @@ namespace Ride_GlideElectrics
             InitializeData();
         }
 
-        private void label_LoggaUt_Click(object sender, EventArgs e)
-        {
-            HuvudFönster frm = new(); // gå tillbaka till inloggning
-            frm.Show(); // öppna inloggningsfönster
-        }
-
-        private void label_Redigera_Click(object sender, EventArgs e)
-        {
-            RedigeraFordon frm = new(); // här vill vi även ha med vilket fordon vi redigerar ifrån föregående form när det är redo
-            frm.Show();
-        }
-
         private void InitializeData() // kopplar listan till datagrid
         {
 
