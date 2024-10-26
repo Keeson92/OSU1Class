@@ -39,7 +39,7 @@ namespace Ride_GlideElectrics
 
             foreach (var fordon in fordonPåAllegatan)
             {
-                listBoxFordon.Items.Add($"{fordon.Typ} - {fordon.Status} (ID: {fordon.ID})");
+                listBoxFordon.Items.Add($"{fordon.FordonsTyp}  -  {fordon.Status}  (ID:  {fordon.FordonsID})");
             }
 
             listBoxFordon.Tag = fordonPåAllegatan; // Spara fordonslistan för vidare hantering
@@ -52,7 +52,7 @@ namespace Ride_GlideElectrics
 
             foreach (var fordon in fordonPåStationsgatan)
             {
-                listBoxFordon.Items.Add($"{fordon.Typ} - {fordon.Status} (ID: {fordon.ID})");
+                listBoxFordon.Items.Add($"{fordon.FordonsTyp} - {fordon.Status} (ID: {fordon.FordonsID})");
             }
 
             listBoxFordon.Tag = fordonPåStationsgatan; // Spara fordonslistan för vidare hantering
@@ -65,7 +65,7 @@ namespace Ride_GlideElectrics
 
             foreach (var fordon in fordonPåFredriksbergsgatan)
             {
-                listBoxFordon.Items.Add($"{fordon.Typ} - {fordon.Status} (ID: {fordon.ID})");
+                listBoxFordon.Items.Add($"{fordon.FordonsTyp} - {fordon.Status} (ID: {fordon.FordonsID})");
             }
 
             listBoxFordon.Tag = fordonPåFredriksbergsgatan; // Spara fordonslistan för vidare hantering
@@ -77,11 +77,37 @@ namespace Ride_GlideElectrics
 
             foreach (var fordon in fordonPåSolrosvägen)
             {
-                listBoxFordon.Items.Add($"{fordon.Typ} - {fordon.Status} (ID: {fordon.ID})");
+                listBoxFordon.Items.Add($"{fordon.FordonsTyp} - {fordon.Status} (ID: {fordon.FordonsID})");
             }
 
             listBoxFordon.Tag = fordonPåSolrosvägen; // Spara fordonslistan för vidare hantering
         }
+        private void btn_StartaUthyrning_Click(object sender, EventArgs e)
+        {
+            // Kontrollera om ett fordon är valt
+            if (listBoxFordon.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vänligen välj ett fordon från listan.");
+                return;
+            }
 
+            // Hämta det valda fordonet baserat på indexet i listBoxFordon
+            var fordonLista = (List<Fordon>)listBoxFordon.Tag;
+            var valtFordon = fordonLista[listBoxFordon.SelectedIndex];
+
+            // Sätt uthyrningsinformationen - exempelvis nuvarande tid som start
+            var uthyrningStart = DateTime.Now;
+            var uthyrningSlut = uthyrningStart.AddHours(2); // Exempel på hyresperiod, här 2 timmar
+
+            // Starta uthyrningen
+            _affärslager.StartaUthyrning(valtFordon.FordonsID, uthyrningStart, uthyrningSlut);
+
+            // Skapa en ny UthyrningsData och spara i uthyrningshistoriken
+            var uthyrningData = new UthyrningsData(uthyrningStart, uthyrningSlut, valtFordon.FordonsID);
+            var uthyrningsRepo = new UthyrningsDataRepository();
+            uthyrningsRepo.GetAllUthyrningsData().Add(uthyrningData); // Lägg till i uthyrningslistan
+
+            MessageBox.Show($"Uthyrning startad för fordon {valtFordon.FordonsTyp} med ID: {valtFordon.FordonsID}.");
+        }
     }
 }

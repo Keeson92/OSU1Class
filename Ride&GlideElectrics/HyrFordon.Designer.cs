@@ -34,6 +34,8 @@
             btn_Solrosvägen = new Button();
             btnTillbakaTillUserMenu = new Button();
             label_StationsVal = new Label();
+            listBoxFordon = new ListBox();
+            btn_StartaUthyrning = new Button();
             SuspendLayout();
             // 
             // btn_Allégatan
@@ -119,21 +121,37 @@
             ResumeLayout(false);
             PerformLayout();
 
-            listBoxFordon = new ListBox
-            {
-                Location = new Point(200, 30),
-                Size = new Size(150, 100)
-            };
-            Controls.Add(listBoxFordon);
-
-            btn_StartaUthyrning = New Button
-            {
-                Text = "Starta Uthyrning",
-                Location = new Point(200, 150),
-                Size = new Size(150, 30)
-            };
-            btn_StartaUthyrning.Click += btn_StartaUthyrning.Click;
-            Controls.Add(btn_StartaUthyrning);
+            // 
+            // listBoxFordon
+            // 
+            listBoxFordon.Location = new Point(200, 30);
+            listBoxFordon.Size = new Size(150, 100);
+            // 
+            // btn_StartaUthyrning
+            // 
+            btn_StartaUthyrning.Text = "Starta Uthyrning";
+            btn_StartaUthyrning.Location = new Point(200, 150);
+            btn_StartaUthyrning.Size = new Size(150, 30);
+            btn_StartaUthyrning.Click += btn_StartaUthyrning_Click;
+            // 
+            // HyrFordon
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SandyBrown;
+            ClientSize = new Size(400, 214); // Justera storleken om nödvändigt
+            Controls.Add(label_StationsVal);
+            Controls.Add(btnTillbakaTillUserMenu);
+            Controls.Add(btn_Solrosvägen);
+            Controls.Add(btn_Fredriksbergsgatan);
+            Controls.Add(btn_Stationsgatan);
+            Controls.Add(btn_Allégatan);
+            Controls.Add(listBoxFordon); // Lägg till listbox här
+            Controls.Add(btn_StartaUthyrning); // Lägg till knappen här
+            Name = "HyrFordon";
+            Text = "HyrFordon";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
