@@ -47,6 +47,7 @@
             label_Fordon.Size = new Size(45, 15);
             label_Fordon.TabIndex = 0;
             label_Fordon.Text = "Fordon";
+
             // 
             // label2
             // 
