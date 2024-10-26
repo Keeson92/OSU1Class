@@ -45,6 +45,7 @@
             btn_Allégatan.TabIndex = 1;
             btn_Allégatan.Text = "Allégatan";
             btn_Allégatan.UseVisualStyleBackColor = false;
+            btn_Allégatan.Click += btn_Allégatan_Click;
             // 
             // btn_Stationsgatan
             // 
@@ -55,6 +56,7 @@
             btn_Stationsgatan.TabIndex = 2;
             btn_Stationsgatan.Text = "Stationsgatan";
             btn_Stationsgatan.UseVisualStyleBackColor = false;
+            btn_Stationsgatan.Click += btn_Stationsgatan_Click;
             // 
             // btn_Fredriksbergsgatan
             // 
@@ -65,6 +67,7 @@
             btn_Fredriksbergsgatan.TabIndex = 3;
             btn_Fredriksbergsgatan.Text = "Fredriksbergsgatan";
             btn_Fredriksbergsgatan.UseVisualStyleBackColor = false;
+            btn_Fredriksbergsgatan.Click += btn_Fredriksbergsgatan_Click;
             // 
             // btn_Solrosvägen
             // 
@@ -75,6 +78,7 @@
             btn_Solrosvägen.TabIndex = 4;
             btn_Solrosvägen.Text = "Solrosvägen";
             btn_Solrosvägen.UseVisualStyleBackColor = false;
+            btn_Solrosvägen.Click += btn_Solrosvägen_Click;
             // 
             // btnTillbakaTillUserMenu
             // 
@@ -114,6 +118,22 @@
             Text = "HyrFordon";
             ResumeLayout(false);
             PerformLayout();
+
+            listBoxFordon = new ListBox
+            {
+                Location = new Point(200, 30),
+                Size = new Size(150, 100)
+            };
+            Controls.Add(listBoxFordon);
+
+            btn_StartaUthyrning = New Button
+            {
+                Text = "Starta Uthyrning",
+                Location = new Point(200, 150),
+                Size = new Size(150, 30)
+            };
+            btn_StartaUthyrning.Click += btn_StartaUthyrning.Click;
+            Controls.Add(btn_StartaUthyrning);
         }
 
         #endregion
@@ -124,5 +144,7 @@
         private Button btn_Fredriksbergsgatan;
         private Button btn_Solrosvägen;
         private Button btnTillbakaTillUserMenu;
+        private ListBox listBoxFordon;
+        private Button btn_StartaUthyrning;
     }
 }
