@@ -5,13 +5,18 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-using BusinessEntities;
 
 namespace Servicelager
 {
     public class Affärslager
     {
+        public static void Main(string[] args)
+        {
 
+        }
+    }
+}
+        /*
         public static void HyraFordon()
         {
             //för att deklarera våra controllers
@@ -27,8 +32,10 @@ namespace Servicelager
 
             List<StationData> stationList = stationRepository.GetAllStationer();
 
-         
+        }
 
+    }
+}
 
             // Hämta och validera datum
            /* bool isValidDate = false;

@@ -1,11 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+   
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <inplicitUsings>enable</inplicitUsings>
     <Nullable>enable</Nullable>
-    <UseWindowsForms>True</UseWindowsForms>
+    
   </PropertyGroup>
+
+  <ItemGroup>
+   <!--<ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj" />-->
+  </ItemGroup>
 
 </Project>
