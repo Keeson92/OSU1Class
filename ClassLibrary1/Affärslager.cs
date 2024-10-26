@@ -27,7 +27,27 @@ namespace Servicelager
 
             List<StationData> stationList = stationRepository.GetAllStationer();
 
-         
+        }
+
+        private readonly FordonRepository _fordonRepository;
+        private readonly StationRepository _stationRepository;
+
+        public Affärslager()
+        {
+            _fordonRepository = new FordonRepository();
+            _stationRepository = new StationRepository();
+        }
+
+        public List<Fordon> GetFordonByStation(string stationNamn)
+        {
+                // Hämta alla fordon och filtrera på stationsnamnet
+                var allFordon = _fordonRepository.GetAllFordon();
+                return allFordon.Where(f => f.Position == stationNamn).ToList();
+        }
+        
+
+    }
+}
 
 
             // Hämta och validera datum

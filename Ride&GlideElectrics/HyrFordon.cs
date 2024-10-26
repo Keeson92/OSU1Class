@@ -14,9 +14,12 @@ namespace Ride_GlideElectrics
 {
     public partial class HyrFordon : Form
     {
+        private readonly Affärslager _affärslager;
+
         public HyrFordon()
         {
             InitializeComponent();
+            _affärslager = new Affärslager();
         }
 
         private void btnTillbakaTillUserMenu_Click(object sender, EventArgs e)
