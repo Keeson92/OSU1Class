@@ -60,24 +60,24 @@
             label2.Text = "ADMIN MENY";
             label2.Click += label2_Click;
             // 
-            // button1
+            // LoggaUt knapp
             // 
-            button1.AccessibleName = "LoggaUt";
-            button1.Location = new Point(36, 505);
-            button1.Name = "button1";
-            button1.Size = new Size(108, 53);
-            button1.TabIndex = 3;
-            button1.Text = "Logga ut";
-            button1.UseVisualStyleBackColor = true;
+            LoggaUt.AccessibleName = "LoggaUt";
+            LoggaUt.Location = new Point(36, 505);
+            LoggaUt.Name = "button1";
+            LoggaUt.Size = new Size(108, 53);
+            LoggaUt.TabIndex = 3;
+            LoggaUt.Text = "Logga ut";
+            LoggaUt.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // Redigera
             // 
-            button2.Location = new Point(990, 505);
-            button2.Name = "button2";
-            button2.Size = new Size(87, 53);
-            button2.TabIndex = 4;
-            button2.Text = "Redigera";
-            button2.UseVisualStyleBackColor = true;
+            Redigera.Location = new Point(990, 505);
+            Redigera.Name = "button2";
+            Redigera.Size = new Size(87, 53);
+            Redigera.TabIndex = 4;
+            Redigera.Text = "Redigera";
+            Redigera.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
