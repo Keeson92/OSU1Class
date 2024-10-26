@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessEntities;
 
+
 namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
 
 {
@@ -16,9 +17,9 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
                 // Initialiserar data
                 _fordonLista = new List<Fordon>
                     {
-                        new Fordon(1, 85, "Allégatan 10", "Bokad", "Elcykel"),
-                        new Fordon(2, 83, "Stationsgatan 5", "Ledig", "Elsparkcykel"),
-                        new Fordon(3, 10, "Solrosvägen 12", "Laddas", "Elsparkcykel")
+                        new Fordon( 85, "Allégatan 10", "Bokad", "Elcykel"),
+                        new Fordon( 83, "Stationsgatan 5", "Ledig", "Elsparkcykel"),
+                        new Fordon( 10, "Solrosvägen 12", "Laddas", "Elsparkcykel")
                     };
             }
             public List<Fordon> GetAllFordon() //Metod för att få alla fordon som finns.

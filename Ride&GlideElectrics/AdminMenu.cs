@@ -10,11 +10,11 @@ using System.Windows.Forms;
 using Servicelager;
 using BusinessEntities;
 
-namespace Ride_GlideElectrics
+namespace Ride_GlideElectrics  
 {
     public partial class AdminMenu : Form
     {
-        private List<Fordon> fordonsLista;
+        private List<Fordon> _fordonLista;
         public AdminMenu() // startar winforms + hämtar listor
         {
             InitializeComponent();
@@ -36,11 +36,11 @@ namespace Ride_GlideElectrics
         private void InitializeData() // kopplar listan till datagrid
         {
 
-            FordonStatusStationGrid.DataSource = fordonsLista;
-            FordonStatusStationGrid.Colums["fordonsID"].HeaderText = "ID";
-            FordonStatusStationGrid.Colums["position"].HeaderText = "Station";
-            FordonStatusStationGrid.Colums["Status"].HeaderText = "Status";
-            FordonStatusStationGrid.Colums["fordonsTyp"].HeaderText = "Typ utav fordon";
+           FordonStatusStationGrid.DataSource = _fordonLista;
+           FordonStatusStationGrid.Columns["fordonsID"].HeaderText = "ID";
+           FordonStatusStationGrid.Columns["position"].HeaderText = "Station";
+           FordonStatusStationGrid.Columns["Status"].HeaderText = "Status";
+           FordonStatusStationGrid.Columns["fordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
         

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using BusinessEntities;
 
+
 namespace Servicelager
 {
     public class Affärslager
@@ -267,7 +268,7 @@ namespace Servicelager
                     break;
             }
         }
-    */ // utkomenterad consoll kod
+    * // utkomenterad consoll kod
 
         public static void ShowStations() //Metod för att visa befintliga stationer
         {
@@ -329,9 +330,10 @@ namespace Servicelager
             {
                 Console.WriteLine("Ogiltig betalningsmetod.");
             }
-        }*/// mera utkomenterad konsoll kod
+        }// mera utkomenterad konsoll kod
 
         // Metod för att kontrollera om kortnumret är giltigt med Luhn-algoritmen
+
         private bool ÄrKortnummerGiltigt(string kortnummer)
         {
             int summa = 0;
@@ -366,5 +368,5 @@ namespace Servicelager
         }
     }
 
-}
+}*/
 
