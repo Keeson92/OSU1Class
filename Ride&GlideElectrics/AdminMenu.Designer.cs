@@ -35,8 +35,8 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            FordonStatusStationGrid = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)FordonStatusStationGrid).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -107,19 +107,19 @@
             // 
             // dataGridView1
             // 
-            dataGridView1.AccessibleName = "FordonStatusStationGrid";
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(245, 227);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(680, 270);
-            dataGridView1.TabIndex = 8;
+            FordonStatusStationGrid.AccessibleName = "FordonStatusStationGrid";
+            FordonStatusStationGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            FordonStatusStationGrid.Location = new Point(245, 227);
+            FordonStatusStationGrid.Name = "dataGridView1";
+            FordonStatusStationGrid.Size = new Size(680, 270);
+            FordonStatusStationGrid.TabIndex = 8;
             // 
             // AdminMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1135, 608);
-            Controls.Add(dataGridView1);
+            Controls.Add(FordonStatusStationGrid);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -129,7 +129,7 @@
             Controls.Add(label1);
             Name = "AdminMenu";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FordonStatusStationGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -143,6 +143,6 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private DataGridView dataGridView1;
+        private DataGridView FordonStatusStationGrid;
     }
 }
