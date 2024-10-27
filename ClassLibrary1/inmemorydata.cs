@@ -102,23 +102,28 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
     {
         private List<UthyrningsData> _uthyrningsdatalist;
 
+
         public UthyrningsDataRepository()
         {
             // Initialiserar data
             _uthyrningsdatalist = new List<UthyrningsData>
                 {
-                    new UthyrningsData(new DateTime(2024, 10, 22, 10, 30, 0), new DateTime(2024, 10, 22, 12, 30, 0), 5),
-                    new UthyrningsData(new DateTime(2024, 10, 23, 9, 0, 0), new DateTime(2024, 10, 23, 11, 15, 0), 6),
-                    new UthyrningsData(new DateTime(2024, 10, 24, 14, 0, 0), new DateTime(2024, 10, 24, 16, 0, 0), 7),
-                    new UthyrningsData(new DateTime(2024, 10, 25, 8, 30, 0), new DateTime(2024, 10, 25, 10, 30, 0), 8),
-                    new UthyrningsData(new DateTime(2024, 10, 26, 13, 15, 0), new DateTime(2024, 10, 26, 14, 45, 0), 4),
-                    new UthyrningsData(new DateTime(2024, 10, 27, 11, 0, 0), new DateTime(2024, 10, 27, 12, 30, 0), 5)
+                    new UthyrningsData(new DateTime(2024, 10, 22, 10, 30, 0), new DateTime(2024, 10, 22, 12, 30, 0), 5, 10),
+                    new UthyrningsData(new DateTime(2024, 10, 23, 9, 0, 0), new DateTime(2024, 10, 23, 11, 15, 0), 6, 10),
+                    new UthyrningsData(new DateTime(2024, 10, 24, 14, 0, 0), new DateTime(2024, 10, 24, 16, 0, 0), 7, 10),
+                    new UthyrningsData(new DateTime(2024, 10, 25, 8, 30, 0), new DateTime(2024, 10, 25, 10, 30, 0), 8, 10),
+                    new UthyrningsData(new DateTime(2024, 10, 26, 13, 15, 0), new DateTime(2024, 10, 26, 14, 45, 0), 4, 10),
+                    new UthyrningsData(new DateTime(2024, 10, 27, 11, 0, 0), new DateTime(2024, 10, 27, 12, 30, 0), 5, 10)
                 };
         }
 
         public List<UthyrningsData> GetAllUthyrningsData()
         {
             return _uthyrningsdatalist;
+        }
+        public void AddUthyrningsData(UthyrningsData data)
+        {
+            _uthyrningsdatalist.Add(data);
         }
     }
 
@@ -248,29 +253,6 @@ public class StationRepository
     public List<StationData> GetAllStationer()
     {
         return _stationList;
-    }
-}
-public class UthyrningsDataRepository
-{
-    private List<UthyrningsData> _uthyrningsdatalist;
-
-    public UthyrningsDataRepository()
-    {
-        // Initialiserar data
-        _uthyrningsdatalist = new List<UthyrningsData>
-            {
-                new UthyrningsData(new DateTime(2024, 10, 22, 10, 30, 0), new DateTime(2024, 10, 22, 12, 30, 0), 5),
-                new UthyrningsData(new DateTime(2024, 10, 23, 9, 0, 0), new DateTime(2024, 10, 23, 11, 15, 0), 6),
-                new UthyrningsData(new DateTime(2024, 10, 24, 14, 0, 0), new DateTime(2024, 10, 24, 16, 0, 0), 7),
-                new UthyrningsData(new DateTime(2024, 10, 25, 8, 30, 0), new DateTime(2024, 10, 25, 10, 30, 0), 8),
-                new UthyrningsData(new DateTime(2024, 10, 26, 13, 15, 0), new DateTime(2024, 10, 26, 14, 45, 0), 4),
-                new UthyrningsData(new DateTime(2024, 10, 27, 11, 0, 0), new DateTime(2024, 10, 27, 12, 30, 0), 5)
-            };
-    }
-
-    public List<UthyrningsData> GetAllUthyrningsData()
-    {
-        return _uthyrningsdatalist;
     }
 }
 public class KontoDataRepository

@@ -15,10 +15,13 @@ namespace Presentationslager
 {
     public partial class Stationsgatan : Form
     {
+        private UthyrningsDataRepository _uthyrningsRepo;
+
         private List<Fordon> _fordonLista;
         public Stationsgatan()
         {
             InitializeComponent();
+            _uthyrningsRepo = new UthyrningsDataRepository(); // Initialize the repository
             InitializeData();
         }
 
@@ -29,11 +32,9 @@ namespace Presentationslager
         private void InitializeData() // kopplar listan till datagrid
         {
             // Initialize the list from in-memory data source
-            // Initialize the list from in-memory data source
             _fordonLista = FordonRepository.GetAllFordon();
 
-
-            // Filter the list to include only vehicles where Position contains "Allegatan"
+            // Filter the list to include only vehicles where Position contains "Stationsgatan"
             var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Stationsgatan") && f.Status == "Ledig").ToList();
 
             // Set the filtered list as the DataSource for the DataGridView
@@ -58,28 +59,29 @@ namespace Presentationslager
             // Retrieve the selected Fordon from the DataGridView
             var valtFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
 
-            // Set rental information - for example, current time as start
+            // Set rental information - current time as start
             var uthyrningStart = DateTime.Now;
             var uthyrningSlut = uthyrningStart.AddHours(2); // Example rental period of 2 hours
+            var prisPerMinut = 10; // You may retrieve this from the Fordon object if needed
 
-            // Create a new UthyrningsData instance and save it in the rental history
-            var uthyrningData = new UthyrningsData(uthyrningStart, uthyrningSlut, valtFordon.FordonsID);
+            // Create a new UthyrningsData instance
+            var uthyrningData = new UthyrningsData(uthyrningStart, uthyrningSlut, valtFordon.FordonsID, prisPerMinut);
 
-            // Assuming UthyrningsDataRepository is correctly implemented
-            var uthyrningsRepo = new UthyrningsDataRepository();
+            // Add the newly created uthyrningData to the shared repository instance
+            _uthyrningsRepo.AddUthyrningsData(uthyrningData); // Add the uthyrningData to the repository
 
-            // You need to ensure that GetAllUthyrningsData() returns a modifiable collection
-            var uthyrningsList = uthyrningsRepo.GetAllUthyrningsData();
-            uthyrningsList.Add(uthyrningData); // Add to the rental list
+            // Optionally, display a message to the user
+            MessageBox.Show($"Uthyrning startad för fordon {valtFordon.FordonsTyp} med ID: {valtFordon.FordonsID}. Uthyrning start: {uthyrningStart}, Slut: {uthyrningSlut}, Pris per minut: {prisPerMinut}.");
 
-            MessageBox.Show($"Uthyrning startad för fordon {valtFordon.FordonsTyp} med ID: {valtFordon.FordonsID}.");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UserMenu userMenu = new UserMenu();
+            Control control = new Control();
+            control.Show();
+           // UserMenu userMenu = new UserMenu();
 
-            userMenu.Show();
+           // userMenu.Show();
             this.Hide();
         }
     }

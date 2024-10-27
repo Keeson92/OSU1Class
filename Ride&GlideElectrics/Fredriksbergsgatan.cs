@@ -58,21 +58,26 @@ namespace Presentationslager
             // Retrieve the selected Fordon from the DataGridView
             var valtFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
 
-            // Set rental information - for example, current time as start
+            // Set rental information - current time as start
             var uthyrningStart = DateTime.Now;
             var uthyrningSlut = uthyrningStart.AddHours(2); // Example rental period of 2 hours
+            var prisPerMinut = 10; // You may retrieve this from the Fordon object if needed
 
-            // Create a new UthyrningsData instance and save it in the rental history
-            var uthyrningData = new UthyrningsData(uthyrningStart, uthyrningSlut, valtFordon.FordonsID);
+            // Create a new UthyrningsData instance
+            var uthyrningData = new UthyrningsData(uthyrningStart, uthyrningSlut, valtFordon.FordonsID, prisPerMinut);
 
-            // Assuming UthyrningsDataRepository is correctly implemented
+            // Create an instance of UthyrningsDataRepository
             var uthyrningsRepo = new UthyrningsDataRepository();
 
-            // You need to ensure that GetAllUthyrningsData() returns a modifiable collection
+            // Ensure that GetAllUthyrningsData() returns a modifiable collection
             var uthyrningsList = uthyrningsRepo.GetAllUthyrningsData();
-            uthyrningsList.Add(uthyrningData); // Add to the rental list
 
-            MessageBox.Show($"Uthyrning startad för fordon {valtFordon.FordonsTyp} med ID: {valtFordon.FordonsID}.");
+            // Add the newly created uthyrningData to the list
+            uthyrningsList.Add(uthyrningData);
+
+            // Optionally, display a message to the user
+            MessageBox.Show($"Uthyrning startad för fordon {valtFordon.FordonsTyp} med ID: {valtFordon.FordonsID}. Uthyrning start: {uthyrningStart}, Slut: {uthyrningSlut}, Pris per minut: {prisPerMinut}.");
+
         }
 
         private void button2_Click(object sender, EventArgs e)

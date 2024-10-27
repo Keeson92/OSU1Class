@@ -11,11 +11,14 @@ namespace BusinessEntities
         public DateTime StartTid { get; private set; }
         public DateTime SlutTid { get; private set; }
 
+        public int FordonsID { get; set; }
+
         public int PrisPerMinut { get; private set; }
-        public UthyrningsData(DateTime startTid, DateTime slutTid, int prisPerMinut)
+        public UthyrningsData(DateTime startTid, DateTime slutTid, int fordonsID, int prisPerMinut)
         {
             StartTid = startTid;
             SlutTid = slutTid;
+            FordonsID = fordonsID;
             PrisPerMinut = prisPerMinut;
         }
     }
