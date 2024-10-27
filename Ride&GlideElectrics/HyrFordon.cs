@@ -45,9 +45,9 @@ namespace Ride_GlideElectrics
 
         private void btn_Fredriksbergsgatan_Click(object sender, EventArgs e)
         {
-            //Fredriksbergsgatan fredriksbergsgatan = new Fredriksbergsgatan();
-           //fredriksbergsgatan.Show();
-            //this.Hide();
+            Fredriksbergsgatan fredriksbergsgatan = new Fredriksbergsgatan();
+           fredriksbergsgatan.Show();
+            this.Hide();
 
         }
 
