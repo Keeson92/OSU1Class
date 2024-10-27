@@ -27,5 +27,25 @@ namespace Ride_GlideElectrics
             this.Close();
 
         }
+
+        private void btn_Allégatan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Stationsgatan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Fredriksbergsgatan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Solrosvägen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
