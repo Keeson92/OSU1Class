@@ -32,5 +32,15 @@ namespace Ride_GlideElectrics
             hyrfordon.Show();
             this.Hide();
         }
+
+        private void UserMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
