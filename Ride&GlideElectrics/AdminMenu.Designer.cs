@@ -103,6 +103,7 @@
         }
 
         #endregion
+
         private Label label_AdminMenu;
         private Button Btn_LoggaUt;
         private Button Btn_Redigera;
