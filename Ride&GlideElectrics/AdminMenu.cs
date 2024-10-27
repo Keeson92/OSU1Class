@@ -46,6 +46,11 @@ namespace Ride_GlideElectrics
             RedigeraFordon RedigeraFordon = new RedigeraFordon(); // Skapar en instans av inloggningsfönstret
             RedigeraFordon.Show(); // Öppnar det nya fönstret
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }

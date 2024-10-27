@@ -35,7 +35,6 @@ namespace Presentationslager
             // Filter the list to include only vehicles where Position contains "Allegatan"
             var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Solrosvägen") && f.Status == "Ledig").ToList();
 
-
             // Set the filtered list as the DataSource for the DataGridView
             dataGridView1.DataSource = filteredFordonLista;
 
