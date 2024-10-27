@@ -29,7 +29,14 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
                 {
                     new Fordon(85, "Allégatan 10", "Bokad", "Elcykel"),
                     new Fordon(83, "Stationsgatan 5", "Ledig", "Elsparkcykel"),
-                    new Fordon(10, "Solrosvägen 12", "Laddas", "Elsparkcykel")
+                    new Fordon(10, "Solrosvägen 12", "Laddas", "Elsparkcykel"),
+                    new Fordon(4, "Allégatan", "Laddas", "Elcykel"),
+                    new Fordon(15, "Stationsgatan", "Laddas", "Elcykel"),
+                    new Fordon(83, "Stationsgatan", "Ledig", "Elsparkcykel"),
+                    new Fordon(10, "Solrosvägen", "Laddas", "Elsparkcykel"),
+                    new Fordon(7, "Solrosvägen", "Ledig", "Elcykel"),
+                    new Fordon(15, "Fredriksbergsgatan", "Ledig", "Elcykel"),
+                    new Fordon(8, "Fredriksbergsgatan", "Laddas", "Elsparkcykel"),
                 };
         }
     }
