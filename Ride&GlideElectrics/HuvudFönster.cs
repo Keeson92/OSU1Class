@@ -18,11 +18,11 @@ namespace Ride_GlideElectrics
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-          
-         
-           // Hämta användarnamn och lösenord från textboxarna
-           string username = txtUsername.Text;
-           string password = txtPassword.Text;
+
+
+            // Hämta användarnamn och lösenord från textboxarna
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
 
             // En enkel inloggningslogik (byt ut detta med riktig validering om du har det)
             if (username == "admin" && password == "123")
@@ -52,6 +52,11 @@ namespace Ride_GlideElectrics
             {
                 MessageBox.Show("Felaktigt användarnamn eller lösenord.");
             }
+        }
+
+        private void HuvudFönster_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

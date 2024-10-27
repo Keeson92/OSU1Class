@@ -80,6 +80,7 @@ namespace Presentationslager
             UserMenu userMenu = new UserMenu();
 
             userMenu.Show();
+            this.Hide();
         }
     }
 }
