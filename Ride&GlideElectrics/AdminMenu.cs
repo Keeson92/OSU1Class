@@ -18,7 +18,7 @@ namespace Ride_GlideElectrics
 
         public AdminMenu() // startar winforms + hämtar listor
         {
-            InitializeComponent();
+            InitializeAdminComponent();
             InitializeData();
         }
 
@@ -48,14 +48,11 @@ namespace Ride_GlideElectrics
                 // Hämta det valda objektet från DataGridView
                 var selectedFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
 
-                // Skapa en instans av RedigeraFordon och skicka det valda objektet
-                RedigeraFordon redigeraFordon = new RedigeraFordon(selectedFordon);
+                // Skapa en instans av RedigeraFordon och skicka det valda objektet och DataGridView
+                RedigeraFordon redigeraFordon = new RedigeraFordon(selectedFordon, dataGridView1);
                 redigeraFordon.Show(); // Öppnar det nya fönstret
             }
-            else
-            {
-                MessageBox.Show("Vänligen välj ett fordon att redigera."); // lägg till message box
-            }
+           
         }
 
         // Add the missing event handler method

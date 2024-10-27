@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeRedigeraComponent()
         {
             Redigera = new Button();
             label1 = new Label();
@@ -35,7 +35,7 @@
             txtPosition = new TextBox();
             txtStatus = new TextBox();
             txtFordonsTyp = new TextBox();
-            label2 = new Label();
+            FordonsID = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -80,7 +80,7 @@
             // txtPosition
             // 
             txtPosition.AccessibleName = "txtPosition";
-            txtPosition.Location = new Point(361, 175);
+            txtPosition.Location = new Point(108, 273);
             txtPosition.Name = "txtPosition";
             txtPosition.Size = new Size(168, 23);
             txtPosition.TabIndex = 4;
@@ -88,11 +88,13 @@
             // txtStatus
             // 
             txtStatus.AccessibleName = "txtStatus";
-            txtStatus.Location = new Point(108, 273);
+            txtStatus.Location = new Point(362, 175);
             txtStatus.Name = "txtStatus";
             txtStatus.Size = new Size(100, 23);
             txtStatus.TabIndex = 5;
-            txtStatus.TextChanged += textBox3_TextChanged;
+
+            // Update the event handler assignment
+            txtStatus.TextChanged += txtStatus_TextChanged;
             // 
             // txtFordonsTyp
             // 
@@ -104,12 +106,12 @@
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(108, 157);
-            label2.Name = "label2";
-            label2.Size = new Size(18, 15);
-            label2.TabIndex = 7;
-            label2.Text = "ID";
+            FordonsID.AutoSize = true;
+            FordonsID.Location = new Point(108, 157);
+            FordonsID.Name = "label2";
+            FordonsID.Size = new Size(18, 15);
+            FordonsID.TabIndex = 7;
+            FordonsID.Text = "ID";
             // 
             // label3
             // 
@@ -125,13 +127,14 @@
             label4.AutoSize = true;
             label4.Location = new Point(108, 255);
             label4.Name = "label4";
-            label4.Size = new Size(38, 15);
+            label4.Size = new Size(44, 15);
             label4.TabIndex = 9;
-            label4.Text = "label4";
-            label4.Click += label4_Click;
-            // 
-            // label5
-            // 
+            label4.Text = "Station";
+
+            // Add this method to handle the Click event
+
+
+
             label5.AutoSize = true;
             label5.Location = new Point(362, 255);
             label5.Name = "label5";
@@ -147,7 +150,7 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(FordonsID);
             Controls.Add(txtFordonsTyp);
             Controls.Add(txtStatus);
             Controls.Add(txtPosition);
@@ -160,6 +163,11 @@
             ResumeLayout(false);
             PerformLayout();
         }
+        // Add this method to handle the TextChanged event
+        private void txtStatus_TextChanged(object sender, EventArgs e)
+        {
+            // Add your logic here
+        }
 
         #endregion
 
@@ -170,9 +178,16 @@
         private TextBox txtPosition;
         private TextBox txtStatus;
         private TextBox txtFordonsTyp;
-        private Label label2;
+        private Label FordonsID;
         private Label label3;
         private Label label4;
         private Label label5;
+        private Button Backa;
+        private Button button2;
+        private TextBox ID;
+        private TextBox FordonsTyp;
+        private TextBox Lokation;
+        private TextBox Tillstånd;
+        private Label label2;
     }
 }
