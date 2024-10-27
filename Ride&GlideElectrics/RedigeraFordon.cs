@@ -14,29 +14,43 @@ namespace Ride_GlideElectrics
 {
     public partial class RedigeraFordon : Form
     {
-        public RedigeraFordon()
+        private Fordon _selectedFordon;
+
+        public RedigeraFordon(Fordon selectedFordon)
         {
             InitializeComponent();
+            _selectedFordon = selectedFordon;
+            InitializeData();
         }
 
-        private void btn_Tillbaka_click(object sender, EventArgs e)
+        private void InitializeData()
         {
-           
-          HuvudFönster HuvudFönster = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
-          HuvudFönster.Show(); // Öppnar det nya fönstret
-          this.Close(); // Stänger det aktuella fönstret
+            // Fyll i kontrollerna med data från _selectedFordon
+            txtFordonsID.Text = _selectedFordon.FordonsID.ToString();
+            txtPosition.Text = _selectedFordon.Position;
+            txtStatus.Text = _selectedFordon.Status;
+            txtFordonsTyp.Text = _selectedFordon.FordonsTyp;
         }
-            private void btn_Redigera_click(object sender, EventArgs e)
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            HuvudFönster HuvudFönster = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
-            HuvudFönster.Show(); // Öppnar det nya fönstret
-            this.Close(); // Stänger det aktuella fönstret
+            // Uppdatera _selectedFordon med nya värden från kontrollerna
+            _selectedFordon.Position = txtPosition.Text;
+            _selectedFordon.Status = txtStatus.Text;
+            _selectedFordon.FordonsTyp = txtFordonsTyp.Text;
+
+            // Stäng fönstret
+            this.Close();
         }
 
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
 
+        }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }

@@ -43,14 +43,25 @@ namespace Ride_GlideElectrics
 
         private void btn_Redigera_click(object sender, EventArgs e)
         {
-            RedigeraFordon RedigeraFordon = new RedigeraFordon(); // Skapar en instans av inloggningsfönstret
-            RedigeraFordon.Show(); // Öppnar det nya fönstret
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                // Hämta det valda objektet från DataGridView
+                var selectedFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
+
+                // Skapa en instans av RedigeraFordon och skicka det valda objektet
+                RedigeraFordon redigeraFordon = new RedigeraFordon(selectedFordon);
+                redigeraFordon.Show(); // Öppnar det nya fönstret
+            }
+            else
+            {
+                MessageBox.Show("Vänligen välj ett fordon att redigera."); // lägg till message box
+            }
         }
 
+        // Add the missing event handler method
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // Handle the cell content click event here
         }
     }
-
 }
