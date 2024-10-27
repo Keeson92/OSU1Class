@@ -11,6 +11,7 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
 {
     public static class FordonRepository
     {
+
         public static List<Fordon> GetAllFordon()
         {            
                 // Initialiserar data
