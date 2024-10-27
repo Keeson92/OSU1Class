@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Servicelager;
 using BusinessEntities;
+using Ride_GlideElectrics;
 
 namespace Presentationslager
 {
@@ -48,10 +49,47 @@ namespace Presentationslager
         {
 
         }
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Check if any row is selected in the DataGridView
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vänligen välj ett fordon från listan.");
+                return;
+            }
+
+            // Retrieve the selected Fordon from the DataGridView
+            var valtFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
+
+            // Set rental information - for example, current time as start
+            var uthyrningStart = DateTime.Now;
+            var uthyrningSlut = uthyrningStart.AddHours(2); // Example rental period of 2 hours
+
+            // Create a new UthyrningsData instance and save it in the rental history
+            var uthyrningData = new UthyrningsData(uthyrningStart, uthyrningSlut, valtFordon.FordonsID);
+
+            // Assuming UthyrningsDataRepository is correctly implemented
+            var uthyrningsRepo = new UthyrningsDataRepository();
+
+            // You need to ensure that GetAllUthyrningsData() returns a modifiable collection
+            var uthyrningsList = uthyrningsRepo.GetAllUthyrningsData();
+            uthyrningsList.Add(uthyrningData); // Add to the rental list
+
+            MessageBox.Show($"Uthyrning startad för fordon {valtFordon.FordonsTyp} med ID: {valtFordon.FordonsID}.");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UserMenu userMenu = new UserMenu();
+
+            userMenu.Show();
         }
     }
 }
