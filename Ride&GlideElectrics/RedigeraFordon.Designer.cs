@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            Redigera = new Button();
             label1 = new Label();
-            button2 = new Button();
+            Tillbaka = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(636, 361);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Bekräfta ändring";
-            button1.UseVisualStyleBackColor = true;
+            Redigera.Location = new Point(636, 361);
+            Redigera.Name = "button1";
+            Redigera.Size = new Size(75, 23);
+            Redigera.TabIndex = 0;
+            Redigera.Text = "Bekräfta ändring";
+            Redigera.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -53,21 +53,22 @@
             // 
             // button2
             // 
-            button2.Location = new Point(36, 361);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 2;
-            button2.Text = "tillbaka";
-            button2.UseVisualStyleBackColor = true;
+            Tillbaka.AccessibleName = "Tillbaka";
+            Tillbaka.Location = new Point(36, 361);
+            Tillbaka.Name = "button2";
+            Tillbaka.Size = new Size(75, 23);
+            Tillbaka.TabIndex = 2;
+            Tillbaka.Text = "tillbaka";
+            Tillbaka.UseVisualStyleBackColor = true;
             // 
             // RedigeraFordon
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button2);
+            Controls.Add(Tillbaka);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(Redigera);
             Name = "RedigeraFordon";
             Text = "RedigeraFordon";
             ResumeLayout(false);
@@ -76,8 +77,8 @@
 
         #endregion
 
-        private Button button1;
+        private Button Redigera;
         private Label label1;
-        private Button button2;
+        private Button Tillbaka;
     }
 }

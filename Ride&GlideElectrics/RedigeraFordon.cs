@@ -18,5 +18,25 @@ namespace Ride_GlideElectrics
         {
             InitializeComponent();
         }
+
+        private void btn_Tillbaka_click(object sender, EventArgs e)
+        {
+           
+          HuvudFönster HuvudFönster = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
+          HuvudFönster.Show(); // Öppnar det nya fönstret
+          this.Close(); // Stänger det aktuella fönstret
+        }
+            private void btn_Redigera_click(object sender, EventArgs e)
+        {
+            HuvudFönster HuvudFönster = new HuvudFönster(); // Skapar en instans av inloggningsfönstret
+            HuvudFönster.Show(); // Öppnar det nya fönstret
+            this.Close(); // Stänger det aktuella fönstret
+        }
+
+
+
+
+
+
     }
 }
