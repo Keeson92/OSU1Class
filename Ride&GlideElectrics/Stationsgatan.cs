@@ -1,4 +1,5 @@
 ﻿using BusinessEntities;
+using Ride_GlideElectrics;
 using Servicelager;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,13 @@ namespace Presentationslager
 {
     public partial class Stationsgatan : Form
     {
+        private UthyrningsDataRepository _uthyrningsRepo;
+
         private List<Fordon> _fordonLista;
         public Stationsgatan()
         {
             InitializeComponent();
+            _uthyrningsRepo = new UthyrningsDataRepository(); // Initialize the repository
             InitializeData();
         }
 
@@ -28,11 +32,9 @@ namespace Presentationslager
         private void InitializeData() // kopplar listan till datagrid
         {
             // Initialize the list from in-memory data source
-            // Initialize the list from in-memory data source
             _fordonLista = FordonRepository.GetAllFordon();
 
-
-            // Filter the list to include only vehicles where Position contains "Allegatan"
+            // Filter the list to include only vehicles where Position contains "Stationsgatan"
             var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Stationsgatan") && f.Status == "Ledig").ToList();
 
             // Set the filtered list as the DataSource for the DataGridView
@@ -45,6 +47,42 @@ namespace Presentationslager
             dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Check if any row is selected in the DataGridView
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vänligen välj ett fordon från listan.");
+                return;
+            }
 
+            // Retrieve the selected Fordon from the DataGridView
+            var valtFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
+
+            // Set rental information - current time as start
+            var uthyrningStart = DateTime.Now;
+            var uthyrningSlut = uthyrningStart.AddHours(2); // Example rental period of 2 hours
+            var prisPerMinut = 10; // You may retrieve this from the Fordon object if needed
+
+            // Create a new UthyrningsData instance
+            var uthyrningData = new UthyrningsData(uthyrningStart, uthyrningSlut, valtFordon.FordonsID, prisPerMinut);
+
+            // Add the newly created uthyrningData to the shared repository instance
+            _uthyrningsRepo.AddUthyrningsData(uthyrningData); // Add the uthyrningData to the repository
+
+            // Optionally, display a message to the user
+            MessageBox.Show($"Uthyrning startad för fordon {valtFordon.FordonsTyp} med ID: {valtFordon.FordonsID}. Uthyrning start: {uthyrningStart}, Slut: {uthyrningSlut}, Pris per minut: {prisPerMinut}.");
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Control control = new Control();
+            control.Show();
+           // UserMenu userMenu = new UserMenu();
+
+           // userMenu.Show();
+            this.Hide();
+        }
     }
 }

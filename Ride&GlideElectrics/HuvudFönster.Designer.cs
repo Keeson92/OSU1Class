@@ -44,43 +44,48 @@ namespace Ride_GlideElectrics
             // 
             UserName.AutoSize = true;
             UserName.BackColor = Color.Transparent;
-            UserName.Location = new Point(8, 10);
+            UserName.Location = new Point(11, 17);
+            UserName.Margin = new Padding(4, 0, 4, 0);
             UserName.Name = "UserName";
-            UserName.Size = new Size(92, 15);
+            UserName.Size = new Size(137, 25);
             UserName.TabIndex = 0;
             UserName.Text = "Användarnamn:";
             UserName.Click += label_UserName_Click;
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(106, 7);
+            txtUsername.Location = new Point(151, 12);
+            txtUsername.Margin = new Padding(4, 5, 4, 5);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(100, 23);
+            txtUsername.Size = new Size(141, 31);
             txtUsername.TabIndex = 1;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(106, 36);
+            txtPassword.Location = new Point(151, 60);
+            txtPassword.Margin = new Padding(4, 5, 4, 5);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(100, 23);
+            txtPassword.Size = new Size(141, 31);
             txtPassword.TabIndex = 2;
             // 
             // Password
             // 
             Password.AutoSize = true;
-            Password.Location = new Point(12, 39);
+            Password.Location = new Point(17, 65);
+            Password.Margin = new Padding(4, 0, 4, 0);
             Password.Name = "Password";
-            Password.Size = new Size(59, 15);
+            Password.Size = new Size(90, 25);
             Password.TabIndex = 3;
             Password.Text = "Lösenord:";
             // 
             // btnLogIn
             // 
             btnLogIn.BackColor = Color.Salmon;
-            btnLogIn.Location = new Point(117, 77);
+            btnLogIn.Location = new Point(167, 128);
+            btnLogIn.Margin = new Padding(4, 5, 4, 5);
             btnLogIn.Name = "btnLogIn";
-            btnLogIn.Size = new Size(75, 23);
+            btnLogIn.Size = new Size(107, 38);
             btnLogIn.TabIndex = 4;
             btnLogIn.Text = "Logga in";
             btnLogIn.UseVisualStyleBackColor = false;
@@ -89,27 +94,30 @@ namespace Ride_GlideElectrics
             // btnRegistrering
             // 
             btnRegistrering.BackColor = Color.Bisque;
-            btnRegistrering.Location = new Point(12, 77);
+            btnRegistrering.Location = new Point(17, 128);
+            btnRegistrering.Margin = new Padding(4, 5, 4, 5);
             btnRegistrering.Name = "btnRegistrering";
-            btnRegistrering.Size = new Size(88, 23);
+            btnRegistrering.Size = new Size(126, 38);
             btnRegistrering.TabIndex = 5;
             btnRegistrering.Text = "Registrering";
             btnRegistrering.UseVisualStyleBackColor = false;
             // 
             // HuvudFönster
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkOliveGreen;
-            ClientSize = new Size(277, 164);
+            ClientSize = new Size(396, 273);
             Controls.Add(btnRegistrering);
             Controls.Add(btnLogIn);
             Controls.Add(Password);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
             Controls.Add(UserName);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "HuvudFönster";
             Text = "Ride&Glide Electrics";
+            Load += HuvudFönster_Load;
             ResumeLayout(false);
             PerformLayout();
         }
