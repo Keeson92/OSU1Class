@@ -25,7 +25,10 @@ namespace Ride_GlideElectrics
             _fordonLista = new List<Fordon>(); // Initialize the list
             InitializeData();
         }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
         private void InitializeData()
         {
             _fordonLista = FordonRepository.GetAllFordon();
