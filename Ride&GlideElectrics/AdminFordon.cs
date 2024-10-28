@@ -17,13 +17,14 @@ namespace Ride_GlideElectrics
     {
         private UthyrningsDataRepository _uthyrningsRepo;
         private List<Fordon> _fordonLista;
-
+       
         public AdminFordon()
         {
             InitializeComponent();
             _uthyrningsRepo = new UthyrningsDataRepository(); // Initialize the repository
             _fordonLista = new List<Fordon>(); // Initialize the list
             InitializeData();
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -60,3 +61,4 @@ namespace Ride_GlideElectrics
         }
     }
 }
+
