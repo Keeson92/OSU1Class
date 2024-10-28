@@ -17,7 +17,7 @@ namespace Ride_GlideElectrics
     {
         private UthyrningsDataRepository _uthyrningsRepo;
         private List<Fordon> _fordonLista;
-       
+
         public AdminFordon()
         {
             InitializeComponent();
@@ -25,6 +25,7 @@ namespace Ride_GlideElectrics
             _fordonLista = new List<Fordon>(); // Initialize the list
             InitializeData();
             this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -58,6 +59,19 @@ namespace Ride_GlideElectrics
             HuvudFönster huvudFönster = new HuvudFönster();
             huvudFönster.Show();
             this.Hide();
+        }
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var selectedFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
+                AdminRedigera adminRedigera = new AdminRedigera(selectedFordon);
+                adminRedigera.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row first.");
+            }
         }
     }
 }
