@@ -121,6 +121,7 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
         {
             return _uthyrningsdatalist;
         }
+
         public void AddUthyrningsData(UthyrningsData data)
         {
             _uthyrningsdatalist.Add(data);

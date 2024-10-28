@@ -16,6 +16,7 @@ namespace Presentationslager
     public partial class Fredriksbergsgatan : Form
     {
         private List<Fordon> _fordonLista;
+        private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository();
         public Fredriksbergsgatan()
         {
             InitializeComponent();
@@ -48,36 +49,36 @@ namespace Presentationslager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Check if any row is selected in the DataGridView
+
             if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vänligen välj ett fordon från listan.");
                 return;
             }
 
-            // Retrieve the selected Fordon from the DataGridView
+            // Hämta valt fordon från DataGridView
             var valtFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
-
-            // Set rental information - current time as start
             var uthyrningStart = DateTime.Now;
-            var uthyrningSlut = uthyrningStart.AddHours(2); // Example rental period of 2 hours
-            var prisPerMinut = 10; // You may retrieve this from the Fordon object if needed
+            var uthyrningSlut = uthyrningStart.AddHours(2);
+            var prisPerMinut = 10;
 
-            // Create a new UthyrningsData instance
+            // Skapa en ny UthyrningsData-instans
             var uthyrningData = new UthyrningsData(uthyrningStart, uthyrningSlut, valtFordon.FordonsID, prisPerMinut);
 
-            // Create an instance of UthyrningsDataRepository
-            var uthyrningsRepo = new UthyrningsDataRepository();
+            // Lägg till uthyrningData i repository
+            _uthyrningsRepo.AddUthyrningsData(uthyrningData);
 
-            // Ensure that GetAllUthyrningsData() returns a modifiable collection
-            var uthyrningsList = uthyrningsRepo.GetAllUthyrningsData();
+            // Bekräfta för användaren
+            MessageBox.Show($"Uthyrning startad för fordon {valtFordon.FordonsTyp} med ID: {valtFordon.FordonsID}.");
 
-            // Add the newly created uthyrningData to the list
-            uthyrningsList.Add(uthyrningData);
+            // Uppdatera DataGridView för att visa den nya uthyrningen
+            LoadUthyrningData();
+        }
 
-            // Optionally, display a message to the user
-            MessageBox.Show($"Uthyrning startad för fordon {valtFordon.FordonsTyp} med ID: {valtFordon.FordonsID}. Uthyrning start: {uthyrningStart}, Slut: {uthyrningSlut}, Pris per minut: {prisPerMinut}.");
-
+        private void LoadUthyrningData()
+        {
+            dataGridView1.DataSource = null; // Nollställ datakällan för att förbereda för uppdatering
+            dataGridView1.DataSource = _uthyrningsRepo.GetAllUthyrningsData(); // Binda den uppdaterade listan
         }
 
         private void button2_Click(object sender, EventArgs e)
