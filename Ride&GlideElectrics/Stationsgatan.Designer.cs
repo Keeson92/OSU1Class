@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
+            boka = new Button();
+            huvudmeny = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -44,33 +44,33 @@
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // button1
+            // boka
             // 
-            button1.Location = new Point(611, 404);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 1;
-            button1.Text = "Boka";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            boka.Location = new Point(611, 404);
+            boka.Name = "boka";
+            boka.Size = new Size(112, 34);
+            boka.TabIndex = 1;
+            boka.Text = "Boka";
+            boka.UseVisualStyleBackColor = true;
+            boka.Click += boka_Click;
             // 
-            // button2
+            // huvudmeny
             // 
-            button2.Location = new Point(91, 407);
-            button2.Name = "button2";
-            button2.Size = new Size(127, 34);
-            button2.TabIndex = 2;
-            button2.Text = "Huvudmeny";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            huvudmeny.Location = new Point(91, 407);
+            huvudmeny.Name = "huvudmeny";
+            huvudmeny.Size = new Size(127, 34);
+            huvudmeny.TabIndex = 2;
+            huvudmeny.Text = "Huvudmeny";
+            huvudmeny.UseVisualStyleBackColor = true;
+            huvudmeny.Click += huvudmeny_Click;
             // 
             // Stationsgatan
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(huvudmeny);
+            Controls.Add(boka);
             Controls.Add(dataGridView1);
             Name = "Stationsgatan";
             Text = "Stationsgatan";
@@ -81,7 +81,7 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private Button button1;
-        private Button button2;
+        private Button boka;
+        private Button huvudmeny;
     }
 }

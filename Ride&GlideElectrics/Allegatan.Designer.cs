@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Button Boka;
             dataGridView1 = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
+            Huvudmeny = new Button();
+            Boka = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -45,23 +46,21 @@
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // button1
+            // Boka
             // 
-            button1.Location = new Point(389, 287);
-            button1.Margin = new Padding(2, 2, 2, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(78, 20);
-            button1.TabIndex = 1;
-            button1.Text = "Boka";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            Boka.Location = new Point(556, 478);
+            Boka.Name = "Boka";
+            Boka.Size = new Size(112, 34);
+            Boka.TabIndex = 1;
+            Boka.Text = "Boka";
+            Boka.UseVisualStyleBackColor = true;
+            Boka.Click += boka_Click;
             // 
-            // button2
+            // Huvudmeny
             // 
-            button2.Location = new Point(30, 287);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Location = new Point(43, 478);
             button2.Name = "button2";
-            button2.Size = new Size(88, 20);
+            button2.Size = new Size(125, 34);
             button2.TabIndex = 2;
             button2.Text = "Huvudmeny";
             button2.UseVisualStyleBackColor = true;
@@ -71,7 +70,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(510, 317);
+            ClientSize = new Size(728, 529);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
@@ -85,7 +84,7 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private Button button1;
-        private Button button2;
+        private Button Boka;
+        private Button Huvudmeny;
     }
 }

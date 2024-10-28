@@ -51,13 +51,16 @@ namespace Presentationslager
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void LoadUthyrningData()
         {
-
-
+            dataGridView1.DataSource = null; // Nollställ datakällan för att förbereda för uppdatering
+            dataGridView1.DataSource = _uthyrningsRepo.GetAllUthyrningsData(); // Binda den uppdaterade listan
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+
+        private void boka_Click(object sender, EventArgs e)
         {
 
             if (dataGridView1.SelectedRows.Count == 0)
@@ -85,13 +88,7 @@ namespace Presentationslager
             LoadUthyrningData();
         }
 
-        private void LoadUthyrningData()
-        {
-            dataGridView1.DataSource = null; // Nollställ datakällan för att förbereda för uppdatering
-            dataGridView1.DataSource = _uthyrningsRepo.GetAllUthyrningsData(); // Binda den uppdaterade listan
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void huvudmeny_Click(object sender, EventArgs e)
         {
             UserMenu userMenu = new UserMenu();
 
