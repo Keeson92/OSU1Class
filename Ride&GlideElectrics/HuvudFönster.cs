@@ -18,8 +18,6 @@ namespace Ride_GlideElectrics
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-
-
             // Hämta användarnamn och lösenord från textboxarna
             string username = txtUsername.Text;
             string password = txtPassword.Text;
@@ -29,14 +27,11 @@ namespace Ride_GlideElectrics
             {
                 MessageBox.Show("Inloggning lyckades!");
 
-                AdminMenu AdminMenu = new AdminMenu();
+                AdminFordon adminFordon = new AdminFordon();
 
                 // Show the second form
-                AdminMenu.Show();
+                adminFordon.Show();
                 this.Hide();
-
-
-
             }
             else if (username == "user" && password == "123")
             {

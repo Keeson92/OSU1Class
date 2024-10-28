@@ -37,18 +37,20 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(98, 119);
+            dataGridView1.Location = new Point(69, 71);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(486, 270);
+            dataGridView1.Size = new Size(340, 162);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button1
             // 
-            button1.Location = new Point(556, 478);
+            button1.Location = new Point(389, 287);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(78, 20);
             button1.TabIndex = 1;
             button1.Text = "Boka";
             button1.UseVisualStyleBackColor = true;
@@ -56,9 +58,10 @@
             // 
             // button2
             // 
-            button2.Location = new Point(43, 478);
+            button2.Location = new Point(30, 287);
+            button2.Margin = new Padding(2, 2, 2, 2);
             button2.Name = "button2";
-            button2.Size = new Size(125, 34);
+            button2.Size = new Size(88, 20);
             button2.TabIndex = 2;
             button2.Text = "Huvudmeny";
             button2.UseVisualStyleBackColor = true;
@@ -66,12 +69,13 @@
             // 
             // Allegatan
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(728, 529);
+            ClientSize = new Size(510, 317);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Allegatan";
             Text = "Allegatan";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

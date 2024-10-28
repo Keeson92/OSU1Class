@@ -161,26 +161,33 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
     }
     }
     
-public static class FordonRepository
+public class FordonRepository
 {
+    private static List<Fordon> _fordonLista;
+
+    static FordonRepository()
+    {
+        _fordonLista = new List<Fordon>
+        {
+            new Fordon(1, "Allégatan", "Bokad", "Elcykel"),
+            new Fordon(2, "Stationsgatan", "Ledig", "Elsparkcykel"),
+            new Fordon(3, "Solrosvägen", "Laddas", "Elsparkcykel"),
+            new Fordon(4, "Allégatan", "Laddas", "Elcykel"),
+            new Fordon(5, "Stationsgatan", "Laddas", "Elcykel"),
+            new Fordon(6, "Stationsgatan", "Ledig", "Elsparkcykel"),
+            new Fordon(7, "Solrosvägen", "Laddas", "Elsparkcykel"),
+            new Fordon(8, "Solrosvägen", "Ledig", "Elcykel"),
+            new Fordon(9, "Fredriksbergsgatan", "Ledig", "Elcykel"),
+            new Fordon(10, "Fredriksbergsgatan", "Laddas", "Elsparkcykel")
+        };
+    }
+
     public static List<Fordon> GetAllFordon()
     {
-        // Initialiserar data
-        return new List<Fordon>
-            {
-                new Fordon(1, "Allégatan", "Bokad", "Elcykel"),
-                new Fordon(2, "Stationsgatan", "Ledig", "Elsparkcykel"),
-                new Fordon(3, "Solrosvägen", "Laddas", "Elsparkcykel"),
-                new Fordon(4, "Allégatan", "Laddas", "Elcykel"),
-                new Fordon(5, "Stationsgatan", "Laddas", "Elcykel"),
-                new Fordon(6, "Stationsgatan", "Ledig", "Elsparkcykel"),
-                new Fordon(7, "Solrosvägen", "Laddas", "Elsparkcykel"),
-                new Fordon(8, "Solrosvägen", "Ledig", "Elcykel"),
-                new Fordon(9, "Fredriksbergsgatan", "Ledig", "Elcykel"),
-                new Fordon(10, "Fredriksbergsgatan", "Laddas", "Elsparkcykel"),
-            };
+        return _fordonLista;
     }
 }
+
 
 public class AnvandareRepository
 {

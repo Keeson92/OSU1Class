@@ -1,4 +1,4 @@
-﻿using Servicelager;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,13 +21,14 @@ namespace Presentationslager
         public Allegatan()
         {
             InitializeComponent();
+            _fordonLista = new List<Fordon>(); // Initialize the list to avoid null reference
             InitializeData();
         }
 
 
         private void InitializeData() // kopplar listan till datagrid
         {
-            // Initialize the list from in-memory data source
+            
             // Initialize the list from in-memory data source
             _fordonLista = FordonRepository.GetAllFordon();
 

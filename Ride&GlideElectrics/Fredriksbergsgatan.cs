@@ -20,6 +20,7 @@ namespace Presentationslager
         public Fredriksbergsgatan()
         {
             InitializeComponent();
+            _fordonLista = new List<Fordon>(); // Initialize the list to avoid null reference
             InitializeData();
         }
 

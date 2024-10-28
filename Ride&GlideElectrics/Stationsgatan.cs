@@ -25,6 +25,7 @@ namespace Presentationslager
         {
             InitializeComponent();
             _uthyrningsRepo = new UthyrningsDataRepository(); // Initialize the repository
+            _fordonLista = new List<Fordon>(); // Initialize the list
             InitializeData();
         }
 
