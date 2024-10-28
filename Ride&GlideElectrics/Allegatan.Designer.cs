@@ -58,21 +58,21 @@
             // 
             // Huvudmeny
             // 
-            button2.Location = new Point(43, 478);
+            /*button2.Location = new Point(43, 478);
             button2.Name = "button2";
             button2.Size = new Size(125, 34);
             button2.TabIndex = 2;
             button2.Text = "Huvudmeny";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
-            // 
+            */ 
             // Allegatan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(728, 529);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            //Controls.Add(button2);
+            //Controls.Add(button1);
             Controls.Add(dataGridView1);
             Margin = new Padding(2, 2, 2, 2);
             Name = "Allegatan";

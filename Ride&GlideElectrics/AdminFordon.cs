@@ -15,12 +15,9 @@ namespace Ride_GlideElectrics
 {
     public partial class AdminFordon : Form
     {
-        private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository();
-
-
-
-
+        private UthyrningsDataRepository _uthyrningsRepo;
         private List<Fordon> _fordonLista;
+
         public AdminFordon()
         {
             InitializeComponent();
@@ -29,35 +26,34 @@ namespace Ride_GlideElectrics
             InitializeData();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void InitializeData()
         {
-
-        }
-        private void InitializeData() // kopplar listan till datagrid
-        {
-            // Initialize the list from in-memory data source
             _fordonLista = FordonRepository.GetAllFordon();
+            var filteredFordonLista = _fordonLista.ToList();
 
-            // Filter the list to include only vehicles where Position contains "Stationsgatan"
-            var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Stationsgatan") && f.Status == "Ledig").ToList();
+            if (filteredFordonLista.Any())
+            {
+                dataGridView1.DataSource = filteredFordonLista;
 
-            // Set the filtered list as the DataSource for the DataGridView
-            dataGridView1.DataSource = filteredFordonLista;
-
-            // Set header text for the columns
-            dataGridView1.Columns["FordonsID"].HeaderText = "ID";
-            dataGridView1.Columns["Position"].HeaderText = "Station";
-            dataGridView1.Columns["Status"].HeaderText = "Status";
-            dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
+                // Ensure DataGridView is properly initialized and columns exist
+                if (dataGridView1.Columns.Contains("FordonsID") &&
+                    dataGridView1.Columns.Contains("Position") &&
+                    dataGridView1.Columns.Contains("Status") &&
+                    dataGridView1.Columns.Contains("FordonsTyp"))
+                {
+                    dataGridView1.Columns["FordonsID"].HeaderText = "ID";
+                    dataGridView1.Columns["Position"].HeaderText = "Station";
+                    dataGridView1.Columns["Status"].HeaderText = "Status";
+                    dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
+                }
+            }
         }
 
-
-            private void button1_click(object? sender, EventArgs e)
-            {
-                this.Close();
-                HuvudFönster huvudFönster = new HuvudFönster();
-                huvudFönster.Show();
-            }
-        
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            HuvudFönster huvudFönster = new HuvudFönster();
+            huvudFönster.Show();
+            this.Hide();
+        }
     }
 }
