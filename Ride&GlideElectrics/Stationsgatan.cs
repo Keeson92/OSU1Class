@@ -50,7 +50,26 @@ namespace Presentationslager
             dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void LoadUthyrningData()
+        {
+            dataGridView1.DataSource = null; // Nollställ datakällan för att förbereda för uppdatering
+            dataGridView1.DataSource = _uthyrningsRepo.GetAllUthyrningsData(); // Binda den uppdaterade listan
+        }
+
+
+
+        private void huvudmeny_Click(object sender, EventArgs e)
+        {
+            UserMenu usermenu = new UserMenu();
+            usermenu.Show();
+            // UserMenu userMenu = new UserMenu();
+
+            // userMenu.Show();
+            this.Hide();
+        }
+
+        private void boka_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
@@ -75,25 +94,6 @@ namespace Presentationslager
 
             // Uppdatera DataGridView för att visa den nya uthyrningen
             LoadUthyrningData();
-        }
-
-        private void LoadUthyrningData()
-        {
-            dataGridView1.DataSource = null; // Nollställ datakällan för att förbereda för uppdatering
-            dataGridView1.DataSource = _uthyrningsRepo.GetAllUthyrningsData(); // Binda den uppdaterade listan
-        }
-    
-
-
-
-    private void button2_Click(object sender, EventArgs e)
-        {
-            UserMenu usermenu = new UserMenu();
-            usermenu.Show();
-           // UserMenu userMenu = new UserMenu();
-
-           // userMenu.Show();
-            this.Hide();
         }
     }
 }
