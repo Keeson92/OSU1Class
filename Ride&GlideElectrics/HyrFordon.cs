@@ -31,7 +31,7 @@ namespace Ride_GlideElectrics
 
         private void btn_Allégatan_Click(object sender, EventArgs e)
         {
-            Allegatan allegatan = new Allegatan();
+            Allegatan123 allegatan = new Allegatan123();
             allegatan.Show();
             this.Hide();
         }
