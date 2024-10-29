@@ -13,49 +13,50 @@ using Presentationslager;
 
 namespace Ride_GlideElectrics
 {
-    public partial class HyrFordon : Form
+    public partial class HyrFordon : Form // HyrFordon är en form som visar alla fordon som finns i systemet och tillåter användaren att boka ett fordon.
     {
-        public HyrFordon()
+        public HyrFordon() // Konstruktor för HyrFordon
         {
             InitializeComponent();
         }
 
-        private void btnTillbakaTillUserMenu_Click(object sender, EventArgs e)
+        private void btnTillbakaTillUserMenu_Click(object sender, EventArgs e) // en metod som körs när knappen Tillbaka till UserMenu klickas på
         {
             UserMenu usermenu = new UserMenu();
 
-            usermenu.Show();
-            this.Close();
+            usermenu.Show(); // Visa UserMenu
+            this.Close();// stänger nuvarande fönster
 
         }
 
-        private void btn_Allégatan_Click(object sender, EventArgs e)
+        private void btn_Allégatan_Click(object sender, EventArgs e) // knappen allegatan kör denna metod
         {
-            Allegatan123 allegatan = new Allegatan123();
-            allegatan.Show();
-            this.Hide();
+            Allegatan allegatan = new Allegatan();
+            allegatan.Show(); // visa allegatan
+            this.Hide();// stänger nuvarande fönster
         }
 
-        private void btn_Stationsgatan_Click(object sender, EventArgs e)
+        private void btn_Stationsgatan_Click(object sender, EventArgs e) // knappen Stationsgatan kör denna metod
         {
             Stationsgatan stationsgatan = new Stationsgatan();
-            stationsgatan.Show();
-            this.Hide();
+            stationsgatan.Show(); // visar Stationsgatan
+            this.Hide(); // stänger nuvarande fönster
         }
 
-        private void btn_Fredriksbergsgatan_Click(object sender, EventArgs e)
+        private void btn_Fredriksbergsgatan_Click(object sender, EventArgs e) // knappen Fredriksbergsgatan kör denna metod
         {
             Fredriksbergsgatan fredriksbergsgatan = new Fredriksbergsgatan();
-           fredriksbergsgatan.Show();
-            this.Hide();
+           fredriksbergsgatan.Show(); //visar Fredriksbergsgatan
+            this.Hide(); // stänger nuvarande fönster
 
         }
 
-        private void btn_Solrosvägen_Click(object sender, EventArgs e)
+        private void btn_Solrosvägen_Click(object sender, EventArgs e) //knappen Solrosvägen kör denna metod
         {
            Solrosvagen solrosvagen = new Solrosvagen();
-           solrosvagen.Show();
-           this.Hide();
+           solrosvagen.Show(); // visar Solrosvägen
+            this.Hide(); // stänger nuvarande fönster
+            
         }
     }
 }

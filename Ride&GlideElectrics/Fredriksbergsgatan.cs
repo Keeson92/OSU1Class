@@ -13,26 +13,25 @@ using System.Windows.Forms;
 
 namespace Presentationslager
 {
-    public partial class Fredriksbergsgatan : Form
+    public partial class Fredriksbergsgatan : Form // Fredriksbergsgatan är en form som visar alla fordon som finns på Fredriksbergsgatan och tillåter användaren att boka ett fordon.
     {
         private List<Fordon> _fordonLista;
         private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository();
-        public Fredriksbergsgatan()
+        public Fredriksbergsgatan() // Konstruktor för Fredriksbergsgatan
         {
-            InitializeComponent();
-            _fordonLista = new List<Fordon>(); // Initialize the list to avoid null reference
-            InitializeData();
+            InitializeComponent(); // Initialize formens konponenter
+            _fordonLista = new List<Fordon>(); // Initializear listan för fordon
+            InitializeData();// Initialize formens data
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) // en metod som körs när en cell i datagridview klickas på
         {
 
         }
         private void InitializeData() // kopplar listan till datagrid
-        {
-            // Initialize the list from in-memory data source
-            // Initialize the list from in-memory data source
-            _fordonLista = FordonRepository.GetAllFordon();
+        {         
+            
+            _fordonLista = FordonRepository.GetAllFordon(); // Hämtar alla fordon från databasen
 
 
             // Filter the list to include only vehicles where Position contains "Allegatan"
@@ -49,7 +48,7 @@ namespace Presentationslager
         }
 
 
-        private void LoadUthyrningData()
+        private void LoadUthyrningData() // Uppdaterar DataGridView med den senaste uthyrningsdatan
         {
             dataGridView1.DataSource = null; // Nollställ datakällan för att förbereda för uppdatering
             dataGridView1.DataSource = _uthyrningsRepo.GetAllUthyrningsData(); // Binda den uppdaterade listan
@@ -58,10 +57,10 @@ namespace Presentationslager
 
 
 
-        private void boka_Click(object sender, EventArgs e)
+        private void boka_Click(object sender, EventArgs e) // en metod som körs när boka-knappen klickas på
         {
 
-            if (dataGridView1.SelectedRows.Count == 0)
+            if (dataGridView1.SelectedRows.Count == 0) // Kontrollera att användaren har valt ett fordon
             {
                 MessageBox.Show("Vänligen välj ett fordon från listan.");
                 return;
@@ -86,7 +85,7 @@ namespace Presentationslager
             LoadUthyrningData();
         }
 
-        private void huvudmeny_Click(object sender, EventArgs e)
+        private void huvudmeny_Click(object sender, EventArgs e) // en metod som körs när huvudmeny-knappen klickas på
         {
             UserMenu userMenu = new UserMenu();
 

@@ -9,7 +9,7 @@ namespace BusinessEntities
     {
         public DateTime HyrHistorik { get; }
         public string BetalningsMetod { get; }
-        public KontoData(DateTime hyrHistorik, string betalningsMetod)
+        public KontoData(DateTime hyrHistorik, string betalningsMetod) //Konstruktor för KontoData
         {
             HyrHistorik = hyrHistorik;
             BetalningsMetod = betalningsMetod;

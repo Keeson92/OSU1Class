@@ -14,64 +14,56 @@ using Ride_GlideElectrics;
 
 namespace Presentationslager
 {
-    public partial class Allegatan : Form
+    public partial class Allegatan : Form // Allegatan är en form som visar alla fordon som finns på Allégatan och tillåter användaren att boka ett fordon.
     {
+        private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository(); // Repository for data access
         private List<Fordon> _fordonLista;
-        private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository();
-        public Allegatan()
+
+        public Allegatan() // Konstruktor för Allegatan
         {
             InitializeComponent();
-            _fordonLista = new List<Fordon>(); // Initialize the list to avoid null reference
+            _uthyrningsRepo = new UthyrningsDataRepository(); // Initialize the repository
+            _fordonLista = new List<Fordon>(); // Initialize the list
             InitializeData();
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) // en metod som körs när en cell i datagridview klickas på
+        {
+
+        }
 
         private void InitializeData() // kopplar listan till datagrid
         {
-
-            // Initialize the list from in-memory data source
+            // initialize listan med fordon
             _fordonLista = FordonRepository.GetAllFordon();
 
-
-            // Filter the list to include only vehicles where Position contains "Allegatan"
+            // visa bara värden som innehåller "Allégatan" och är lediga
             var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Allégatan") && f.Status == "Ledig").ToList();
 
-            // Set the filtered list as the DataSource for the DataGridView
+            // den sorterade listan skickas till datagrid
             dataGridView1.DataSource = filteredFordonLista;
 
-            // Set header text for the columns
+            // Rubriker för kolumner
             dataGridView1.Columns["FordonsID"].HeaderText = "ID";
             dataGridView1.Columns["Position"].HeaderText = "Station";
             dataGridView1.Columns["Status"].HeaderText = "Status";
             dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
-        private void LoadUthyrningData()
+        private void LoadUthyrningData() // Uppdaterar DataGridView med den senaste uthyrningsdatan
         {
             dataGridView1.DataSource = null; // Nollställ datakällan för att förbereda för uppdatering
             dataGridView1.DataSource = _uthyrningsRepo.GetAllUthyrningsData(); // Binda den uppdaterade listan
         }
 
-
-
-        private void boka_Click(object sender, EventArgs e)
+        private void huvudmeny_Click(object sender, EventArgs e) // en metod som körs när huvudmeny-knappen klickas på
         {
-
-
+            UserMenu usermenu = new UserMenu();
+            usermenu.Show(); // öppnar huvudmenyn och stänger denna form
+            this.Hide();
         }
 
-        private void huvudmeny_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Boka_Click(object sender, EventArgs e)
+        private void boka_Click(object sender, EventArgs e) // en metod som körs när boka-knappen klickas på
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
@@ -96,14 +88,6 @@ namespace Presentationslager
 
             // Uppdatera DataGridView för att visa den nya uthyrningen
             LoadUthyrningData();
-        }
-
-        private void Huvudmeny_Click(object sender, EventArgs e)
-        {
-            UserMenu userMenu = new UserMenu();
-
-            userMenu.Show();
-            this.Hide();
         }
     }
 }

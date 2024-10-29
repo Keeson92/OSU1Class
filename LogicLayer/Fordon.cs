@@ -20,8 +20,8 @@ namespace BusinessEntities
                 Status = status;
                 FordonsTyp = fordonsTyp;
             }
-            public override string ToString()
-            {
+            public override string ToString() //Returnerar en sträng med information om fordonet
+        {
                 return $"ID: {FordonsID}, Position: {Position}, Status: {Status}, Typ: {FordonsTyp}";
             }
         }

@@ -17,7 +17,7 @@ namespace BusinessEntities
         public long Telefonnr { get; }
         public string Epost { get; }
         public string Password { get; }
-        public User(int userID, string fornamn, string efternamn, int personnummer, long telefonnr, string epost, string password)
+        public User(int userID, string fornamn, string efternamn, int personnummer, long telefonnr, string epost, string password) //Konstruktor för User
         {
             UserID = userID;
             Fornamn = fornamn;

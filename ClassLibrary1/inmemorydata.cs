@@ -21,13 +21,13 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
     }
 
 
-    public class AnvandareRepository
+    public class AnvandareRepository 
     {
-        private List<User> _anvandareLista;
+        private List<User> _anvandareLista; // Lista med användare
 
         public AnvandareRepository()
         {
-            // Initialiserar data
+            
             _anvandareLista = new List<User>
                 {
                     new User(1, "Alice", "Karlsson", 980101, 701234567, "alice.karlsson@gmail.com", "1"),
@@ -44,20 +44,20 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
                 };
         }
 
-        public List<User> GetAllAnvandare()
+        public List<User> GetAllAnvandare() // Retunerar en lista med alla användare
         {
             return _anvandareLista;
         }
     }
 
-    public class KontoRepository
+    public class KontoRepository 
     {
-        private List<KontoData> _kontolista;
+        private List<KontoData> _kontolista; // Lista med kontodata
 
-        public KontoRepository()
+        public KontoRepository() // Konstruktor
         {
-            // Initialiserar data
-            _kontolista = new List<KontoData>
+            
+            _kontolista = new List<KontoData> 
                 {
                     new KontoData(new DateTime(2024, 9, 24), "Mastercard"),
                     new KontoData(new DateTime(2024, 9, 24), "Visa"),
@@ -70,7 +70,7 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
                 };
         }
 
-        public List<KontoData> GetAllKonto()
+        public List<KontoData> GetAllKonto() // Retunerar en lista med alla kontodata
         {
             return _kontolista;
         }
@@ -78,12 +78,12 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
 
     public class StationRepository
     {
-        private List<StationData> _stationList;
+        private List<StationData> _stationList; // Lista med stationdata
 
         public StationRepository()
         {
             // Initialiserar data
-            _stationList = new List<StationData>
+            _stationList = new List<StationData> // Lista med stationdata
                 {
                     new StationData("Allégatan", 10, "Tillänglig", 20),
                     new StationData("Stationsgatan", 5, "På Underhåll", 50),
@@ -92,21 +92,21 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
                 };
         }
 
-        public List<StationData> GetAllStationer()
+        public List<StationData> GetAllStationer() // Retunerar en lista med alla stationer
         {
             return _stationList;
         }
     }
 
-    public class UthyrningsDataRepository
+    public class UthyrningsDataRepository 
     {
-        private List<UthyrningsData> _uthyrningsdatalist;
+        private List<UthyrningsData> _uthyrningsdatalist; // Lista med uthyrningsdata
 
 
-        public UthyrningsDataRepository()
+        public UthyrningsDataRepository() 
         {
             // Initialiserar data
-            _uthyrningsdatalist = new List<UthyrningsData>
+            _uthyrningsdatalist = new List<UthyrningsData> 
                 {
                     new UthyrningsData(new DateTime(2024, 10, 22, 10, 30, 0), new DateTime(2024, 10, 22, 12, 30, 0), 5, 10),
                     new UthyrningsData(new DateTime(2024, 10, 23, 9, 0, 0), new DateTime(2024, 10, 23, 11, 15, 0), 6, 10),
@@ -117,24 +117,24 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
                 };
         }
 
-        public List<UthyrningsData> GetAllUthyrningsData()
+        public List<UthyrningsData> GetAllUthyrningsData() // Retunerar en lista med alla uthyrningsdata
         {
             return _uthyrningsdatalist;
         }
 
-        public void AddUthyrningsData(UthyrningsData data)
+        public void AddUthyrningsData(UthyrningsData data) // Lägger till uthyrningsdata i listan
         {
             _uthyrningsdatalist.Add(data);
         }
     }
 
-    public class KontoDataRepository
+    public class KontoDataRepository 
     {
-        private List<KontoData> _kontoDatalist;
+        private List<KontoData> _kontoDatalist; // Lista med kontodata
 
         public KontoDataRepository()
         {
-            _kontoDatalist = new List<KontoData>
+            _kontoDatalist = new List<KontoData> // Lista med kontodata
                 {
                     new KontoData(new DateTime(2024, 10, 22), "Mastercard"),
                     new KontoData(new DateTime(2024, 10, 23), "Swish"),
@@ -144,32 +144,32 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
                 };
         }
 
-        public List<KontoData> GetAllKontoData()
+        public List<KontoData> GetAllKontoData() // Retunerar en lista med alla kontodata
         {
             return _kontoDatalist;
         }
 
-        public void AddKontoData(KontoData kontoData)
+        public void AddKontoData(KontoData kontoData) // Lägger till kontodata i listan
         {
             _kontoDatalist.Add(kontoData);
         }
 
-        public KontoData GetKontoDataByDate(DateTime hyrHistorik)
+        public KontoData GetKontoDataByDate(DateTime hyrHistorik) // Retunerar kontodata baserat på datum
         {
-            return _kontoDatalist.FirstOrDefault(k => k.HyrHistorik == hyrHistorik);
+            return _kontoDatalist.FirstOrDefault(k => k.HyrHistorik == hyrHistorik); // Returnerar första elementet som matchar datumet
         }
     }
     }
     
 public class FordonRepository
 {
-    private static List<Fordon> _fordonLista;
+    private static List<Fordon> _fordonLista; // Lista med fordon
 
-    static FordonRepository()
+    static FordonRepository() // Konstruktor
     {
         _fordonLista = new List<Fordon>
         {
-            new Fordon(1, "Allégatan", "Bokad", "Elcykel"),
+            new Fordon(1, "Allégatan", "Ledig", "Elcykel"),
             new Fordon(2, "Stationsgatan", "Ledig", "Elsparkcykel"),
             new Fordon(3, "Solrosvägen", "Laddas", "Elsparkcykel"),
             new Fordon(4, "Allégatan", "Laddas", "Elcykel"),
@@ -182,7 +182,7 @@ public class FordonRepository
         };
     }
 
-    public static List<Fordon> GetAllFordon()
+    public static List<Fordon> GetAllFordon() // Retunerar en lista med alla fordon
     {
         return _fordonLista;
     }
@@ -191,12 +191,12 @@ public class FordonRepository
 
 public class AnvandareRepository
 {
-    private List<User> _anvandareLista;
+    private List<User> _anvandareLista; // Lista med användare
 
     public AnvandareRepository()
     {
-        // Initialiserar data
-        _anvandareLista = new List<User>
+        
+        _anvandareLista = new List<User> // Lista med användare
             {
                 new User(1, "Alice", "Karlsson", 980101, 701234567, "alice.karlsson@gmail.com", "1"),
                 new User(2, "Gustav", "Karlholm", 960101, 732345678, "gustav.karlholm@protonmail.com", "2"),
@@ -212,19 +212,19 @@ public class AnvandareRepository
             };
     }
 
-    public List<User> GetAllAnvandare()
+    public List<User> GetAllAnvandare() // Retunerar en lista med alla användare
     {
         return _anvandareLista;
     }
 }
 public class KontoRepository
 {
-    private List<KontoData> _kontolista;
+    private List<KontoData> _kontolista; // Lista med kontodata
 
     public KontoRepository()
     {
-        // Initialiserar data
-        _kontolista = new List<KontoData>
+        
+        _kontolista = new List<KontoData> // Lista med kontodata
             {
                 new KontoData(new DateTime(2024, 9, 24), "Mastercard"),
                 new KontoData(new DateTime(2024, 9, 24), "Visa"),
@@ -237,19 +237,19 @@ public class KontoRepository
             };
     }
 
-    public List<KontoData> GetAllKonto()
+    public List<KontoData> GetAllKonto() // Retunerar en lista med alla kontodata
     {
         return _kontolista;
     }
 }
 public class StationRepository
 {
-    private List<StationData> _stationList;
+    private List<StationData> _stationList; // Lista med stationdata
 
     public StationRepository()
     {
         // Initialiserar data
-        _stationList = new List<StationData>
+        _stationList = new List<StationData> // Lista med stationdata
             {
                 new StationData("Allégatan", 10, "Tillänglig", 20),
                 new StationData("Stationsgatan", 5, "På Underhåll", 50),
@@ -258,14 +258,14 @@ public class StationRepository
             };
     }
 
-    public List<StationData> GetAllStationer()
+    public List<StationData> GetAllStationer() // Retunerar en lista med alla stationer
     {
         return _stationList;
     }
 }
 public class KontoDataRepository
 {
-    private List<KontoData> _kontoDatalist;
+    private List<KontoData> _kontoDatalist; // Lista med kontodata
 
     public KontoDataRepository()
     {
@@ -279,17 +279,17 @@ public class KontoDataRepository
             };
     }
 
-    public List<KontoData> GetAllKontoData()
+    public List<KontoData> GetAllKontoData() // Retunerar en lista med alla kontodata
     {
         return _kontoDatalist;
     }
 
-    public void AddKontoData(KontoData kontoData)
+    public void AddKontoData(KontoData kontoData) //    Lägger till kontodata i listan
     {
         _kontoDatalist.Add(kontoData);
     }
 
-    public KontoData GetKontoDataByDate(DateTime hyrHistorik)
+    public KontoData GetKontoDataByDate(DateTime hyrHistorik) // Retunerar kontodata baserat på datum
     {
         return _kontoDatalist.FirstOrDefault(k => k.HyrHistorik == hyrHistorik);
     }
