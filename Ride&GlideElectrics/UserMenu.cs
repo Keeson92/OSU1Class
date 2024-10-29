@@ -38,9 +38,19 @@ namespace Ride_GlideElectrics
 
         }
 
-        private void button1_Click(object sender, EventArgs e) // en metod som körs när knappen logga ut klickas på                         
+        private void button1_Click(object sender, EventArgs e) // en metod som körs när knappen avsluta klickas på                         
         {
             Environment.Exit(0); // avslutar programmet
         }
+
+       
+        
+        private void btn_LogOut_Click(object sender, EventArgs e) // Metod som körs när logga ut
+        {
+                HuvudFönster huvudFönster = new HuvudFönster(); // visa nytt fönster och stäng det gamla
+                huvudFönster.Show();
+                this.Hide();
+        }
+        
     }
 }

@@ -169,7 +169,7 @@ public class FordonRepository
     {
         _fordonLista = new List<Fordon>
         {
-            new Fordon(1, "Allégatan", "Bokad", "Elcykel"),
+            new Fordon(1, "Allégatan", "Ledig", "Elcykel"),
             new Fordon(2, "Stationsgatan", "Ledig", "Elsparkcykel"),
             new Fordon(3, "Solrosvägen", "Laddas", "Elsparkcykel"),
             new Fordon(4, "Allégatan", "Laddas", "Elcykel"),

@@ -16,32 +16,15 @@ namespace Presentationslager
 {
     public partial class Allegatan : Form // Allegatan är en form som visar alla fordon som finns på Allégatan och tillåter användaren att boka ett fordon.
     {
+        private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository(); // Repository for data access
         private List<Fordon> _fordonLista;
-        private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository();
-        public Allegatan()
+
+        public Allegatan() // Konstruktor för Allegatan
         {
-            InitializeComponent(); // Initialize formens konponenter
-            _fordonLista = new List<Fordon>(); 
-            InitializeData(); // Initialize formens data
-        }
-
-
-        private void InitializeData() // kopplar listan till datagrid
-        {
-                      
-            _fordonLista = FordonRepository.GetAllFordon();
-
-            // Filtera listan för att visa endast fordon på Allégatan som är lediga
-            var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Allégatan") && f.Status == "Ledig").ToList();
-
-            // skicka den fitlerade listan till datagrid
-            dataGridView1.DataSource = filteredFordonLista;
-
-            // bestämmer column Rubriker
-            dataGridView1.Columns["FordonsID"].HeaderText = "ID";
-            dataGridView1.Columns["Position"].HeaderText = "Station";
-            dataGridView1.Columns["Status"].HeaderText = "Status";
-            dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
+            InitializeComponent();
+            _uthyrningsRepo = new UthyrningsDataRepository(); // Initialize the repository
+            _fordonLista = new List<Fordon>(); // Initialize the list
+            InitializeData();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) // en metod som körs när en cell i datagridview klickas på
@@ -49,6 +32,23 @@ namespace Presentationslager
 
         }
 
+        private void InitializeData() // kopplar listan till datagrid
+        {
+            // initialize listan med fordon
+            _fordonLista = FordonRepository.GetAllFordon();
+
+            // visa bara värden som innehåller "Allégatan" och är lediga
+            var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Allégatan") && f.Status == "Ledig").ToList();
+
+            // den sorterade listan skickas till datagrid
+            dataGridView1.DataSource = filteredFordonLista;
+
+            // Rubriker för kolumner
+            dataGridView1.Columns["FordonsID"].HeaderText = "ID";
+            dataGridView1.Columns["Position"].HeaderText = "Station";
+            dataGridView1.Columns["Status"].HeaderText = "Status";
+            dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
+        }
 
         private void LoadUthyrningData() // Uppdaterar DataGridView med den senaste uthyrningsdatan
         {
@@ -56,12 +56,16 @@ namespace Presentationslager
             dataGridView1.DataSource = _uthyrningsRepo.GetAllUthyrningsData(); // Binda den uppdaterade listan
         }
 
-
-
-        private void boka_Click(object sender, EventArgs e) // knappen Boka kör denna metod
+        private void huvudmeny_Click(object sender, EventArgs e) // en metod som körs när huvudmeny-knappen klickas på
         {
+            UserMenu usermenu = new UserMenu();
+            usermenu.Show(); // öppnar huvudmenyn och stänger denna form
+            this.Hide();
+        }
 
-            if (dataGridView1.SelectedRows.Count == 0) //felhantring för att se om raden är giltig
+        private void boka_Click(object sender, EventArgs e) // en metod som körs när boka-knappen klickas på
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vänligen välj ett fordon från listan.");
                 return;
@@ -84,14 +88,6 @@ namespace Presentationslager
 
             // Uppdatera DataGridView för att visa den nya uthyrningen
             LoadUthyrningData();
-        }
-
-        private void huvudmeny_Click(object sender, EventArgs e) // Metod som körs när knappen Huvudmeny trycks
-        {
-            UserMenu userMenu = new UserMenu(); //öppmar usermenu och stänger detta fönster
-
-            userMenu.Show();
-            this.Hide();
         }
     }
 }
