@@ -1,6 +1,6 @@
 namespace Ride_GlideElectrics
 {
-    internal static class Startsida
+    internal static class Startsida 
     {
         /// <summary>
         ///  The main entry point for the application.

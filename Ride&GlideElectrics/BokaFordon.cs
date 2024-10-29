@@ -10,43 +10,43 @@ using System.Windows.Forms;
 
 namespace Presentationslager
 {
-    public partial class BokaFordon : Form
+    public partial class BokaFordon : Form // BokaFordon är en form som tillåter användaren att boka ett fordon.
     {
         private TextBox txtFordon;
 
-        public BokaFordon()
+        public BokaFordon() // Konstruktor för BokaFordon
         {
-            InitializeComponent();
-            InitializeData();
+            InitializeComponent(); // Initialize form-konponenter
+            InitializeData(); // Initialize data
         }
-        private void InitializeData()
+        private void InitializeData() 
         {
-            this.txtFordon = new TextBox(); // Initialize the TextBox
+            this.txtFordon = new TextBox(); // Initialize TextBox
 
-            // Configure the TextBox
-            this.txtFordon.Multiline = true; // Allow multiple lines if needed
-            this.txtFordon.Dock = DockStyle.Fill; // Fill the form with the TextBox
+            // Configure våran TextBox
+            this.txtFordon.Multiline = true; // tillåt för flera rader
+            this.txtFordon.Dock = DockStyle.Fill; // fyll ut formen
 
-            // Adding controls to the form
+            // Controller för att visa texten i TextBox
             this.Controls.Add(this.txtFordon);
-            this.Text = "Boka Fordon"; // Set the title of the form
+            this.Text = "Boka Fordon"; // välj fordonsbokning som titel
         }
 
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e) // en metod som körs när texten i TextBox ändras
         {
             MessageBox.Show("You entered: " + txtFordon.Text);
 
         }
-        public void SetFordon(string selectedFordon)
+        public void SetFordon(string selectedFordon) // en metod som sätter texten i TextBox
         {
-            if (txtFordon != null) // Check if txtFordon is initialized
+            if (txtFordon != null) // ser till att TextBox är initialiserad
             {
-                txtFordon.Text = selectedFordon; // Set the text in the TextBox
+                txtFordon.Text = selectedFordon; // bestämmer texten i TextBox
             }
             else
             {
-                MessageBox.Show("TextBox is not initialized."); // Debug message
+                MessageBox.Show("TextBox is not initialized."); // Debug medelande
             }
         }
 

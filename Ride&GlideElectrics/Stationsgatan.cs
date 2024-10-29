@@ -13,15 +13,12 @@ using System.Windows.Forms;
 
 namespace Presentationslager
 {
-    public partial class Stationsgatan : Form
+    public partial class Stationsgatan : Form // Stationsgatan är en form som visar alla fordon som finns på Stationsgatan och tillåter användaren att boka ett fordon.
     {
-        private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository();
-
-
-
+        private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository(); // Repository for data access
 
         private List<Fordon> _fordonLista;
-        public Stationsgatan()
+        public Stationsgatan() // Konstruktor för Stationsgatan
         {
             InitializeComponent();
             _uthyrningsRepo = new UthyrningsDataRepository(); // Initialize the repository
@@ -29,22 +26,22 @@ namespace Presentationslager
             InitializeData();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) // en metod som körs när en cell i datagridview klickas på
         {
 
         }
         private void InitializeData() // kopplar listan till datagrid
         {
-            // Initialize the list from in-memory data source
+            // initialize listan med fordon
             _fordonLista = FordonRepository.GetAllFordon();
 
-            // Filter the list to include only vehicles where Position contains "Stationsgatan"
+            // visa bara värden som innehåller "Stationsgatan" och är lediga
             var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Stationsgatan") && f.Status == "Ledig").ToList();
 
-            // Set the filtered list as the DataSource for the DataGridView
+            // den sorterade listan skickas till datagrid
             dataGridView1.DataSource = filteredFordonLista;
 
-            // Set header text for the columns
+            // Rubriker för kolumner
             dataGridView1.Columns["FordonsID"].HeaderText = "ID";
             dataGridView1.Columns["Position"].HeaderText = "Station";
             dataGridView1.Columns["Status"].HeaderText = "Status";
@@ -52,7 +49,7 @@ namespace Presentationslager
         }
 
 
-        private void LoadUthyrningData()
+        private void LoadUthyrningData() // Uppdaterar DataGridView med den senaste uthyrningsdatan
         {
             dataGridView1.DataSource = null; // Nollställ datakällan för att förbereda för uppdatering
             dataGridView1.DataSource = _uthyrningsRepo.GetAllUthyrningsData(); // Binda den uppdaterade listan
@@ -60,17 +57,14 @@ namespace Presentationslager
 
 
 
-        private void huvudmeny_Click(object sender, EventArgs e)
+        private void huvudmeny_Click(object sender, EventArgs e) // en metod som körs när huvudmeny-knappen klickas på
         {
             UserMenu usermenu = new UserMenu();
-            usermenu.Show();
-            // UserMenu userMenu = new UserMenu();
-
-            // userMenu.Show();
+            usermenu.Show(); // öppnar huvudmenyn och stänger denna form                     
             this.Hide();
         }
 
-        private void boka_Click(object sender, EventArgs e)
+        private void boka_Click(object sender, EventArgs e) // en metod som körs när boka-knappen klickas på
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {

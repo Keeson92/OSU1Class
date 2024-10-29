@@ -10,40 +10,44 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Servicelager;
 using BusinessEntities;
+using static System.Net.WebRequestMethods;
 
 namespace Ride_GlideElectrics
 {
-    public partial class AdminFordon : Form
+    public partial class AdminFordon : Form // AdminFordon är en form som visar alla fordon som finns i systemet och tllåter administratör att redigera dem.
     {
-        private UthyrningsDataRepository _uthyrningsRepo;
-        private List<Fordon> _fordonLista;
+        private UthyrningsDataRepository _uthyrningsRepo; // Repository for data access
+        private List<Fordon> _fordonLista;//FordonListan som innehåller alla fordon som finns i systemet
 
-        public AdminFordon()
+        public AdminFordon()//Konstruktor för AdminFordon
         {
-            InitializeComponent();
-            _uthyrningsRepo = new UthyrningsDataRepository(); // Initialize the repository
-            _fordonLista = new List<Fordon>(); // Initialize the list
-            InitializeData();
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            InitializeComponent(); // Initialize the formens konponenter
+            _uthyrningsRepo = new UthyrningsDataRepository(); 
+            _fordonLista = new List<Fordon>(); 
+            InitializeData(); // initialize formens Data
+            this.button1.Click += new System.EventHandler(this.Button1_Click);// registrera knapptryckning knapp 1 och 2
             this.button2.Click += new System.EventHandler(this.Button2_Click);
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged); // registrera rad-ändring i datagridview
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) // en metod som körs när en cell i datagridview klickas på
         {
 
         }
+        
 
-        private void InitializeData()
+        
+
+        private void InitializeData() // olika data som andvänds i formen
         {
             _fordonLista = FordonRepository.GetAllFordon();
             var filteredFordonLista = _fordonLista.ToList();
 
             if (filteredFordonLista.Any())
             {
-                dataGridView1.DataSource = filteredFordonLista;
+                dataGridView1.DataSource = filteredFordonLista; // Binder data till DataGridView
 
-                // Ensure DataGridView is properly initialized and columns exist
+                
                 if (dataGridView1.Columns.Contains("FordonsID") &&
                     dataGridView1.Columns.Contains("Position") &&
                     dataGridView1.Columns.Contains("Status") &&
@@ -69,16 +73,16 @@ namespace Ride_GlideElectrics
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e) // Metod som körs när knapp 1 trycks (knapp 1 är logga ut) 
         {
-            HuvudFönster huvudFönster = new HuvudFönster();
+            HuvudFönster huvudFönster = new HuvudFönster(); // visa nytt fönster och stäng det gamla
             huvudFönster.Show();
             this.Hide();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)// Metod som körs när knapp 2 trycks (knapp 2 är redigera)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0) // Om en rad är vald i datagridview 
             {
                 var selectedRow = dataGridView1.SelectedRows[0];
                 selectedRow.Cells["fordonsIDDataGridViewTextBoxColumn"].Value = textBox1.Text;
@@ -86,16 +90,16 @@ namespace Ride_GlideElectrics
                 selectedRow.Cells["statusDataGridViewTextBoxColumn"].Value = textBox3.Text;
                 selectedRow.Cells["fordonsTypDataGridViewTextBoxColumn"].Value = textBox4.Text;
 
-                // Optionally, update the underlying data source if needed
-                var fordon = _fordonLista.FirstOrDefault(f => f.FordonsID.ToString() == textBox1.Text);
-                if (fordon != null)
+                
+                var fordon = _fordonLista.FirstOrDefault(f => f.FordonsID.ToString() == textBox1.Text); // Hämta fordon från listan samt felhantering för nullvärden.  
+                if (fordon != null)             
                 {
                     fordon.Position = textBox2.Text;
                     fordon.Status = textBox3.Text;
                     fordon.FordonsTyp = textBox4.Text;
                 }
 
-                // Refresh the DataGridView to show the updated values
+                // Refresha datagridview för att via nya värden
                 dataGridView1.Refresh();
             }
         }

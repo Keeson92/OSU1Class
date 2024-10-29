@@ -74,7 +74,7 @@
             dataGridView1.DataSource = fordonBindingSource;
             dataGridView1.Location = new Point(12, 12);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(444, 299);
+            dataGridView1.Size = new Size(444, 269);
             dataGridView1.TabIndex = 2;
             // 
             // fordonsIDDataGridViewTextBoxColumn

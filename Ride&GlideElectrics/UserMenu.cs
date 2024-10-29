@@ -13,34 +13,34 @@ using BusinessEntities;
 
 namespace Ride_GlideElectrics
 {
-    public partial class UserMenu : Form
+    public partial class UserMenu : Form // UserMenu är en form som visar användaren olika valen de kan göra.
     {
-        public UserMenu()
+        public UserMenu() // Konstruktor för UserMenu
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e) // en metod som körn när label 1 klickas på               
         {
 
         }
 
-        private void btnHyrFordon_Click(object sender, EventArgs e)
+        private void btnHyrFordon_Click(object sender, EventArgs e) // en metod som körs när knappen HyrFordon klickas på
         {
 
             HyrFordon hyrfordon = new HyrFordon();
-            hyrfordon.Show();
-            this.Hide();
+            hyrfordon.Show();// visar HyrFordon
+            this.Hide();// stänger nuvarande fönster
         }
 
-        private void UserMenu_Load(object sender, EventArgs e)
+        private void UserMenu_Load(object sender, EventArgs e) // en metod som körs när UserMenu laddas
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // en metod som körs när knappen logga ut klickas på                         
         {
-            Environment.Exit(0);
+            Environment.Exit(0); // avslutar programmet
         }
     }
 }

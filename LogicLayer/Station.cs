@@ -14,8 +14,8 @@ namespace BusinessEntities
             public string FordonStatus { get; private set; }
             public int MaxKapacitet { get; private set; }
 
-            public StationData(string adress, int antalFordon, string fordonStatus, int maxKapacitet)
-            {
+            public StationData(string adress, int antalFordon, string fordonStatus, int maxKapacitet) //Konstruktor för StationData
+        {
                 Adress = adress;
                 AntalFordon = antalFordon;
                 FordonStatus = fordonStatus;

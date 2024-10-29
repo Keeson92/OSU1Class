@@ -14,45 +14,43 @@ using Ride_GlideElectrics;
 
 namespace Presentationslager
 {
-    public partial class Allegatan : Form
+    public partial class Allegatan : Form // Allegatan är en form som visar alla fordon som finns på Allégatan och tillåter användaren att boka ett fordon.
     {
         private List<Fordon> _fordonLista;
         private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository();
         public Allegatan()
         {
-            InitializeComponent();
-            _fordonLista = new List<Fordon>(); // Initialize the list to avoid null reference
-            InitializeData();
+            InitializeComponent(); // Initialize formens konponenter
+            _fordonLista = new List<Fordon>(); 
+            InitializeData(); // Initialize formens data
         }
 
 
         private void InitializeData() // kopplar listan till datagrid
         {
-            
-            // Initialize the list from in-memory data source
+                      
             _fordonLista = FordonRepository.GetAllFordon();
 
-
-            // Filter the list to include only vehicles where Position contains "Allegatan"
+            // Filtera listan för att visa endast fordon på Allégatan som är lediga
             var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Allégatan") && f.Status == "Ledig").ToList();
 
-            // Set the filtered list as the DataSource for the DataGridView
+            // skicka den fitlerade listan till datagrid
             dataGridView1.DataSource = filteredFordonLista;
 
-            // Set header text for the columns
+            // bestämmer column Rubriker
             dataGridView1.Columns["FordonsID"].HeaderText = "ID";
             dataGridView1.Columns["Position"].HeaderText = "Station";
             dataGridView1.Columns["Status"].HeaderText = "Status";
             dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) // en metod som körs när en cell i datagridview klickas på
         {
 
         }
 
 
-        private void LoadUthyrningData()
+        private void LoadUthyrningData() // Uppdaterar DataGridView med den senaste uthyrningsdatan
         {
             dataGridView1.DataSource = null; // Nollställ datakällan för att förbereda för uppdatering
             dataGridView1.DataSource = _uthyrningsRepo.GetAllUthyrningsData(); // Binda den uppdaterade listan
@@ -60,10 +58,10 @@ namespace Presentationslager
 
 
 
-        private void boka_Click(object sender, EventArgs e)
+        private void boka_Click(object sender, EventArgs e) // knappen Boka kör denna metod
         {
 
-            if (dataGridView1.SelectedRows.Count == 0)
+            if (dataGridView1.SelectedRows.Count == 0) //felhantring för att se om raden är giltig
             {
                 MessageBox.Show("Vänligen välj ett fordon från listan.");
                 return;
@@ -88,9 +86,9 @@ namespace Presentationslager
             LoadUthyrningData();
         }
 
-        private void huvudmeny_Click(object sender, EventArgs e)
+        private void huvudmeny_Click(object sender, EventArgs e) // Metod som körs när knappen Huvudmeny trycks
         {
-            UserMenu userMenu = new UserMenu();
+            UserMenu userMenu = new UserMenu(); //öppmar usermenu och stänger detta fönster
 
             userMenu.Show();
             this.Hide();
