@@ -20,11 +20,11 @@ namespace BusinessEntities
                 Status = status;
                 FordonsTyp = fordonsTyp;
             }
-        public override string ToString()
-        {
-            return $"ID: {FordonsID}, Position: {Position}, Status: {Status}, Typ: {FordonsTyp}";
+            public override string ToString()
+            {
+                return $"ID: {FordonsID}, Position: {Position}, Status: {Status}, Typ: {FordonsTyp}";
+            }
         }
-    }
 
     
 }
