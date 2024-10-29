@@ -28,7 +28,7 @@ namespace Presentationslager
 
         private void InitializeData() // kopplar listan till datagrid
         {
-            
+
             // Initialize the list from in-memory data source
             _fordonLista = FordonRepository.GetAllFordon();
 
@@ -63,6 +63,16 @@ namespace Presentationslager
         private void boka_Click(object sender, EventArgs e)
         {
 
+
+        }
+
+        private void huvudmeny_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Boka_Click(object sender, EventArgs e)
+        {
             if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vänligen välj ett fordon från listan.");
@@ -88,7 +98,7 @@ namespace Presentationslager
             LoadUthyrningData();
         }
 
-        private void huvudmeny_Click(object sender, EventArgs e)
+        private void Huvudmeny_Click(object sender, EventArgs e)
         {
             UserMenu userMenu = new UserMenu();
 
