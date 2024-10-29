@@ -35,17 +35,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(69, 71);
-            dataGridView1.Margin = new Padding(2, 2, 2, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(340, 162);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
             // Boka
             // 
             Boka.Location = new Point(556, 478);
@@ -56,25 +45,31 @@
             Boka.UseVisualStyleBackColor = true;
             Boka.Click += boka_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(69, 71);
+            dataGridView1.Margin = new Padding(2);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(340, 162);
+            dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
             // Huvudmeny
             // 
-            /*button2.Location = new Point(43, 478);
-            button2.Name = "button2";
-            button2.Size = new Size(125, 34);
-            button2.TabIndex = 2;
-            button2.Text = "Huvudmeny";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            */ 
+            Huvudmeny.Location = new Point(0, 0);
+            Huvudmeny.Name = "Huvudmeny";
+            Huvudmeny.Size = new Size(75, 23);
+            Huvudmeny.TabIndex = 0;
+            // 
             // Allegatan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(728, 529);
-            //Controls.Add(button2);
-            //Controls.Add(button1);
+            ClientSize = new Size(767, 523);
             Controls.Add(dataGridView1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Allegatan";
             Text = "Allegatan";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

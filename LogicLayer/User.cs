@@ -8,18 +8,18 @@ namespace BusinessEntities
 {
 
 
-    public class AnvandareData //Definierar vilken data som finns kring Användare, om man tex skulle behöva lägga till/ta bort en Användare.
+    public class User //Definierar vilken data som finns kring Användare, om man tex skulle behöva lägga till/ta bort en Användare.
     {
-        public int AnvandarID { get; }
+        public int UserID { get; }
         public string Fornamn { get; }
         public string Efternamn { get; }
         public int Personnummer { get; }
         public long Telefonnr { get; }
         public string Epost { get; }
         public string Password { get; }
-        public AnvandareData(int anvandarID, string fornamn, string efternamn, int personnummer, long telefonnr, string epost, string password)
+        public User(int userID, string fornamn, string efternamn, int personnummer, long telefonnr, string epost, string password)
         {
-            AnvandarID = anvandarID;
+            UserID = userID;
             Fornamn = fornamn;
             Efternamn = efternamn;
             Personnummer = personnummer;
