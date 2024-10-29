@@ -30,4 +30,4 @@ namespace BusinessEntities
     }   
     
 }
-//test
+// Så här hade det sett ut om fokus låg på inloggning, men vi har hårdkodat user 123, admin 123.
