@@ -26,11 +26,14 @@ namespace Ride_GlideElectrics
             InitializeData();
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
         }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
         private void InitializeData()
         {
             _fordonLista = FordonRepository.GetAllFordon();
@@ -54,24 +57,28 @@ namespace Ride_GlideElectrics
             }
         }
 
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var selectedRow = dataGridView1.SelectedRows[0];
+                textBox1.Text = selectedRow.Cells["fordonsIDDataGridViewTextBoxColumn"].Value.ToString();
+                textBox2.Text = selectedRow.Cells["positionDataGridViewTextBoxColumn"].Value.ToString();
+                textBox3.Text = selectedRow.Cells["statusDataGridViewTextBoxColumn"].Value.ToString();
+                textBox4.Text = selectedRow.Cells["fordonsTypDataGridViewTextBoxColumn"].Value.ToString();
+            }
+        }
+
         private void Button1_Click(object sender, EventArgs e)
         {
             HuvudFönster huvudFönster = new HuvudFönster();
             huvudFönster.Show();
             this.Hide();
         }
+
         private void Button2_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                var selectedFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
-                AdminRedigera adminRedigera = new AdminRedigera(selectedFordon);
-                adminRedigera.Show();
-            }
-            else
-            {
-                MessageBox.Show("Please select a row first.");
-            }
+
         }
     }
 }
