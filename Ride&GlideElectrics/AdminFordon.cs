@@ -78,7 +78,26 @@ namespace Ride_GlideElectrics
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var selectedRow = dataGridView1.SelectedRows[0];
+                selectedRow.Cells["fordonsIDDataGridViewTextBoxColumn"].Value = textBox1.Text;
+                selectedRow.Cells["positionDataGridViewTextBoxColumn"].Value = textBox2.Text;
+                selectedRow.Cells["statusDataGridViewTextBoxColumn"].Value = textBox3.Text;
+                selectedRow.Cells["fordonsTypDataGridViewTextBoxColumn"].Value = textBox4.Text;
 
+                // Optionally, update the underlying data source if needed
+                var fordon = _fordonLista.FirstOrDefault(f => f.FordonsID.ToString() == textBox1.Text);
+                if (fordon != null)
+                {
+                    fordon.Position = textBox2.Text;
+                    fordon.Status = textBox3.Text;
+                    fordon.FordonsTyp = textBox4.Text;
+                }
+
+                // Refresh the DataGridView to show the updated values
+                dataGridView1.Refresh();
+            }
         }
     }
 }
