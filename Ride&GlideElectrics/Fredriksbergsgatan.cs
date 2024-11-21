@@ -35,7 +35,7 @@ namespace Presentationslager
 
 
             // Filter the list to include only vehicles where Position contains "Allegatan"
-            var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Fredriksbergsgatan") && f.Status == "Ledig").ToList();
+            var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Fredriksbergsgatan")).ToList();
 
             // Set the filtered list as the DataSource for the DataGridView
             dataGridView1.DataSource = filteredFordonLista;
@@ -60,7 +60,7 @@ namespace Presentationslager
         private void boka_Click(object sender, EventArgs e) // en metod som körs när boka-knappen klickas på
         {
 
-            if (dataGridView1.SelectedRows.Count == 0) // Kontrollera att användaren har valt ett fordon
+            if (dataGridView1.SelectedRows.Count == 0) // Kontrollera att ett fordon är valt
             {
                 MessageBox.Show("Vänligen välj ett fordon från listan.");
                 return;
@@ -68,21 +68,35 @@ namespace Presentationslager
 
             // Hämta valt fordon från DataGridView
             var valtFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
-            var uthyrningStart = DateTime.Now;
-            var uthyrningSlut = uthyrningStart.AddHours(2);
-            var prisPerMinut = 10;
 
-            // Skapa en ny UthyrningsData-instans
-            var uthyrningData = new UthyrningsData(uthyrningStart, uthyrningSlut, valtFordon.FordonsID, prisPerMinut);
+            // Kontrollera att fordonet är ledigt
+            if (valtFordon.Status != "Ledig")
+            {
+                MessageBox.Show($"Fordon {valtFordon.FordonsTyp} med ID {valtFordon.FordonsID} är inte ledig och går inte att boka.");
+                return;
+            }
 
-            // Lägg till uthyrningData i repository
+            // Skapa ny uthyrningsdata och koppla fordonet
+            var uthyrningData = new UthyrningsData(
+                startTid: DateTime.Now,
+                slutTid: DateTime.Now.AddHours(2),
+                fordonsID: valtFordon.FordonsID,
+                prisPerMinut: 10
+            )
+            {
+                Fordon = valtFordon  // Koppla fordonet direkt till uthyrningsdata
+            };
+
+            // Lägg till uthyrning och uppdatera fordonets status
             _uthyrningsRepo.AddUthyrningsData(uthyrningData);
+            valtFordon.Status = "Uthyrd";
+            FordonRepository.UpdateFordon(valtFordon);
 
-            // Bekräfta för användaren
-            MessageBox.Show($"Uthyrning startad för fordon {valtFordon.FordonsTyp} med ID: {valtFordon.FordonsID}.");
+            // Bekräftelsemeddelande
+            MessageBox.Show($"Uthyrning startad för {valtFordon.FordonsTyp} (ID {valtFordon.FordonsID}).");
 
-            // Uppdatera DataGridView för att visa den nya uthyrningen
-            LoadUthyrningData();
+            // Uppdatera datagrid med lediga fordon
+            InitializeData();
         }
 
         private void huvudmeny_Click(object sender, EventArgs e) // en metod som körs när huvudmeny-knappen klickas på

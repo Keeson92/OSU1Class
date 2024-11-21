@@ -181,6 +181,22 @@ public class FordonRepository
             new Fordon(10, "Fredriksbergsgatan", "Laddas", "Elsparkcykel")
         };
     }
+    public static void UpdateFordon(Fordon fordon)
+    {
+        var existingFordon = _fordonLista.FirstOrDefault(f => f.FordonsID == fordon.FordonsID);
+        if (existingFordon != null)
+        {
+            // Uppdatera fordonets status eller andra egenskaper
+            existingFordon.Status = fordon.Status;
+            // Lägg till andra uppdateringar här om det behövs
+        }
+        else
+        {
+            // Om fordonet inte finns, kan du lägga till det (eller hantera det som ett fel)
+            _fordonLista.Add(fordon);
+        }
+    }
+
 
     public static List<Fordon> GetAllFordon() // Retunerar en lista med alla fordon
     {
