@@ -27,7 +27,10 @@ namespace BusinessEntities
             Epost = epost;
             Password = password;
         }
-    }   
-    
+        public List<UthyrningsData> UthyrningsData { get; set; } // En användare kan hyra flera fordon.
+        public KontoData KontoData { get; set; } // En användare har exakt ett konto.
+
+    }
+
 }
 // Så här hade det sett ut om fokus låg på inloggning, men vi har hårdkodat user 123, admin 123.

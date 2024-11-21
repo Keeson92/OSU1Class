@@ -85,10 +85,10 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
             // Initialiserar data
             _stationList = new List<StationData> // Lista med stationdata
                 {
-                    new StationData("Allégatan", 10, "Tillänglig", 20),
-                    new StationData("Stationsgatan", 5, "På Underhåll", 50),
-                    new StationData("Fredriksbergsgatan", 8, "Fullbokat", 100),
-                    new StationData("Solrosvägen", 12, "Tillgänglig", 25)
+                    new StationData("Allégatan", 10, "Tillänglig", 5),
+                    new StationData("Stationsgatan", 5, "På Underhåll", 5),
+                    new StationData("Fredriksbergsgatan", 8, "Fullbokat", 5),
+                    new StationData("Solrosvägen", 12, "Tillgänglig", 5)
                 };
         }
 

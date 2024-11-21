@@ -15,13 +15,15 @@ namespace BusinessEntities
             public int MaxKapacitet { get; private set; }
 
             public StationData(string adress, int antalFordon, string fordonStatus, int maxKapacitet) //Konstruktor för StationData
-        {
+            {
                 Adress = adress;
                 AntalFordon = antalFordon;
                 FordonStatus = fordonStatus;
                 MaxKapacitet = maxKapacitet;
             }
-            public bool FinnsPlats()
+        public List<Fordon> FordonLista { get; private set; } = new List<Fordon>(); // 1..* - En station är kopplad till minst ett fordon
+
+        public bool FinnsPlats()
             {
                 return AntalFordon < MaxKapacitet;
             }

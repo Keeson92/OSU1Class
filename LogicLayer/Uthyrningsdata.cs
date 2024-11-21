@@ -21,6 +21,9 @@ namespace BusinessEntities
             FordonsID = fordonsID;
             PrisPerMinut = prisPerMinut;
         }
+        public User User { get; set; } // Koppling till användaren som hyr
+        public Fordon Fordon { get; set; } // Koppling till fordonet som hyrs
+
     }
 
 }

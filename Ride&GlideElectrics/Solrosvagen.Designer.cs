@@ -73,7 +73,7 @@
             Controls.Add(boka);
             Controls.Add(dataGridView1);
             Name = "Solrosvagen";
-            Text = "Solrosvagen";
+            Text = "1241";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
