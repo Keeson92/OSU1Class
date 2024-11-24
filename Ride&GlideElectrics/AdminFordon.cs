@@ -1,4 +1,4 @@
-﻿using Ride_GlideElectrics;
+﻿using GreenWheels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using Servicelager;
 using BusinessEntities;
 using static System.Net.WebRequestMethods;
 
-namespace Ride_GlideElectrics
+namespace GreenWheels
 {
     public partial class AdminFordon : Form // AdminFordon är en form som visar alla fordon som finns i systemet och tllåter administratör att redigera dem.
     {
@@ -22,8 +22,8 @@ namespace Ride_GlideElectrics
         public AdminFordon()//Konstruktor för AdminFordon
         {
             InitializeComponent(); // Initialize the formens konponenter
-            _uthyrningsRepo = new UthyrningsDataRepository(); 
-            _fordonLista = new List<Fordon>(); 
+            _uthyrningsRepo = new UthyrningsDataRepository();
+            _fordonLista = new List<Fordon>();
             InitializeData(); // initialize formens Data
             this.button1.Click += new System.EventHandler(this.Button1_Click);// registrera knapptryckning knapp 1 och 2
             this.button2.Click += new System.EventHandler(this.Button2_Click);
@@ -34,9 +34,9 @@ namespace Ride_GlideElectrics
         {
 
         }
-        
 
-        
+
+
 
         private void InitializeData() // olika data som andvänds i formen
         {
@@ -47,7 +47,7 @@ namespace Ride_GlideElectrics
             {
                 dataGridView1.DataSource = filteredFordonLista; // Binder data till DataGridView
 
-                
+
                 if (dataGridView1.Columns.Contains("FordonsID") &&
                     dataGridView1.Columns.Contains("Position") &&
                     dataGridView1.Columns.Contains("Status") &&
@@ -90,9 +90,9 @@ namespace Ride_GlideElectrics
                 selectedRow.Cells["statusDataGridViewTextBoxColumn"].Value = textBox3.Text;
                 selectedRow.Cells["fordonsTypDataGridViewTextBoxColumn"].Value = textBox4.Text;
 
-                
+
                 var fordon = _fordonLista.FirstOrDefault(f => f.FordonsID.ToString() == textBox1.Text); // Hämta fordon från listan samt felhantering för nullvärden.  
-                if (fordon != null)             
+                if (fordon != null)
                 {
                     fordon.Position = textBox2.Text;
                     fordon.Status = textBox3.Text;
@@ -102,6 +102,11 @@ namespace Ride_GlideElectrics
                 // Refresha datagridview för att via nya värden
                 dataGridView1.Refresh();
             }
+        }
+
+        private void AdminFordon_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -2,7 +2,7 @@
 using Windows;
 using System.Windows.Forms;
 
-namespace Ride_GlideElectrics
+namespace GreenWheels
 {
     partial class HuvudFönster
     {
@@ -116,7 +116,7 @@ namespace Ride_GlideElectrics
             Controls.Add(UserName);
             Margin = new Padding(4, 5, 4, 5);
             Name = "HuvudFönster";
-            Text = "Ride&Glide Electrics";
+            Text = "GreenWheels";
             Load += HuvudFönster_Load;
             ResumeLayout(false);
             PerformLayout();

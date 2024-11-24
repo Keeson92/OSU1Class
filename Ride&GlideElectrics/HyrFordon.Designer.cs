@@ -1,4 +1,4 @@
-﻿namespace Ride_GlideElectrics
+﻿namespace GreenWheels
 {
     partial class HyrFordon
     {
@@ -122,7 +122,8 @@
             Controls.Add(btn_Allégatan);
             Margin = new Padding(4, 5, 4, 5);
             Name = "HyrFordon";
-            Text = "HyrFordon";
+            Text = "Hyr Fordon";
+            Load += HyrFordon_Load;
             ResumeLayout(false);
             PerformLayout();
         }

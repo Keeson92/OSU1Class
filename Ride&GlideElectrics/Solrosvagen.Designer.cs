@@ -73,7 +73,8 @@
             Controls.Add(boka);
             Controls.Add(dataGridView1);
             Name = "Solrosvagen";
-            Text = "1241";
+            Text = "Solrosvägen";
+            Load += Solrosvagen_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

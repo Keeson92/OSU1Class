@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ride_GlideElectrics.Properties {
+namespace GreenWheels.Properties {
     using System;
     
     

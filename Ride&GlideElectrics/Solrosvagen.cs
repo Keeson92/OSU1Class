@@ -1,5 +1,5 @@
 ﻿using BusinessEntities;
-using Ride_GlideElectrics;
+using GreenWheels;
 using Servicelager;
 using System;
 using System.Collections.Generic;
@@ -101,6 +101,11 @@ namespace Presentationslager
 
             userMenu.Show();// visa UserMenu
             this.Hide();// stänger nuvarande fönster
+        }
+
+        private void Solrosvagen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -2,7 +2,7 @@ using Servicelager;
 using BusinessEntities;
 using System;
 
-namespace Ride_GlideElectrics
+namespace GreenWheels
 {
     public partial class HuvudFönster : Form // HuvudFönster är en form som visar en inloggningssida och tillåter användaren att logga in som antingen administratör eller användare.
     {

@@ -11,7 +11,7 @@ using Servicelager;
 using BusinessEntities;
 
 
-namespace Ride_GlideElectrics
+namespace GreenWheels
 {
     public partial class UserMenu : Form // UserMenu är en form som visar användaren olika valen de kan göra.
     {

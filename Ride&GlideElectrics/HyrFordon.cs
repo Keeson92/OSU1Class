@@ -11,7 +11,7 @@ using Servicelager;
 using BusinessEntities;
 using Presentationslager;
 
-namespace Ride_GlideElectrics
+namespace GreenWheels
 {
     public partial class HyrFordon : Form // HyrFordon är en form som visar alla fordon som finns i systemet och tillåter användaren att boka ett fordon.
     {
@@ -46,17 +46,22 @@ namespace Ride_GlideElectrics
         private void btn_Fredriksbergsgatan_Click(object sender, EventArgs e) // knappen Fredriksbergsgatan kör denna metod
         {
             Fredriksbergsgatan fredriksbergsgatan = new Fredriksbergsgatan();
-           fredriksbergsgatan.Show(); //visar Fredriksbergsgatan
+            fredriksbergsgatan.Show(); //visar Fredriksbergsgatan
             this.Hide(); // stänger nuvarande fönster
 
         }
 
         private void btn_Solrosvägen_Click(object sender, EventArgs e) //knappen Solrosvägen kör denna metod
         {
-           Solrosvagen solrosvagen = new Solrosvagen();
-           solrosvagen.Show(); // visar Solrosvägen
+            Solrosvagen solrosvagen = new Solrosvagen();
+            solrosvagen.Show(); // visar Solrosvägen
             this.Hide(); // stänger nuvarande fönster
-            
+
+        }
+
+        private void HyrFordon_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
