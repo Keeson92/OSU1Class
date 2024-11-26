@@ -98,6 +98,7 @@
             Margin = new Padding(2);
             Name = "Allegatan";
             Text = "Allegatan";
+            Load += Allegatan_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

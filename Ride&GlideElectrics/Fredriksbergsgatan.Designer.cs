@@ -74,6 +74,7 @@
             Controls.Add(dataGridView1);
             Name = "Fredriksbergsgatan";
             Text = "Fredriksbergsgatan";
+            Load += Fredriksbergsgatan_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

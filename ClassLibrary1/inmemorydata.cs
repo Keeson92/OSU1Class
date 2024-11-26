@@ -202,7 +202,14 @@ public class FordonRepository
     {
         return _fordonLista;
     }
+    public Fordon GetFordonById(int fordonsID)
+    {
+        // Här ska din logik för att hämta ett fordon baserat på ID finnas
+        return _fordonLista.FirstOrDefault(f => f.FordonsID == fordonsID);
+    }
+
 }
+
 
 
 public class AnvandareRepository

@@ -74,6 +74,7 @@
             Controls.Add(dataGridView1);
             Name = "Stationsgatan";
             Text = "Stationsgatan";
+            Load += Stationsgatan_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
