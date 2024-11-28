@@ -1,6 +1,7 @@
 using Servicelager;
 using BusinessEntities;
 using System;
+using static Servicelager.FordonService;
 
 namespace GreenWheels
 {
@@ -19,34 +20,52 @@ namespace GreenWheels
         private void btnLogIn_Click(object sender, EventArgs e) // en metod som körs när logga in-knappen klickas på
         {
             // Hämta användarnamn och lösenord från textboxarna
-            string username = txtUsername.Text;
+            int userID = 0;
+            try
+            {
+                userID = int.Parse(txtUsername.Text); // Konverterar texten till int
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Ange ett giltigt ID-nummer.");
+                return; // Avbryt om det inte går att konvertera
+            }
             string password = txtPassword.Text;
 
-            // En enkel inloggningslogik 
-            if (username == "admin" && password == "123")
+
+            // Skapa en instans av AnvandareService
+            var anvandareService = new AnvandareService();
+
+            // Försök logga in användaren
+            if (anvandareService.Login(userID, password, out User user))
             {
-                MessageBox.Show("Inloggning lyckades!");
+                // Kontrollera om användaren är admin eller vanlig användare
+                if (user.Behörighetsgrad == 1)
+                {
+                    MessageBox.Show("Inloggning lyckades som admin!");
 
-                AdminFordon adminFordon = new AdminFordon(); // Skapar en ny instans av AdminFordon 
+                    // Öppna AdminFordon-formuläret
+                    AdminFordon adminFordon = new AdminFordon();
+                    adminFordon.Show();
+                }
+                else
+                {
+                    MessageBox.Show($"Inloggning lyckades som {user.Fornamn} {user.Efternamn}!");
 
-                // visar adminfordonformen
-                adminFordon.Show();
-                this.Hide(); // gömmer inloggningsformen
-            }
-            else if (username == "user" && password == "123") // om användaren är en användare
-            {
-                MessageBox.Show("Inloggning lyckades!");
+                    // Öppna UserMenu-formuläret
+                    UserMenu usermenu = new UserMenu();
+                    usermenu.Show();
+                }
 
-                UserMenu usermenu = new UserMenu(); // Skapar en ny instans av UserMenu
-
-                // visa usermeny och göm inloggningsformen
-                usermenu.Show();
+                // Dölj inloggningsformuläret
                 this.Hide();
             }
             else
             {
+                // Visa felmeddelande om inloggningen misslyckades
                 MessageBox.Show("Felaktigt användarnamn eller lösenord.");
             }
+
         }
 
         private void HuvudFönster_Load(object sender, EventArgs e) // en metod som körs när huvudfönstret laddas

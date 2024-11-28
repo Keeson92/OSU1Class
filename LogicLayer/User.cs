@@ -17,7 +17,11 @@ namespace BusinessEntities
         public long Telefonnr { get; }
         public string Epost { get; }
         public string Password { get; }
-        public User(int userID, string fornamn, string efternamn, int personnummer, long telefonnr, string epost, string password) //Konstruktor för User
+
+        public int Behörighetsgrad { get; }
+
+
+        public User(int userID, string fornamn, string efternamn, int personnummer, long telefonnr, string epost, string password, int behörighetsgrad) //Konstruktor för User
         {
             UserID = userID;
             Fornamn = fornamn;
@@ -26,6 +30,7 @@ namespace BusinessEntities
             Telefonnr = telefonnr;
             Epost = epost;
             Password = password;
+            Behörighetsgrad = behörighetsgrad;
         }
         public List<UthyrningsData> UthyrningsData { get; set; } // En användare kan hyra flera fordon.
         public KontoData KontoData { get; set; } // En användare har exakt ett konto.

@@ -41,6 +41,25 @@ namespace Servicelager
 
             return true;
         }
-    }
+        public class AnvandareService
+        {
+            private readonly AnvandareRepository _repository;
 
+            public AnvandareService()
+            {
+                _repository = new AnvandareRepository();
+            }
+
+            public bool Login(int UserID, string password, out User user)
+            {
+                // Använder repository för att söka efter användaren
+                user = _repository.GetAllAnvandare(UserID, password);
+
+                // Kontrollera om användaren hittades
+                return user != null;
+            }
+        }
+
+
+    }
 }

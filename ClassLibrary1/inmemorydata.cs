@@ -30,23 +30,27 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
             
             _anvandareLista = new List<User>
                 {
-                    new User(1, "Alice", "Karlsson", 980101, 701234567, "alice.karlsson@gmail.com", "1"),
-                    new User(2, "Gustav", "Karlholm", 960101, 732345678, "gustav.karlholm@protonmail.com", "2"),
-                    new User(3, "Kajsa", "Josefsson", 960101, 763456789, "kajsa.josefsson@hb.com", "3"),
-                    new User(4, "Gideon", "Lindgren", 860101, 794567890, "gideon.lindgren@raceoffice.com", "4"),
-                    new User(5, "Johannes", "Pettersson", 430101, 705678901, "johannes.pettersson@hb.com", "5"),
-                    new User(6, "Yasmine", "Nilsson", 320606, 736789012, "yasmine.nilsson@gu.org", "6"),
-                    new User(7, "Rebecka", "Svensson", 040404, 767890123, "rebecka.svensson@chalmers.net", "7"),
-                    new User(8, "Filip", "Olsson", 060101, 798901234, "filip.olsson@havard.co", "8"),
-                    new User(9, "Millie", "Karlsson", 1010101, 709012345, "millie.karlsson@cambridge.edu", "9"),
-                    new User(10, "Dag", "Hansson", 010101, 730123456, "dag.hansson@enterprise.biz", "10"),
-                    new User(11, "Ia", "Persson", 001001, 761234567, "ia.persson@provider.io", "11")
+                    new User(1, "Alice", "Karlsson", 980101, 701234567, "alice.karlsson@gmail.com", "123", 1),
+                    new User(2, "Gustav", "Karlholm", 960101, 732345678, "gustav.karlholm@protonmail.com", "123", 1),
+                    new User(3, "Kajsa", "Josefsson", 960101, 763456789, "kajsa.josefsson@hb.com", "123", 1),
+                    new User(4, "Gideon", "Lindgren", 860101, 794567890, "gideon.lindgren@raceoffice.com", "123", 2),
+                    new User(5, "Johannes", "Pettersson", 430101, 705678901, "johannes.pettersson@hb.com", "123", 2),
+                    new User(6, "Yasmine", "Nilsson", 320606, 736789012, "yasmine.nilsson@gu.org", "123", 2),
+                    new User(7, "Rebecka", "Svensson", 040404, 767890123, "rebecka.svensson@chalmers.net", "123", 3),
+                    new User(8, "Filip", "Olsson", 060101, 798901234, "filip.olsson@havard.co", "123", 3),
+                    new User(9, "Millie", "Karlsson", 1010101, 709012345, "millie.karlsson@cambridge.edu", "123", 3),
+                    new User(10, "Dag", "Hansson", 010101, 730123456, "dag.hansson@enterprise.biz", "123",3 ),
+                    new User(11, "Ia", "Persson", 001001, 761234567, "ia.persson@provider.io", "123",3 )
                 };
         }
 
-        public List<User> GetAllAnvandare() // Retunerar en lista med alla användare
+
+        public User GetAllAnvandare(int UserID, string password)
         {
-            return _anvandareLista;
+            // Söker efter användare med matchande förnamn och lösenord
+            return _anvandareLista.FirstOrDefault(user =>
+        user.UserID.Equals(UserID) && user.Password == password);
+
         }
     }
 
@@ -210,36 +214,6 @@ public class FordonRepository
 
 }
 
-
-
-public class AnvandareRepository
-{
-    private List<User> _anvandareLista; // Lista med användare
-
-    public AnvandareRepository()
-    {
-        
-        _anvandareLista = new List<User> // Lista med användare
-            {
-                new User(1, "Alice", "Karlsson", 980101, 701234567, "alice.karlsson@gmail.com", "1"),
-                new User(2, "Gustav", "Karlholm", 960101, 732345678, "gustav.karlholm@protonmail.com", "2"),
-                new User(3, "Kajsa", "Josefsson", 960101, 763456789, "kajsa.josefsson@hb.com", "3"),
-                new User(4, "Gideon", "Lindgren", 860101, 794567890, "gideon.lindgren@raceoffice.com", "4"),
-                new User(5, "Johannes", "Pettersson", 430101, 705678901, "johannes.pettersson@hb.com", "5"),
-                new User(6, "Yasmine", "Nilsson", 320606, 736789012, "yasmine.nilsson@gu.org", "6"),
-                new User(7, "Rebecka", "Svensson", 040404, 767890123, "rebecka.svensson@chalmers.net", "7"),
-                new User(8, "Filip", "Olsson", 060101, 798901234, "filip.olsson@havard.co", "8"),
-                new User(9, "Millie", "Karlsson", 1010101, 709012345, "millie.karlsson@cambridge.edu", "9"),
-                new User(10, "Dag", "Hansson", 010101, 730123456, "dag.hansson@enterprise.biz", "10"),
-                new User(11, "Ia", "Persson", 001001, 761234567, "ia.persson@provider.io", "11")
-            };
-    }
-
-    public List<User> GetAllAnvandare() // Retunerar en lista med alla användare
-    {
-        return _anvandareLista;
-    }
-}
 public class KontoRepository
 {
     private List<KontoData> _kontolista; // Lista med kontodata
