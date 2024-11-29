@@ -29,7 +29,7 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
         {
             
             _anvandareLista = new List<User>
-                {
+                { // LÖSENORD FÖR ALLA ANVÄNDARE ÄR 123, USERID ÄR INLOGG. ALLA ANVÄNDARE MED USERID <=3 ÄR ADMINISTRATÖRER, ÖVRIGA ÄR ANVÄNDARE. USERID ÄR DET FÖRSTA ATTRIBUTET I LISTAN.
                     new User(1, "Alice", "Karlsson", 980101, 701234567, "alice.karlsson@gmail.com", "123", 1),
                     new User(2, "Gustav", "Karlholm", 960101, 732345678, "gustav.karlholm@protonmail.com", "123", 1),
                     new User(3, "Kajsa", "Josefsson", 960101, 763456789, "kajsa.josefsson@hb.com", "123", 1),
