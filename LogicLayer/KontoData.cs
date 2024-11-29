@@ -14,8 +14,8 @@ namespace BusinessEntities
             HyrHistorik = hyrHistorik;
             BetalningsMetod = betalningsMetod;
         }
-        public User User { get; set; } // 1..1 - Ett KontoData tillhör exakt en användare
-        public List<UthyrningsData> Uthyrningar { get; set; } = new List<UthyrningsData>(); // 0..* - Ett KontoData kan ha flera uthyrningar
+        public User User { get; set; } // 1..1 - En KontoData tillhör exakt en användare
+        public List<UthyrningsData> Uthyrningar { get; set; } = new List<UthyrningsData>(); // 0..* - En KontoData kan ha flera uthyrningar
 
 
     }
