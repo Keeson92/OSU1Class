@@ -95,12 +95,12 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
                 };
         }
 
-        public List<UthyrningsHistorik> GetAllUthyrningsData() // Retunerar en lista med alla uthyrningsdata
+        public List<UthyrningsHistorik> GetAllUthyrningsHistorik() // Retunerar en lista med alla uthyrningsdata
         {
             return _uthyrningshistoriklist;
         }
 
-        public void AddUthyrningsData(UthyrningsHistorik data) // Lägger till uthyrningsdata i listan
+        public void AddUthyrningsHistorik(UthyrningsHistorik data) // Lägger till uthyrningsdata i listan
         {
             _uthyrningshistoriklist.Add(data);
         }

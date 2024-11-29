@@ -33,7 +33,7 @@ namespace Servicelager
             var uthyrningData = new UthyrningsHistorik(startTid, slutTid, fordonID, prisPerMinut);
 
             // Lägg till uthyrningen
-            _uthyrningsRepo.AddUthyrningsData(uthyrningData);
+            _uthyrningsRepo.AddUthyrningsHistorik(uthyrningData);
 
             // Uppdatera fordonsstatus till uthyrd
             fordon.Status = "Uthyrd";
