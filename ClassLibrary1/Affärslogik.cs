@@ -30,7 +30,7 @@ namespace Servicelager
             }
 
             // Skapa uthyrningshistorik
-            var uthyrninghistorik = new UthyrningsHistorik(user, startTid, slutTid, fordonID, prisPerMinut, fordon);
+            var uthyrninghistorik = new UthyrningsHistorik(user, startTid, slutTid, prisPerMinut, fordon);
 
             // Lägg till uthyrningen
             _uthyrningsRepo.AddUthyrningsHistorik(uthyrninghistorik);

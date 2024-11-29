@@ -11,15 +11,13 @@ namespace BusinessEntities
         public DateTime StartTid { get; private set; }
         public DateTime SlutTid { get; private set; }
 
-        public int FordonsID { get; set; }
 
         public int PrisPerMinut { get; private set; }
-        public UthyrningsHistorik(User user, DateTime startTid, DateTime slutTid, int fordonsID, int prisPerMinut, Fordon fordon) //Konstruktor för UthyrningsHistorik
+        public UthyrningsHistorik(User user, DateTime startTid, DateTime slutTid, int prisPerMinut, Fordon fordon) //Konstruktor för UthyrningsHistorik
         {
             User = user;
             StartTid = startTid;
             SlutTid = slutTid;
-            FordonsID = fordonsID;
             PrisPerMinut = prisPerMinut;
             Fordon = fordon;
         }
