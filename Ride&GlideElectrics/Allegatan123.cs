@@ -21,13 +21,16 @@ namespace Presentationslager
         private AnvandareRepository _anvandareRepo;  // Skapa fält för AnvandareRepository
         private List<Fordon> _fordonLista;
         private BusinessEntities.User loggedInUser;
+        private FordonRepository _fordonRepo;
+
 
 
         public Allegatan() // Konstruktor för Allegatan
         {
             InitializeComponent();
             _anvandareRepo = new AnvandareRepository();
-            _uthyrningsRepo = new UthyrningsHistorikRepository(_anvandareRepo);
+            _fordonRepo = new FordonRepository(); // Instansiera FordonRepository
+            _uthyrningsRepo = new UthyrningsHistorikRepository(_anvandareRepo, _fordonRepo);
             _fordonLista = new List<Fordon>(); // Initialize the list
             InitializeData();
         }
@@ -69,7 +72,9 @@ namespace Presentationslager
             // Hämta valt fordon från DataGridView
             var valtFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
             var anvandareRepository = new AnvandareRepository();
-            var uthyrningsHistorikRepo = new UthyrningsHistorikRepository(anvandareRepository);
+            var fordonRepository = new FordonRepository();
+            var uthyrningsHistorikRepo = new UthyrningsHistorikRepository(anvandareRepository, fordonRepository);
+
 
 
             // Skapa en instans av FordonService 

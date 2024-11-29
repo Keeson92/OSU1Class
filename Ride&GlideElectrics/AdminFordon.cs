@@ -19,13 +19,17 @@ namespace GreenWheels
         private UthyrningsHistorikRepository _uthyrningsRepo; // Repository for data access
         private List<Fordon> _fordonLista;//FordonListan som innehåller alla fordon som finns i systemet
         private AnvandareRepository _anvandareRepo;
+        private FordonRepository _fordonRepo;
+
 
 
         public AdminFordon()//Konstruktor för AdminFordon
         {
             InitializeComponent(); // Initialize the formens konponenter
-            _uthyrningsRepo = new UthyrningsHistorikRepository(_anvandareRepo);
-            _fordonLista = new List<Fordon>();
+            _anvandareRepo = new AnvandareRepository();
+            _fordonRepo = new FordonRepository(); // Instansiera FordonRepository
+            _uthyrningsRepo = new UthyrningsHistorikRepository(_anvandareRepo, _fordonRepo);
+            _fordonLista = new List<Fordon>(); // Initialize the list
             InitializeData(); // initialize formens Data
             this.button1.Click += new System.EventHandler(this.Button1_Click);// registrera knapptryckning knapp 1 och 2
             this.button2.Click += new System.EventHandler(this.Button2_Click);

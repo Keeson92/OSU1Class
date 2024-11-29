@@ -84,21 +84,30 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
     {
         private List<UthyrningsHistorik> _uthyrningshistoriklist; // Lista med uthyrningshistorik
         private List<User> _anvandareLista; // Lista för användare
+        private List<Fordon> _fordonLista; // Lista för fordon
 
 
-        public UthyrningsHistorikRepository(AnvandareRepository anvandareRepo)
+        public UthyrningsHistorikRepository(AnvandareRepository anvandareRepo, FordonRepository fordonRepo)
         {
+            if (anvandareRepo == null)
+                throw new ArgumentNullException(nameof(anvandareRepo));
+
+            if (fordonRepo == null)
+                throw new ArgumentNullException(nameof(fordonRepo));
+
             _anvandareLista = anvandareRepo.GetAnvandareLista();
+            _fordonLista = fordonRepo.GetAllFordonRental();
+
 
             // Initialiserar data
             _uthyrningshistoriklist = new List<UthyrningsHistorik> 
                 {
-                    new UthyrningsHistorik(_anvandareLista[6], new DateTime(2024, 10, 22, 10, 30, 0), new DateTime(2024, 10, 22, 12, 30, 0), 5, 10),
-                    new UthyrningsHistorik(_anvandareLista[3], new DateTime(2024, 10, 23, 9, 0, 0), new DateTime(2024, 10, 23, 11, 15, 0), 6, 10),
-                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 24, 14, 0, 0), new DateTime(2024, 10, 24, 16, 0, 0), 7, 10),
-                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 25, 8, 30, 0), new DateTime(2024, 10, 25, 10, 30, 0), 8, 10),
-                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 26, 13, 15, 0), new DateTime(2024, 10, 26, 14, 45, 0), 4, 10),
-                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 27, 11, 0, 0), new DateTime(2024, 10, 27, 12, 30, 0), 5, 10)
+                    new UthyrningsHistorik(_anvandareLista[6], new DateTime(2024, 10, 22, 10, 30, 0), new DateTime(2024, 10, 22, 12, 30, 0), 5, 10, _fordonLista[1]),
+                    new UthyrningsHistorik(_anvandareLista[3], new DateTime(2024, 10, 23, 9, 0, 0), new DateTime(2024, 10, 23, 11, 15, 0), 6, 10, _fordonLista[2]),
+                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 24, 14, 0, 0), new DateTime(2024, 10, 24, 16, 0, 0), 7, 10, _fordonLista[3]),
+                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 25, 8, 30, 0), new DateTime(2024, 10, 25, 10, 30, 0), 8, 10, _fordonLista[4]),
+                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 26, 13, 15, 0), new DateTime(2024, 10, 26, 14, 45, 0), 4, 10, _fordonLista[5]),
+                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 27, 11, 0, 0), new DateTime(2024, 10, 27, 12, 30, 0), 5, 10, _fordonLista[6])
                 };
         }
 
@@ -134,6 +143,7 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
             return _kontoDatalist;
         }
 
+
         public void AddKontoData(KontoData kontoData) // Lägger till kontodata i listan
         {
             _kontoDatalist.Add(kontoData);
@@ -145,6 +155,7 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
         }
     }
     }
+
     
 public class FordonRepository
 {
@@ -184,6 +195,10 @@ public class FordonRepository
 
 
     public static List<Fordon> GetAllFordon() // Retunerar en lista med alla fordon
+    {
+        return _fordonLista;
+    }
+    public List<Fordon> GetAllFordonRental() // Retunerar en lista med alla fordon för kopplingen
     {
         return _fordonLista;
     }

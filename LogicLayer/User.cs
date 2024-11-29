@@ -32,6 +32,8 @@ namespace BusinessEntities
             Password = password;
             Behörighetsgrad = behörighetsgrad;
         }
+
+
         public List<UthyrningsHistorik> UthyrningsHistorik { get; set; } // En användare kan hyra flera fordon.
         public KontoData KontoData { get; set; } // En användare har exakt ett konto.
 
