@@ -54,32 +54,6 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
         }
     }
 
-    public class KontoRepository 
-    {
-        private List<KontoData> _kontolista; // Lista med kontodata
-
-        public KontoRepository() // Konstruktor
-        {
-            
-            _kontolista = new List<KontoData> 
-                {
-                    new KontoData(new DateTime(2024, 9, 24), "Mastercard"),
-                    new KontoData(new DateTime(2024, 9, 24), "Visa"),
-                    new KontoData(new DateTime(2024, 9, 24), "Mastercard"),
-                    new KontoData(new DateTime(2024, 9, 24), "Revolut"),
-                    new KontoData(new DateTime(2024, 9, 24), "American Express"),
-                    new KontoData(new DateTime(2024, 9, 24), "Swish"),
-                    new KontoData(new DateTime(2024, 9, 24), "Mastercard"),
-                    new KontoData(new DateTime(2024, 9, 24), "Mastercard")
-                };
-        }
-
-        public List<KontoData> GetAllKonto() // Retunerar en lista med alla kontodata
-        {
-            return _kontolista;
-        }
-    }
-
     public class StationRepository
     {
         private List<StationData> _stationList; // Lista med stationdata
@@ -214,31 +188,6 @@ public class FordonRepository
 
 }
 
-public class KontoRepository
-{
-    private List<KontoData> _kontolista; // Lista med kontodata
-
-    public KontoRepository()
-    {
-        
-        _kontolista = new List<KontoData> // Lista med kontodata
-            {
-                new KontoData(new DateTime(2024, 9, 24), "Mastercard"),
-                new KontoData(new DateTime(2024, 9, 24), "Visa"),
-                new KontoData(new DateTime(2024, 9, 24), "Mastercard"),
-                new KontoData(new DateTime(2024, 9, 24), "Revolut"),
-                new KontoData(new DateTime(2024, 9, 24), "American Express"),
-                new KontoData(new DateTime(2024, 9, 24), "Swish"),
-                new KontoData(new DateTime(2024, 9, 24), "Mastercard"),
-                new KontoData(new DateTime(2024, 9, 24), "Mastercard")
-            };
-    }
-
-    public List<KontoData> GetAllKonto() // Retunerar en lista med alla kontodata
-    {
-        return _kontolista;
-    }
-}
 public class StationRepository
 {
     private List<StationData> _stationList; // Lista med stationdata
@@ -260,38 +209,3 @@ public class StationRepository
         return _stationList;
     }
 }
-public class KontoDataRepository
-{
-    private List<KontoData> _kontoDatalist; // Lista med kontodata
-
-    public KontoDataRepository()
-    {
-        _kontoDatalist = new List<KontoData>
-            {
-                new KontoData(new DateTime(2024, 10, 22), "Mastercard"),
-                new KontoData(new DateTime(2024, 10, 23), "Swish"),
-                new KontoData(new DateTime(2024, 10, 24), "Mastercard"),
-                new KontoData(new DateTime(2024, 10, 25), "Mastercard"),
-                new KontoData(new DateTime(2024, 10, 26), "Mastercard")
-            };
-    }
-
-    public List<KontoData> GetAllKontoData() // Retunerar en lista med alla kontodata
-    {
-        return _kontoDatalist;
-    }
-
-    public void AddKontoData(KontoData kontoData) //    Lägger till kontodata i listan
-    {
-        _kontoDatalist.Add(kontoData);
-    }
-
-    public KontoData GetKontoDataByDate(DateTime hyrHistorik) // Retunerar kontodata baserat på datum
-    {
-        return _kontoDatalist.FirstOrDefault(k => k.HyrHistorik == hyrHistorik);
-    }
-}
-
-    
-        
-           
