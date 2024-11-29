@@ -39,6 +39,7 @@ namespace GreenWheels
             // Försök logga in användaren
             if (anvandareService.Login(userID, password, out User user))
             {
+
                 // Kontrollera om användaren är admin eller vanlig användare
                 if (user.Behörighetsgrad == 1)
                 {
@@ -50,7 +51,7 @@ namespace GreenWheels
                 }
                 else
                 {
-                    MessageBox.Show($"Inloggning lyckades som {user.Fornamn} {user.Efternamn}!");
+                    MessageBox.Show($"Inloggning lyckades som användare {user.Fornamn} {user.Efternamn}!");
 
                     // Öppna UserMenu-formuläret
                     UserMenu usermenu = new UserMenu();
