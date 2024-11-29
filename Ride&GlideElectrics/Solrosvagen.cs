@@ -15,11 +15,18 @@ namespace Presentationslager
 {
     public partial class Solrosvagen : Form // Solrosvagen är en form som visar alla fordon som finns på Solrosvägen och tillåter användaren att boka ett fordon.
     {
-        private UthyrningsHistorikRepository _uthyrningsRepo = new UthyrningsHistorikRepository(); // Repository for data access
-        private List<Fordon> _fordonLista; // Lista för fordon som behövs
+        private UthyrningsHistorikRepository _uthyrningsRepo;
+        private AnvandareRepository _anvandareRepo;  // Skapa fält för AnvandareRepository
+        private List<Fordon> _fordonLista;
+        private BusinessEntities.User loggedInUser;
+
+
         public Solrosvagen() // Konstruktor för Solrosvagen
         {
             InitializeComponent();
+            _anvandareRepo = new AnvandareRepository();
+            _uthyrningsRepo = new UthyrningsHistorikRepository(_anvandareRepo);
+            _fordonLista = new List<Fordon>(); // Initialize the list
             InitializeData();
         }
 
@@ -50,19 +57,23 @@ namespace Presentationslager
             }
 
             // Hämta valt fordon från DataGridView
+            // Hämta valt fordon från DataGridView
             var valtFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
+            var anvandareRepository = new AnvandareRepository();
+            var uthyrningsHistorikRepo = new UthyrningsHistorikRepository(anvandareRepository);
 
 
             // Skapa en instans av FordonService 
-            var fordonService = new FordonService(new FordonRepository(), new UthyrningsHistorikRepository());
+            var fordonService = new FordonService(new FordonRepository(), uthyrningsHistorikRepo);
 
             // Anropa BokaFordon-metoden för att boka fordonet
             bool bokad = fordonService.BokaFordon(
-                valtFordon.FordonsID,
-                DateTime.Now,                // Starttid för uthyrningen
-                DateTime.Now.AddHours(2),    // Sluttid för uthyrningen
-                10                            // Pris per minut
-            );
+                loggedInUser,                          // Användaren som bokar
+                valtFordon.FordonsID,          // Fordonets ID
+                DateTime.Now,                  // Starttid för uthyrningen
+                DateTime.Now.AddHours(2),      // Sluttid för uthyrningen
+                10
+                        );
 
             if (bokad)
             {

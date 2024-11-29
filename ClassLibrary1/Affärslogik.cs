@@ -19,7 +19,7 @@ namespace Servicelager
         }
 
 
-        public bool BokaFordon(int fordonID, DateTime startTid, DateTime slutTid, int prisPerMinut)
+        public bool BokaFordon(User user, int fordonID, DateTime startTid, DateTime slutTid, int prisPerMinut)
         {
             // Hämta fordonet
             var fordon = _fordonRepo.GetFordonById(fordonID);
@@ -29,11 +29,11 @@ namespace Servicelager
                 return false;
             }
 
-            // Skapa uthyrningsdata
-            var uthyrningData = new UthyrningsHistorik(startTid, slutTid, fordonID, prisPerMinut);
+            // Skapa uthyrningshistorik
+            var uthyrninghistorik = new UthyrningsHistorik(user, startTid, slutTid, fordonID, prisPerMinut);
 
             // Lägg till uthyrningen
-            _uthyrningsRepo.AddUthyrningsHistorik(uthyrningData);
+            _uthyrningsRepo.AddUthyrningsHistorik(uthyrninghistorik);
 
             // Uppdatera fordonsstatus till uthyrd
             fordon.Status = "Uthyrd";

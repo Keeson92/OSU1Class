@@ -52,6 +52,10 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
         user.UserID.Equals(UserID) && user.Password == password);
 
         }
+        public List<User> GetAnvandareLista()
+        {
+            return _anvandareLista;
+        }
     }
 
     public class StationRepository
@@ -79,19 +83,22 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
     public class UthyrningsHistorikRepository 
     {
         private List<UthyrningsHistorik> _uthyrningshistoriklist; // Lista med uthyrningshistorik
+        private List<User> _anvandareLista; // Lista för användare
 
 
-        public UthyrningsHistorikRepository() 
+        public UthyrningsHistorikRepository(AnvandareRepository anvandareRepo)
         {
+            _anvandareLista = anvandareRepo.GetAnvandareLista();
+
             // Initialiserar data
             _uthyrningshistoriklist = new List<UthyrningsHistorik> 
                 {
-                    new UthyrningsHistorik(new DateTime(2024, 10, 22, 10, 30, 0), new DateTime(2024, 10, 22, 12, 30, 0), 5, 10),
-                    new UthyrningsHistorik(new DateTime(2024, 10, 23, 9, 0, 0), new DateTime(2024, 10, 23, 11, 15, 0), 6, 10),
-                    new UthyrningsHistorik(new DateTime(2024, 10, 24, 14, 0, 0), new DateTime(2024, 10, 24, 16, 0, 0), 7, 10),
-                    new UthyrningsHistorik(new DateTime(2024, 10, 25, 8, 30, 0), new DateTime(2024, 10, 25, 10, 30, 0), 8, 10),
-                    new UthyrningsHistorik(new DateTime(2024, 10, 26, 13, 15, 0), new DateTime(2024, 10, 26, 14, 45, 0), 4, 10),
-                    new UthyrningsHistorik(new DateTime(2024, 10, 27, 11, 0, 0), new DateTime(2024, 10, 27, 12, 30, 0), 5, 10)
+                    new UthyrningsHistorik(_anvandareLista[6], new DateTime(2024, 10, 22, 10, 30, 0), new DateTime(2024, 10, 22, 12, 30, 0), 5, 10),
+                    new UthyrningsHistorik(_anvandareLista[3], new DateTime(2024, 10, 23, 9, 0, 0), new DateTime(2024, 10, 23, 11, 15, 0), 6, 10),
+                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 24, 14, 0, 0), new DateTime(2024, 10, 24, 16, 0, 0), 7, 10),
+                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 25, 8, 30, 0), new DateTime(2024, 10, 25, 10, 30, 0), 8, 10),
+                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 26, 13, 15, 0), new DateTime(2024, 10, 26, 14, 45, 0), 4, 10),
+                    new UthyrningsHistorik(_anvandareLista[2], new DateTime(2024, 10, 27, 11, 0, 0), new DateTime(2024, 10, 27, 12, 30, 0), 5, 10)
                 };
         }
 
