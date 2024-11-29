@@ -16,13 +16,13 @@ namespace GreenWheels
 {
     public partial class AdminFordon : Form // AdminFordon är en form som visar alla fordon som finns i systemet och tllåter administratör att redigera dem.
     {
-        private UthyrningsDataRepository _uthyrningsRepo; // Repository for data access
+        private UthyrningsHistorikRepository _uthyrningsRepo; // Repository for data access
         private List<Fordon> _fordonLista;//FordonListan som innehåller alla fordon som finns i systemet
 
         public AdminFordon()//Konstruktor för AdminFordon
         {
             InitializeComponent(); // Initialize the formens konponenter
-            _uthyrningsRepo = new UthyrningsDataRepository();
+            _uthyrningsRepo = new UthyrningsHistorikRepository();
             _fordonLista = new List<Fordon>();
             InitializeData(); // initialize formens Data
             this.button1.Click += new System.EventHandler(this.Button1_Click);// registrera knapptryckning knapp 1 och 2

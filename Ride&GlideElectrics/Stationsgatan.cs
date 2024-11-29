@@ -15,13 +15,13 @@ namespace Presentationslager
 {
     public partial class Stationsgatan : Form // Stationsgatan är en form som visar alla fordon som finns på Stationsgatan och tillåter användaren att boka ett fordon.
     {
-        private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository(); // Repository for data access
+        private UthyrningsHistorikRepository _uthyrningsRepo = new UthyrningsHistorikRepository(); // Repository for data access
 
         private List<Fordon> _fordonLista;
         public Stationsgatan() // Konstruktor för Stationsgatan
         {
             InitializeComponent();
-            _uthyrningsRepo = new UthyrningsDataRepository(); // Initialize the repository
+            _uthyrningsRepo = new UthyrningsHistorikRepository(); // Initialize the repository
             _fordonLista = new List<Fordon>(); // Initialize the list
             InitializeData();
         }
@@ -64,7 +64,7 @@ namespace Presentationslager
 
 
             // Skapa en instans av FordonService 
-            var fordonService = new FordonService(new FordonRepository(), new UthyrningsDataRepository());
+            var fordonService = new FordonService(new FordonRepository(), new UthyrningsHistorikRepository());
 
             // Anropa BokaFordon-metoden för att boka fordonet
             bool bokad = fordonService.BokaFordon(

@@ -76,12 +76,12 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
         }
     }
 
-    public class UthyrningsDataRepository 
+    public class UthyrningsHistorikRepository 
     {
         private List<UthyrningsHistorik> _uthyrningshistoriklist; // Lista med uthyrningsdata
 
 
-        public UthyrningsDataRepository() 
+        public UthyrningsHistorikRepository() 
         {
             // Initialiserar data
             _uthyrningshistoriklist = new List<UthyrningsHistorik> 

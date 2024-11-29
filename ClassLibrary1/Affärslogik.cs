@@ -10,9 +10,9 @@ namespace Servicelager
     public class FordonService
     {
         private readonly FordonRepository _fordonRepo;
-        private readonly UthyrningsDataRepository _uthyrningsRepo;
+        private readonly UthyrningsHistorikRepository _uthyrningsRepo;
 
-        public FordonService(FordonRepository fordonRepo, UthyrningsDataRepository uthyrningsRepo)
+        public FordonService(FordonRepository fordonRepo, UthyrningsHistorikRepository uthyrningsRepo)
         {
             _fordonRepo = fordonRepo;
             _uthyrningsRepo = uthyrningsRepo;

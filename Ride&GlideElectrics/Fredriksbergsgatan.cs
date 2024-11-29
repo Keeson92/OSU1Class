@@ -16,7 +16,7 @@ namespace Presentationslager
     public partial class Fredriksbergsgatan : Form // Fredriksbergsgatan är en form som visar alla fordon som finns på Fredriksbergsgatan och tillåter användaren att boka ett fordon.
     {
         private List<Fordon> _fordonLista;
-        private UthyrningsDataRepository _uthyrningsRepo = new UthyrningsDataRepository();
+        private UthyrningsHistorikRepository _uthyrningsRepo = new UthyrningsHistorikRepository();
         public Fredriksbergsgatan() // Konstruktor för Fredriksbergsgatan
         {
             InitializeComponent(); // Initialize formens konponenter
@@ -55,7 +55,7 @@ namespace Presentationslager
             var valtFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
 
             // Skapa en instans av FordonService 
-            var fordonService = new FordonService(new FordonRepository(), new UthyrningsDataRepository());
+            var fordonService = new FordonService(new FordonRepository(), new UthyrningsHistorikRepository());
 
             // Anropa BokaFordon-metoden för att boka fordonet
             bool bokad = fordonService.BokaFordon(
