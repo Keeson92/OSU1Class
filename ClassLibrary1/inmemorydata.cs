@@ -147,16 +147,16 @@ public class FordonRepository
     {
         _fordonLista = new List<Fordon>
         {
-            new Fordon(1, "Allégatan", "Ledig", "Elcykel"),
-            new Fordon(2, "Stationsgatan", "Ledig", "Elsparkcykel"),
-            new Fordon(3, "Solrosvägen", "Laddas", "Elsparkcykel"),
-            new Fordon(4, "Allégatan", "Laddas", "Elcykel"),
-            new Fordon(5, "Stationsgatan", "Laddas", "Elcykel"),
-            new Fordon(6, "Stationsgatan", "Ledig", "Elsparkcykel"),
-            new Fordon(7, "Solrosvägen", "Laddas", "Elsparkcykel"),
-            new Fordon(8, "Solrosvägen", "Ledig", "Elcykel"),
-            new Fordon(9, "Fredriksbergsgatan", "Ledig", "Elcykel"),
-            new Fordon(10, "Fredriksbergsgatan", "Laddas", "Elsparkcykel")
+            new Fordon(1, "Allégatan", 100, "Ledig", "Elcykel"),
+            new Fordon(2, "Stationsgatan", 100, "Ledig", "Elsparkcykel"),
+            new Fordon(3, "Solrosvägen", 50,  "Laddas", "Elsparkcykel"),
+            new Fordon(4, "Allégatan", 50, "Laddas", "Elcykel"),
+            new Fordon(5, "Stationsgatan",30,  "Laddas", "Elcykel"),
+            new Fordon(6, "Stationsgatan", 100, "Ledig", "Elsparkcykel"),
+            new Fordon(7, "Solrosvägen", 10, "Laddas", "Elsparkcykel"),
+            new Fordon(8, "Solrosvägen", 100, "Ledig", "Elcykel"),
+            new Fordon(9, "Fredriksbergsgatan", 100, "Ledig", "Elcykel"),
+            new Fordon(10, "Fredriksbergsgatan", 5, "Laddas", "Elsparkcykel")
         };
     }
     public static void UpdateFordon(Fordon fordon)

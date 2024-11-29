@@ -39,11 +39,6 @@ namespace Presentationslager
             // fordonslistan skickas till datagrid
             dataGridView1.DataSource = filteredFordonLista;
 
-            // Bestämmer kolumnernas rubriker
-            dataGridView1.Columns["FordonsID"].HeaderText = "ID";
-            dataGridView1.Columns["Position"].HeaderText = "Station";
-            dataGridView1.Columns["Status"].HeaderText = "Status";
-            dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
         private void boka_Click(object sender, EventArgs e) // en metod som körs när boka-knappen klickas på

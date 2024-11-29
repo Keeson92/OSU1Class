@@ -40,11 +40,6 @@ namespace Presentationslager
             // Set the filtered list as the DataSource for the DataGridView
             dataGridView1.DataSource = filteredFordonLista;
 
-            // Set header text for the columns
-            dataGridView1.Columns["FordonsID"].HeaderText = "ID";
-            dataGridView1.Columns["Position"].HeaderText = "Station";
-            dataGridView1.Columns["Status"].HeaderText = "Status";
-            dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
         private void boka_Click(object sender, EventArgs e) // en metod som körs när boka-knappen klickas på

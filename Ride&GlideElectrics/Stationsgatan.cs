@@ -41,11 +41,6 @@ namespace Presentationslager
             // den sorterade listan skickas till datagrid
             dataGridView1.DataSource = filteredFordonLista;
 
-            // Rubriker för kolumner
-            dataGridView1.Columns["FordonsID"].HeaderText = "ID";
-            dataGridView1.Columns["Position"].HeaderText = "Station";
-            dataGridView1.Columns["Status"].HeaderText = "Status";
-            dataGridView1.Columns["FordonsTyp"].HeaderText = "Typ utav fordon";
         }
 
 
