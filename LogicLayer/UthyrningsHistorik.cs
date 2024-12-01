@@ -12,8 +12,8 @@ namespace BusinessEntities
         public DateTime SlutTid { get; private set; }
 
 
-        public int PrisPerMinut { get; private set; }
-        public UthyrningsHistorik(User user, DateTime startTid, DateTime slutTid, int prisPerMinut, Fordon fordon) //Konstruktor för UthyrningsHistorik
+        public double PrisPerMinut { get; private set; }
+        public UthyrningsHistorik(User user, DateTime startTid, DateTime slutTid, double prisPerMinut, Fordon fordon) //Konstruktor för UthyrningsHistorik
         {
             User = user;
             StartTid = startTid;

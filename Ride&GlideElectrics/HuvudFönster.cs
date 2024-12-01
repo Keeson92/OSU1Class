@@ -5,19 +5,20 @@ using static Servicelager.FordonService;
 
 namespace GreenWheels
 {
-    public partial class HuvudFönster : Form // HuvudFönster är en form som visar en inloggningssida och tillåter användaren att logga in som antingen administratör eller användare.
+    public partial class HuvudFönster : Form // HuvudFönster är en WinForm som visar en inloggningssida och tillåter användaren att logga in som antingen administratör eller användare.
     {
         public HuvudFönster() // Konstruktor för HuvudFönster
         {
-            InitializeComponent(); // Initialize the formens konponenter
+            InitializeComponent(); // Initialiserar WinForms komponenter
         }
 
         private void label_UserName_Click(object sender, EventArgs e) // en metod som körs när användarnamnet klickas på
         {
 
         }
-
-        private void btnLogIn_Click(object sender, EventArgs e) // en metod som körs när logga in-knappen klickas på
+        // en metod som körs när logga in-knappen klickas på
+        #region LogIn_Click
+        private void btnLogIn_Click(object sender, EventArgs e) 
         {
             // Hämta användarnamn och lösenord från textboxarna
             int userID = 0;
@@ -68,7 +69,7 @@ namespace GreenWheels
             }
 
         }
-
+        #endregion
         private void HuvudFönster_Load(object sender, EventArgs e) // en metod som körs när huvudfönstret laddas
         {
 

@@ -14,9 +14,9 @@ using static System.Net.WebRequestMethods;
 
 namespace GreenWheels
 {
-    public partial class AdminFordon : Form // AdminFordon är en form som visar alla fordon som finns i systemet och tllåter administratör att redigera dem.
+    public partial class AdminFordon : Form // AdminFordon är en WinForm som visar alla fordon som finns i systemet och tillåter administratör att redigera dem.
     {
-        private UthyrningsHistorikRepository _uthyrningsRepo; // Repository for data access
+        private UthyrningsHistorikRepository _uthyrningsRepo; // Repository för access till data
         private List<Fordon> _fordonLista;//FordonListan som innehåller alla fordon som finns i systemet
         private AnvandareRepository _anvandareRepo;
         private FordonRepository _fordonRepo;
@@ -25,12 +25,12 @@ namespace GreenWheels
 
         public AdminFordon()//Konstruktor för AdminFordon
         {
-            InitializeComponent(); // Initialize the formens konponenter
+            InitializeComponent(); // Initialisera WinForms komponenter
             _anvandareRepo = new AnvandareRepository();
             _fordonRepo = new FordonRepository(); // Instansiera FordonRepository
             _uthyrningsRepo = new UthyrningsHistorikRepository(_anvandareRepo, _fordonRepo);
-            _fordonLista = new List<Fordon>(); // Initialize the list
-            InitializeData(); // initialize formens Data
+            _fordonLista = new List<Fordon>(); // Initialisera listan
+            InitializeData(); // initialisera WinForms Data
             this.button1.Click += new System.EventHandler(this.Button1_Click);// registrera knapptryckning knapp 1 och 2
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged); // registrera rad-ändring i datagridview
@@ -83,10 +83,12 @@ namespace GreenWheels
         {
             HuvudFönster huvudFönster = new HuvudFönster(); // visa nytt fönster och stäng det gamla
             huvudFönster.Show();
-            this.Hide();
+            this.Close();
         }
 
-        private void Button2_Click(object sender, EventArgs e)// Metod som körs när knapp 2 trycks (knapp 2 är redigera)
+        // Metod som körs när knapp 2 trycks (knapp 2 är redigera)
+        #region Redigera
+        private void Button2_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0) // Om en rad är vald i datagridview 
             {
@@ -109,6 +111,7 @@ namespace GreenWheels
                 dataGridView1.Refresh();
             }
         }
+#endregion
 
         private void AdminFordon_Load(object sender, EventArgs e)
         {

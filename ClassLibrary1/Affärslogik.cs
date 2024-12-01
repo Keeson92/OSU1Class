@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Servicelager
 {
+    #region FordonService
     public class FordonService
     {
         private readonly FordonRepository _fordonRepo;
@@ -41,24 +42,29 @@ namespace Servicelager
 
             return true;
         }
-        public class AnvandareService
+        
+    }
+    #endregion
+
+    #region AnvandareService
+    public class AnvandareService
+    {
+        private readonly AnvandareRepository _repository;
+
+        public AnvandareService()
         {
-            private readonly AnvandareRepository _repository;
-
-            public AnvandareService()
-            {
-                _repository = new AnvandareRepository();
-            }
-
-            public bool Login(int UserID, string password, out User user)
-            {
-                // Använder repository för att söka efter användaren
-                user = _repository.GetAllAnvandare(UserID, password);
-
-                // Kontrollera om användaren hittades
-                return user != null;
-            }
+             _repository = new AnvandareRepository();
         }
 
+        public bool Login(int UserID, string password, out User user)
+        {
+             // Använder repository för att söka efter användaren
+             user = _repository.GetAllAnvandare(UserID, password);
+
+             // Kontrollera om användaren hittades
+             return user != null;
+        }
     }
+    #endregion
+    
 }

@@ -16,14 +16,14 @@ namespace Presentationslager
 
         public BokaFordon() // Konstruktor för BokaFordon
         {
-            InitializeComponent(); // Initialize form-konponenter
-            InitializeData(); // Initialize data
+            InitializeComponent(); // Initialisera WinForms komponenter
+            InitializeData(); // Initialiserar data
         }
         private void InitializeData() 
         {
-            this.txtFordon = new TextBox(); // Initialize TextBox
+            this.txtFordon = new TextBox(); // Initialiserar TextBox
 
-            // Configure våran TextBox
+            // Configurerar våran TextBox
             this.txtFordon.Multiline = true; // tillåt för flera rader
             this.txtFordon.Dock = DockStyle.Fill; // fyll ut formen
 
@@ -46,7 +46,7 @@ namespace Presentationslager
             }
             else
             {
-                MessageBox.Show("TextBox is not initialized."); // Debug medelande
+                MessageBox.Show("TextBox is not initialized."); // Debug meddelande
             }
         }
 

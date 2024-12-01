@@ -40,4 +40,4 @@ namespace BusinessEntities
     }
 
 }
-// Så här hade det sett ut om fokus låg på inloggning, men vi har hårdkodat user 123, admin 123.
+// Så här hade det sett ut om fokus låg på inloggning, men vi har hårdkodat att systemadministratör är Username 1, 2 eller 3 med password 123, och privatperson har username 4, 5 eller 6 och uppåt med lösenord 123.

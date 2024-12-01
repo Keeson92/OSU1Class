@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Presentationslager
 {
-    public partial class Solrosvagen : Form // Solrosvagen är en form som visar alla fordon som finns på Solrosvägen och tillåter användaren att boka ett fordon.
+    public partial class Solrosvagen : Form // Solrosvagen är en WinForm som visar alla fordon som finns på Solrosvägen och tillåter användaren att boka ett fordon.
     {
         private UthyrningsHistorikRepository _uthyrningsRepo;
         private AnvandareRepository _anvandareRepo;  // Skapa fält för AnvandareRepository
@@ -29,7 +29,7 @@ namespace Presentationslager
             _anvandareRepo = new AnvandareRepository();
             _fordonRepo = new FordonRepository(); // Instansiera FordonRepository
             _uthyrningsRepo = new UthyrningsHistorikRepository(_anvandareRepo, _fordonRepo);
-            _fordonLista = new List<Fordon>(); // Initialize the list
+            _fordonLista = new List<Fordon>(); // Initialisera listan
 
             InitializeData();
         }
@@ -40,11 +40,11 @@ namespace Presentationslager
         }
         private void InitializeData() // kopplar listan till datagrid
         {
-            //initializear listan för fordon
+            //initialiserar listan för fordon
             _fordonLista = FordonRepository.GetAllFordon();
 
 
-            // filtrerar listan så bara fordon ifrån "alegatan" visas
+            // filtrerar listan så bara fordon ifrån "Solrosvägen" visas
             var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Solrosvägen")).ToList();
 
             // fordonslistan skickas till datagrid
@@ -52,7 +52,9 @@ namespace Presentationslager
 
         }
 
-        private void boka_Click(object sender, EventArgs e) // en metod som körs när boka-knappen klickas på
+        // en metod som körs när boka-knappen klickas på
+        #region Boka_Click
+        private void boka_Click(object sender, EventArgs e) 
         {
             if (dataGridView1.SelectedRows.Count == 0) // Kontrollera att ett fordon är valt
             {
@@ -61,13 +63,10 @@ namespace Presentationslager
             }
 
             // Hämta valt fordon från DataGridView
-            // Hämta valt fordon från DataGridView
             var valtFordon = (Fordon)dataGridView1.SelectedRows[0].DataBoundItem;
             var anvandareRepository = new AnvandareRepository();
             var fordonRepository = new FordonRepository();
             var uthyrningsHistorikRepo = new UthyrningsHistorikRepository(anvandareRepository, fordonRepository);
-
-
 
             // Skapa en instans av FordonService 
             var fordonService = new FordonService(new FordonRepository(), uthyrningsHistorikRepo);
@@ -94,13 +93,15 @@ namespace Presentationslager
                 MessageBox.Show($"Fordon {valtFordon.FordonsTyp} med ID {valtFordon.FordonsID} är inte ledig och går inte att boka");
             }
         }
+        #endregion
 
-        private void huvudmeny_Click(object sender, EventArgs e) // en metod som körs när huvudmeny-knappen klickas på
+        // en metod som körs när Huvudmeny-knappen klickas på, skickar tillbaka till UserMenu och stänger detta fönster.
+        private void huvudmeny_Click(object sender, EventArgs e)
         {
             UserMenu userMenu = new UserMenu();
 
-            userMenu.Show();// visa UserMenu
-            this.Hide();// stänger nuvarande fönster
+            userMenu.Show();
+            this.Close();
         }
 
         private void Solrosvagen_Load(object sender, EventArgs e)

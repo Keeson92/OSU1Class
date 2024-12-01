@@ -15,7 +15,7 @@ namespace BusinessEntities
             BetalningsMetod = betalningsMetod;
         }
         public User User { get; set; } // 1..1 - En KontoData tillhör exakt en användare
-        public List<UthyrningsHistorik> Uthyrningar { get; set; } = new List<UthyrningsHistorik>(); // 0..* - En KontoData kan ha flera uthyrningar
+        public List<UthyrningsHistorik> Uthyrningar { get; set; } = new List<UthyrningsHistorik>(); // En KontoData kan ha flera uthyrningar
 
 
     }

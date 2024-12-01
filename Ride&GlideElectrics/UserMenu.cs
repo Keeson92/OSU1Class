@@ -13,24 +13,25 @@ using BusinessEntities;
 
 namespace GreenWheels
 {
-    public partial class UserMenu : Form // UserMenu är en form som visar användaren olika valen de kan göra.
+    public partial class UserMenu : Form // UserMenu är en WinForm som visar användaren olika valen de kan göra.
     {
         public UserMenu() // Konstruktor för UserMenu
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e) // en metod som körn när label 1 klickas på               
+        private void label1_Click(object sender, EventArgs e) // en metod som körs när label 1 klickas på               
         {
 
         }
 
-        private void btnHyrFordon_Click(object sender, EventArgs e) // en metod som körs när knappen HyrFordon klickas på
+        // en metod som körs när knappen HyrFordon klickas på, visar fönster HyrFordon och gömmer nuvarande fönster.
+        private void btnHyrFordon_Click(object sender, EventArgs e) 
         {
 
             HyrFordon hyrfordon = new HyrFordon();
-            hyrfordon.Show();// visar HyrFordon
-            this.Hide();// stänger nuvarande fönster
+            hyrfordon.Show();
+            this.Hide();
         }
 
         private void UserMenu_Load(object sender, EventArgs e) // en metod som körs när UserMenu laddas
@@ -38,18 +39,19 @@ namespace GreenWheels
 
         }
 
-        private void button1_Click(object sender, EventArgs e) // en metod som körs när knappen avsluta klickas på                         
+        // en metod som körs när knappen avsluta klickas på, avslutar programmet.
+        private void button1_Click(object sender, EventArgs e)                         
         {
-            Environment.Exit(0); // avslutar programmet
+            Environment.Exit(0); 
         }
 
-       
-        
-        private void btn_LogOut_Click(object sender, EventArgs e) // Metod som körs när logga ut
+
+        // Metod som körs när användare väljer knappen "Logga ut", Skickar tillbaka till HuvudFönster och stänger nuvarande.
+        private void btn_LogOut_Click(object sender, EventArgs e) 
         {
-                HuvudFönster huvudFönster = new HuvudFönster(); // visa nytt fönster och stäng det gamla
+                HuvudFönster huvudFönster = new HuvudFönster(); 
                 huvudFönster.Show();
-                this.Hide();
+                this.Close();
         }
         
     }

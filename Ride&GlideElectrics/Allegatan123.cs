@@ -42,10 +42,10 @@ namespace Presentationslager
 
         private void InitializeData() // kopplar listan till datagrid
         {
-            // initialize listan med fordon
+            // initialiserar listan med fordon
             _fordonLista = FordonRepository.GetAllFordon();
 
-            // visa bara värden som innehåller "Allégatan" och är lediga
+            // visar bara värden som innehåller "Allégatan" och är lediga
             var filteredFordonLista = _fordonLista.Where(f => f.Position.Contains("Allégatan")).ToList();
 
             // den sorterade listan skickas till datagrid
@@ -53,15 +53,16 @@ namespace Presentationslager
 
         }
 
-
-        private void huvudmeny_Click(object sender, EventArgs e) // en metod som körs när huvudmeny-knappen klickas på
+        // en metod som körs när huvudmeny-knappen klickas på, öppnar user-menyn och stänger denna form
+        private void huvudmeny_Click(object sender, EventArgs e) 
         {
             UserMenu usermenu = new UserMenu();
-            usermenu.Show(); // öppnar huvudmenyn och stänger denna form
-            this.Hide();
+            usermenu.Show(); 
+            this.Close();
         }
-
-        private void boka_Click(object sender, EventArgs e) // en metod som körs när boka-knappen klickas på
+        // en metod som körs när boka-knappen klickas på
+        #region Boka_Click
+        private void boka_Click(object sender, EventArgs e) 
         {
             if (dataGridView1.SelectedRows.Count == 0) // Kontrollera att ett fordon är valt
             {
@@ -102,6 +103,7 @@ namespace Presentationslager
                 MessageBox.Show($"Fordon {valtFordon.FordonsTyp} med ID {valtFordon.FordonsID} är inte ledig och går inte att boka.");
             }
         }
+        #endregion
 
         private void Allegatan_Load(object sender, EventArgs e)
         {

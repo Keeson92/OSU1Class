@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BusinessEntities;
 
 
-namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Kurs
+namespace Servicelager    //Klasser = Anvandare, Station, UthyrningsHistorik, KontoData, Fordon
 {
 
 
@@ -16,18 +16,18 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
     {
         public static void Main()
         {
-            // Main method implementation
+            // Main metod implementation
         }
     }
 
-
-    public class AnvandareRepository 
+    #region Användare
+    public class AnvandareRepository
     {
         private List<User> _anvandareLista; // Lista med användare
 
         public AnvandareRepository()
         {
-            
+
             _anvandareLista = new List<User>
                 { // LÖSENORD FÖR ALLA ANVÄNDARE ÄR 123, USERID ÄR INLOGG. ALLA ANVÄNDARE MED USERID <=3 ÄR ADMINISTRATÖRER, ÖVRIGA ÄR ANVÄNDARE. USERID ÄR DET FÖRSTA ATTRIBUTET I LISTAN.
                     new User(1, "Alice", "Karlsson", 980101, 701234567, "alice.karlsson@gmail.com", "123", 1),
@@ -57,7 +57,9 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
             return _anvandareLista;
         }
     }
+    #endregion
 
+    #region Station
     public class StationRepository
     {
         private List<StationData> _stationList; // Lista med stationdata
@@ -79,8 +81,10 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
             return _stationList;
         }
     }
+    #endregion
 
-    public class UthyrningsHistorikRepository 
+    #region UthyrningsHistorik
+    public class UthyrningsHistorikRepository
     {
         private List<UthyrningsHistorik> _uthyrningshistoriklist; // Lista med uthyrningshistorik
         private List<User> _anvandareLista; // Lista för användare
@@ -100,7 +104,7 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
 
 
             // Initialiserar data
-            _uthyrningshistoriklist = new List<UthyrningsHistorik> 
+            _uthyrningshistoriklist = new List<UthyrningsHistorik>
                 {
                     new UthyrningsHistorik(_anvandareLista[6], new DateTime(2024, 10, 22, 10, 30, 0), new DateTime(2024, 10, 22, 12, 30, 0), 10, _fordonLista[1]),
                     new UthyrningsHistorik(_anvandareLista[3], new DateTime(2024, 10, 23, 9, 0, 0), new DateTime(2024, 10, 23, 11, 15, 0), 10, _fordonLista[2]),
@@ -121,8 +125,10 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
             _uthyrningshistoriklist.Add(data);
         }
     }
+    #endregion
 
-    public class KontoDataRepository 
+    #region KontoData
+    public class KontoDataRepository
     {
         private List<KontoData> _kontoDatalist; // Lista med kontodata
 
@@ -154,16 +160,16 @@ namespace Servicelager    //Klasser = Behörighet, Anvandare, Lokal, Program, Ku
             return _kontoDatalist.FirstOrDefault(k => k.HyrHistorik == hyrHistorik); // Returnerar första elementet som matchar datumet
         }
     }
-    }
+    #endregion
 
-    
-public class FordonRepository
-{
-    private static List<Fordon> _fordonLista; // Lista med fordon
-
-    static FordonRepository() // Konstruktor
+    #region Fordon
+    public class FordonRepository
     {
-        _fordonLista = new List<Fordon>
+        private static List<Fordon> _fordonLista; // Lista med fordon
+
+        static FordonRepository() // Konstruktor
+        {
+            _fordonLista = new List<Fordon>
         {
             new Fordon(1, "Allégatan", 100, "Ledig", "Elcykel"),
             new Fordon(2, "Stationsgatan", 100, "Ledig", "Elsparkcykel"),
@@ -176,58 +182,37 @@ public class FordonRepository
             new Fordon(9, "Fredriksbergsgatan", 100, "Ledig", "Elcykel"),
             new Fordon(10, "Fredriksbergsgatan", 5, "Laddas", "Elsparkcykel")
         };
-    }
-    public static void UpdateFordon(Fordon fordon)
-    {
-        var existingFordon = _fordonLista.FirstOrDefault(f => f.FordonsID == fordon.FordonsID);
-        if (existingFordon != null)
-        {
-            // Uppdatera fordonets status eller andra egenskaper
-            existingFordon.Status = fordon.Status;
-            // Lägg till andra uppdateringar här om det behövs
         }
-        else
+        public static void UpdateFordon(Fordon fordon)
         {
-            // Om fordonet inte finns, kan du lägga till det (eller hantera det som ett fel)
-            _fordonLista.Add(fordon);
-        }
-    }
-
-
-    public static List<Fordon> GetAllFordon() // Retunerar en lista med alla fordon
-    {
-        return _fordonLista;
-    }
-    public List<Fordon> GetAllFordonUthyrning() // Retunerar en lista med alla fordon för kopplingen
-    {
-        return _fordonLista;
-    }
-    public Fordon GetFordonById(int fordonsID)
-    {
-        // Här ska din logik för att hämta ett fordon baserat på ID finnas
-        return _fordonLista.FirstOrDefault(f => f.FordonsID == fordonsID);
-    }
-
-}
-
-public class StationRepository
-{
-    private List<StationData> _stationList; // Lista med stationdata
-
-    public StationRepository()
-    {
-        // Initialiserar data
-        _stationList = new List<StationData> // Lista med stationdata
+            var existingFordon = _fordonLista.FirstOrDefault(f => f.FordonsID == fordon.FordonsID);
+            if (existingFordon != null)
             {
-                new StationData("Allégatan", 10, "Tillänglig", 20),
-                new StationData("Stationsgatan", 5, "På Underhåll", 50),
-                new StationData("Fredriksbergsgatan", 8, "Fullbokat", 100),
-                new StationData("Solrosvägen", 12, "Tillgänglig", 25)
-            };
-    }
+                // Uppdatera fordonets status eller andra egenskaper
+                existingFordon.Status = fordon.Status;
+                // Lägg till andra uppdateringar här om det behövs
+            }
+            else
+            {
+                // Om fordonet inte finns, kan du lägga till det (eller hantera det som ett fel)
+                _fordonLista.Add(fordon);
+            }
+        }
 
-    public List<StationData> GetAllStationer() // Retunerar en lista med alla stationer
-    {
-        return _stationList;
+
+        public static List<Fordon> GetAllFordon() // Retunerar en lista med alla fordon
+        {
+            return _fordonLista;
+        }
+        public List<Fordon> GetAllFordonUthyrning() // Retunerar en lista med alla fordon för kopplingen
+        {
+            return _fordonLista;
+        }
+        public Fordon GetFordonById(int fordonsID)
+        {
+            // Här ska din logik för att hämta ett fordon baserat på ID finnas
+            return _fordonLista.FirstOrDefault(f => f.FordonsID == fordonsID);
+        }
     }
+    #endregion
 }

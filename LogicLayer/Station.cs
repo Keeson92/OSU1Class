@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BusinessEntities
 {
     
-        public class StationData //Definierar vilken data som finns kring de olika programmen, om man tex skulle behöva lägga till/ta bort ett program.
+        public class StationData //Definierar vilken data som finns kring de olika stationerna, om man tex skulle behöva lägga till/ta bort en station.
         {
             public string Adress { get; private set; }
             public int AntalFordon { get; private set; }
@@ -21,7 +21,7 @@ namespace BusinessEntities
                 FordonStatus = fordonStatus;
                 MaxKapacitet = maxKapacitet;
             }
-        public List<Fordon> FordonLista { get; private set; } = new List<Fordon>(); // 1..* - En station är kopplad till minst ett fordon
+        public List<Fordon> FordonLista { get; private set; } = new List<Fordon>(); // En station har minst ett fordon kopplat till sig.
 
         public bool FinnsPlats()
             {

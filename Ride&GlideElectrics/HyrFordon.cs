@@ -20,42 +20,47 @@ namespace GreenWheels
             InitializeComponent();
         }
 
-        private void btnTillbakaTillUserMenu_Click(object sender, EventArgs e) // en metod som körs när knappen Tillbaka till UserMenu klickas på
+        // en metod som körs när TillbakaTillUserMenu-knappen klickas på, öppnar user-menyn och stänger denna form
+        private void btnTillbakaTillUserMenu_Click(object sender, EventArgs e) 
         {
             UserMenu usermenu = new UserMenu();
 
-            usermenu.Show(); // Visa UserMenu
-            this.Close();// stänger nuvarande fönster
+            usermenu.Show(); 
+            this.Close();
 
         }
 
-        private void btn_Allégatan_Click(object sender, EventArgs e) // knappen allegatan kör denna metod
+        // en metod som körs när Allégatan-knappen klickas på, öppnar nytt fönster och gömmer detta fönster.
+        private void btn_Allégatan_Click(object sender, EventArgs e) 
         {
             Allegatan allegatan = new Allegatan();
-            allegatan.Show(); // visa allegatan
-            this.Hide();// stänger nuvarande fönster
+            allegatan.Show(); 
+            this.Hide();
         }
 
-        private void btn_Stationsgatan_Click(object sender, EventArgs e) // knappen Stationsgatan kör denna metod
+        // en metod som körs när Stationsgatan-knappen klickas på, öppnar nytt fönster och gömmer detta fönster.
+        private void btn_Stationsgatan_Click(object sender, EventArgs e) 
         {
             Stationsgatan stationsgatan = new Stationsgatan();
-            stationsgatan.Show(); // visar Stationsgatan
-            this.Hide(); // stänger nuvarande fönster
+            stationsgatan.Show(); 
+            this.Hide(); 
         }
 
-        private void btn_Fredriksbergsgatan_Click(object sender, EventArgs e) // knappen Fredriksbergsgatan kör denna metod
+        // en metod som körs när Fredriksbergsgatan-knappen klickas på, öppnar nytt fönster och gömmer detta fönster.
+        private void btn_Fredriksbergsgatan_Click(object sender, EventArgs e) 
         {
             Fredriksbergsgatan fredriksbergsgatan = new Fredriksbergsgatan();
-            fredriksbergsgatan.Show(); //visar Fredriksbergsgatan
-            this.Hide(); // stänger nuvarande fönster
+            fredriksbergsgatan.Show(); 
+            this.Hide(); 
 
         }
 
-        private void btn_Solrosvägen_Click(object sender, EventArgs e) //knappen Solrosvägen kör denna metod
+        // en metod som körs när Solrosvägen-knappen klickas på, öppnar nytt fönster och gömmer detta fönster.
+        private void btn_Solrosvägen_Click(object sender, EventArgs e) 
         {
             Solrosvagen solrosvagen = new Solrosvagen();
-            solrosvagen.Show(); // visar Solrosvägen
-            this.Hide(); // stänger nuvarande fönster
+            solrosvagen.Show(); 
+            this.Hide(); 
 
         }
 
